@@ -31,6 +31,7 @@ global.app = {
 };
 
 var Login = require('./modules/login/Login.js');
+var Home = require('./modules/home/Home.js');
 var EmptyView = require('./modules/empty/EmptyView.js');
 
 
@@ -128,7 +129,7 @@ module.exports = React.createClass({
     render: function() {
         var initialRoute = {
             title: '登录',
-            component: Login,
+            component: Home,
             passProps: {},
             leftButton: false,
         };

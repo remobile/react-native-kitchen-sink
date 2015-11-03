@@ -6,6 +6,7 @@
 .watchmanconfig
 /**/npm-debug.log
 /node_modules
+/App/node_modules
 /android/*
 !/android/app
 /android/app/build

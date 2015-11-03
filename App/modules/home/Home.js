@@ -21,6 +21,7 @@ var HtmlView = require('../react-native-htmlview');
 var GridView = require('../react-native-grid-view');
 var Slider = require('../react-native-slider');
 var LightBox = require('../react-native-lightbox');
+var ImageAnimation = require('../react-native-image-animation/index.js');
 
 var modules = [
     {text:'react-native-material-kit', image: require('image!tabnav_list'), module:MaterialKit},
@@ -31,6 +32,7 @@ var modules = [
     {text:'react-native-grid-view', image: require('image!tabnav_list'), module:GridView},
     {text:'react-native-slider', image: require('image!tabnav_list'), module:Slider, noSwipe:true},
     {text:'react-native-lightbox', image: require('image!tabnav_list'), module:LightBox},
+    {text:'react-native-image-animation', image: require('image!tabnav_list'), module:ImageAnimation},
 ];
 
 
