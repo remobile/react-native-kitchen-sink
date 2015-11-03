@@ -15,17 +15,16 @@ var {
 var TabNavigator = require('react-native-tab-navigator');
 
 var Home = require('./Home.js');
-var Sample = require('../react-native-material-kit/index.js');
 var List = require('./List.js');
 var Settings = require('./Settings.js');
 
 
 var ROUTE_STACK = [
-    {tabIndex: 0, component: Sample},
+    {tabIndex: 0, component: Home},
     {tabIndex: 1, component: List},
     {tabIndex: 2, component: Settings},
 ];
-var INIT_ROUTE_INDEX = 1;
+var INIT_ROUTE_INDEX = 0;
 
 var HomeTabBar = React.createClass({
     getInitialState: function() {

@@ -20,8 +20,8 @@
 		321D19CC1BE75440008509D1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 321D19C61BE75440008509D1 /* Info.plist */; };
 		321D19CD1BE75440008509D1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 321D19C71BE75440008509D1 /* LaunchScreen.xib */; };
 		321D19CE1BE75440008509D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 321D19C81BE75440008509D1 /* main.m */; };
-		321D19D21BE755EF008509D1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 321D19D11BE755EF008509D1 /* Images.xcassets */; };
 		321D19DA1BE758B1008509D1 /* libRCTMaterialKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 321D19D91BE75887008509D1 /* libRCTMaterialKit.a */; };
+		3287E8AB1BE83AD90064C14F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3287E8AA1BE83AD90064C14F /* Images.xcassets */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		D8E6BB6F3327C548A2222A37 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F776CB994C700E43FCD644 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -121,8 +121,8 @@
 		321D19C61BE75440008509D1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		321D19C71BE75440008509D1 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		321D19C81BE75440008509D1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		321D19D11BE755EF008509D1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		321D19D41BE75886008509D1 /* RCTMaterialKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTMaterialKit.xcodeproj; path = "../node_modules/react-native-material-kit/iOS/RCTMaterialKit.xcodeproj"; sourceTree = "<group>"; };
+		3287E8AA1BE83AD90064C14F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4220AFC27E7E156B52A8508F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "KitchenSink/pod/Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5E2E704271DDA30057F083FE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "KitchenSink/pod/Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 		13B07FAE1A68108700A75B9A /* KitchenSink */ = {
 			isa = PBXGroup;
 			children = (
-				321D19D01BE755EF008509D1 /* resource */,
+				3287E8A91BE83AD90064C14F /* resource */,
 				321D19C31BE75440008509D1 /* main */,
 			);
 			name = KitchenSink;
@@ -239,15 +239,6 @@
 			path = KitchenSink/main;
 			sourceTree = "<group>";
 		};
-		321D19D01BE755EF008509D1 /* resource */ = {
-			isa = PBXGroup;
-			children = (
-				321D19D11BE755EF008509D1 /* Images.xcassets */,
-			);
-			name = resource;
-			path = KitchenSink/resource;
-			sourceTree = "<group>";
-		};
 		321D19D31BE7584F008509D1 /* VendorLibraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +253,15 @@
 				321D19D91BE75887008509D1 /* libRCTMaterialKit.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3287E8A91BE83AD90064C14F /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				3287E8AA1BE83AD90064C14F /* Images.xcassets */,
+			);
+			name = resource;
+			path = KitchenSink/resource;
 			sourceTree = "<group>";
 		};
 		33256CDAB6A6ED92D09E7DC2 /* Frameworks */ = {
@@ -516,7 +516,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				321D19D21BE755EF008509D1 /* Images.xcassets in Resources */,
+				3287E8AB1BE83AD90064C14F /* Images.xcassets in Resources */,
 				321D19CD1BE75440008509D1 /* LaunchScreen.xib in Resources */,
 				321D19CC1BE75440008509D1 /* Info.plist in Resources */,
 			);
