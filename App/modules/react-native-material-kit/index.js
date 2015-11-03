@@ -50,15 +50,19 @@ module.exports = React.createClass({
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => {
                         app.navigator.push({
-                            name: 'Sliders',
+                            title: 'Sliders',
                             component: Sliders,
+                            sceneConfig: {
+                                ...Navigator.SceneConfigs.HorizontalSwipeJump,
+                                gestures: null
+                            }
                         });
                     }}>
                     <Text style={styles.pushLabel}>Sliders</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => {
                         app.navigator.push({
-                            name: 'Textfields',
+                            title: 'Textfields',
                             component: TextFields,
                         });
                     }}>
@@ -66,7 +70,7 @@ module.exports = React.createClass({
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => {
                         app.navigator.push({
-                            name: 'Toggles',
+                            title: 'Toggles',
                             component: Toggles,
                         });
                     }}>

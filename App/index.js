@@ -114,7 +114,8 @@ module.exports = React.createClass({
         }
     },
     configureScene : function(route){
-        return route.sceneConfig?route.sceneConfig:Navigator.SceneConfigs.HorizontalSwipeJump;
+        var sceneConfig = route.sceneConfig ? route.sceneConfig : Navigator.SceneConfigs.HorizontalSwipeJump;
+        return sceneConfig;
     },
     renderScene: function(route, navigator) {
         return (

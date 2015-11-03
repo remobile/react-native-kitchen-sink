@@ -9,6 +9,7 @@ var {
     ListView,
     Image,
     TouchableHighlight,
+    Navigator,
 } = React;
 
 
@@ -19,6 +20,7 @@ var ImageProgress = require('../react-native-image-progress');
 var HtmlView = require('../react-native-htmlview');
 var GridView = require('../react-native-grid-view');
 var Slider = require('../react-native-slider');
+var LightBox = require('../react-native-lightbox');
 
 var modules = [
     {text:'react-native-material-kit', image: require('image!tabnav_list'), module:MaterialKit},
@@ -27,7 +29,8 @@ var modules = [
     {text:'react-native-image-progress', image: require('image!tabnav_list'), module:ImageProgress},
     {text:'react-native-htmlview', image: require('image!tabnav_list'), module:HtmlView},
     {text:'react-native-grid-view', image: require('image!tabnav_list'), module:GridView},
-    {text:'react-native-slider', image: require('image!tabnav_list'), module:Slider},
+    {text:'react-native-slider', image: require('image!tabnav_list'), module:Slider, noSwipe:true},
+    {text:'react-native-lightbox', image: require('image!tabnav_list'), module:LightBox},
 ];
 
 
@@ -40,10 +43,19 @@ module.exports = React.createClass({
         };
     },
     _onPressRow(obj) {
-        app.navigator.push({
+        var route = {
             title: obj.text,
-            component: obj.module
-        });
+            component: obj.module,
+        };
+        if (obj.noSwipe) {
+            route.sceneConfig = {
+                ...Navigator.SceneConfigs.HorizontalSwipeJump,
+                gestures: null
+            }
+        }
+
+
+        app.navigator.push(route);
     },
     renderRow(obj) {
         return (
