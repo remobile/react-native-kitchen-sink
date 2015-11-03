@@ -4,12 +4,15 @@
 *Thumbs.db
 .flowconfig
 .watchmanconfig
+/**/npm-debug.log
 /node_modules
 /android/*
 !/android/app
 /android/app/build
 /android/app/app.iml
 /ios/*
+/ios/**/*shared*
+/ios/**/*xcuserdata*
 !/ios/KitchenSink.xcodeproj
 !/ios/KitchenSink
 /ios/KitchenSink.xcodeproj/xcshareddata

@@ -6,6 +6,7 @@
         "start": "node_modules/react-native/packager/packager.sh"
     },
     "dependencies": {
+        "art": "latest",
         "react-native": "latest",
         "query-string": "latest",
         "react-native-action-button": "latest",
@@ -18,6 +19,7 @@
         "react-native-drawer-layout": "latest",
         "react-native-dropdown": "latest",
         "react-native-fs": "latest",
+        "react-native-image-progress": "latest",
         "react-native-grid-view": "latest",
         "react-native-htmlview": "latest",
         "react-native-icons": "latest",

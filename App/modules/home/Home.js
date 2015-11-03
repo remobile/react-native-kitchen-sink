@@ -12,11 +12,14 @@ var {
 } = React;
 
 
-var Sample = require('../react-native-material-kit/index.js');
+var MaterialKit = require('../react-native-material-kit/index.js');
+var ProgressHud = require('../react-native-progress-hud/index.js');
+var Progress = require('../react-native-progress/index.js');
+
 var modules = [
-    {text:'react-native-material-kit', image: require('image!tabnav_list'), module:Sample},
-    {text:'react-native', image: require('image!tabnav_list'), module:Sample},
-    {text:'react-native-material-kit123123123', image: require('image!tabnav_list'), module:Sample},
+    {text:'react-native-material-kit', image: require('image!tabnav_list'), module:MaterialKit},
+    {text:'eact-native-progress-hud', image: require('image!tabnav_list'), module:ProgressHud},
+    {text:'react-native-progress', image: require('image!tabnav_list'), module:Progress},
 ];
 
 
@@ -88,12 +91,13 @@ var styles = StyleSheet.create({
         alignSelf:'stretch'
     },
     icon: {
+        marginLeft: 10,
         width:25,
         height:25,
         marginRight: 10,
     },
     text: {
-        width:sr.w-60
+        width:sr.w-70
     },
     arrow: {
     },
