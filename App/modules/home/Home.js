@@ -15,11 +15,13 @@ var {
 var MaterialKit = require('../react-native-material-kit/index.js');
 var ProgressHud = require('../react-native-progress-hud/index.js');
 var Progress = require('../react-native-progress/index.js');
+var ImageProgress = require('../react-native-image-progress/index.js');
 
 var modules = [
     {text:'react-native-material-kit', image: require('image!tabnav_list'), module:MaterialKit},
     {text:'eact-native-progress-hud', image: require('image!tabnav_list'), module:ProgressHud},
     {text:'react-native-progress', image: require('image!tabnav_list'), module:Progress},
+    {text:'react-native-image-progress', image: require('image!tabnav_list'), module:ImageProgress},
 ];
 
 
