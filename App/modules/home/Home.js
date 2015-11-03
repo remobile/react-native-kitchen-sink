@@ -12,11 +12,12 @@ var {
 } = React;
 
 
-var MaterialKit = require('../react-native-material-kit/index.js');
-var ProgressHud = require('../react-native-progress-hud/index.js');
-var Progress = require('../react-native-progress/index.js');
-var ImageProgress = require('../react-native-image-progress/index.js');
-var HtmlView = require('../react-native-htmlview/index.js');
+var MaterialKit = require('../react-native-material-kit');
+var ProgressHud = require('../react-native-progress-hud');
+var Progress = require('../react-native-progress');
+var ImageProgress = require('../react-native-image-progress');
+var HtmlView = require('../react-native-htmlview');
+var GridView = require('../react-native-grid-view');
 
 var modules = [
     {text:'react-native-material-kit', image: require('image!tabnav_list'), module:MaterialKit},
@@ -24,6 +25,7 @@ var modules = [
     {text:'react-native-progress', image: require('image!tabnav_list'), module:Progress},
     {text:'react-native-image-progress', image: require('image!tabnav_list'), module:ImageProgress},
     {text:'react-native-htmlview', image: require('image!tabnav_list'), module:HtmlView},
+    {text:'react-native-grid-view', image: require('image!tabnav_list'), module:GridView},
 ];
 
 
