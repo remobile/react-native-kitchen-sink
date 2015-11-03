@@ -9,6 +9,7 @@
 /App/node_modules
 /android/*
 !/android/app
+!/android/settings.gradle
 /android/app/build
 /android/app/app.iml
 /ios/*

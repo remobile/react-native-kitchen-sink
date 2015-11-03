@@ -115,7 +115,8 @@ module.exports = React.createClass({
         }
     },
     configureScene : function(route){
-        var sceneConfig = route.sceneConfig ? route.sceneConfig : Navigator.SceneConfigs.HorizontalSwipeJump;
+        console.log(Navigator.SceneConfigs);
+        var sceneConfig = route.sceneConfig ? route.sceneConfig : Navigator.SceneConfigs.FadeAndroid;
         return sceneConfig;
     },
     renderScene: function(route, navigator) {

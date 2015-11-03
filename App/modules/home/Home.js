@@ -13,7 +13,7 @@ var {
 } = React;
 
 
-var MaterialKit = require('../react-native-material-kit');
+// var MaterialKit = require('../react-native-material-kit');
 var ProgressHud = require('../react-native-progress-hud');
 var Progress = require('../react-native-progress');
 var ImageProgress = require('../react-native-image-progress');
@@ -24,7 +24,7 @@ var LightBox = require('../react-native-lightbox');
 var ImageAnimation = require('../react-native-image-animation/index.js');
 
 var modules = [
-    {text:'react-native-material-kit', image: require('image!tabnav_list'), module:MaterialKit},
+    // {text:'react-native-material-kit', image: require('image!tabnav_list'), module:MaterialKit},
     {text:'eact-native-progress-hud', image: require('image!tabnav_list'), module:ProgressHud},
     {text:'react-native-progress', image: require('image!tabnav_list'), module:Progress},
     {text:'react-native-image-progress', image: require('image!tabnav_list'), module:ImageProgress},
