@@ -129,7 +129,7 @@ module.exports = React.createClass({
     render: function() {
         var initialRoute = {
             title: '登录',
-            component: Home,
+            component: Login,
             passProps: {},
             leftButton: false,
         };
