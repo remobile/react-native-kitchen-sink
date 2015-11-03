@@ -18,6 +18,7 @@ var Progress = require('../react-native-progress');
 var ImageProgress = require('../react-native-image-progress');
 var HtmlView = require('../react-native-htmlview');
 var GridView = require('../react-native-grid-view');
+var Slider = require('../react-native-slider');
 
 var modules = [
     {text:'react-native-material-kit', image: require('image!tabnav_list'), module:MaterialKit},
@@ -26,6 +27,7 @@ var modules = [
     {text:'react-native-image-progress', image: require('image!tabnav_list'), module:ImageProgress},
     {text:'react-native-htmlview', image: require('image!tabnav_list'), module:HtmlView},
     {text:'react-native-grid-view', image: require('image!tabnav_list'), module:GridView},
+    {text:'react-native-slider', image: require('image!tabnav_list'), module:Slider},
 ];
 
 
