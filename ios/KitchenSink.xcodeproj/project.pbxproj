@@ -21,8 +21,14 @@
 		321D19CD1BE75440008509D1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 321D19C71BE75440008509D1 /* LaunchScreen.xib */; };
 		321D19CE1BE75440008509D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 321D19C81BE75440008509D1 /* main.m */; };
 		321D19DA1BE758B1008509D1 /* libRCTMaterialKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 321D19D91BE75887008509D1 /* libRCTMaterialKit.a */; };
+		325356FE1BE9E450006885BD /* libRCTMarqueeLabel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 325356F61BE9E43B006885BD /* libRCTMarqueeLabel.a */; };
 		3287E8AB1BE83AD90064C14F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3287E8AA1BE83AD90064C14F /* Images.xcassets */; };
 		3287E8CE1BE855550064C14F /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3287E8C21BE855150064C14F /* libART.a */; };
+		3287E8F51BE9ABB40064C14F /* DesModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 3287E8EA1BE9ABB40064C14F /* DesModule.m */; };
+		3287E8F61BE9ABB40064C14F /* Base64Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 3287E8ED1BE9ABB40064C14F /* Base64Util.m */; };
+		3287E8F71BE9ABB40064C14F /* DesBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3287E8EF1BE9ABB40064C14F /* DesBase64.m */; };
+		3287E8F81BE9ABB40064C14F /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3287E8F11BE9ABB40064C14F /* GTMBase64.m */; };
+		3287E8F91BE9ABB40064C14F /* MD5Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 3287E8F41BE9ABB40064C14F /* MD5Encryption.m */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		D8E6BB6F3327C548A2222A37 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F776CB994C700E43FCD644 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -91,6 +97,13 @@
 			remoteGlobalIDString = 8A1B8E771B22E4E300DB45C2;
 			remoteInfo = RCTMaterialKit;
 		};
+		325356F51BE9E43B006885BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 325356EC1BE9E43A006885BD /* RCTMarqueeLabel.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3287E9201BE9CC0E0064C14F;
+			remoteInfo = RCTMarqueeLabel;
+		};
 		3287E8C11BE855150064C14F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3287E8BD1BE855150064C14F /* ART.xcodeproj */;
@@ -130,8 +143,20 @@
 		321D19C71BE75440008509D1 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		321D19C81BE75440008509D1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		321D19D41BE75886008509D1 /* RCTMaterialKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTMaterialKit.xcodeproj; path = "../node_modules/react-native-material-kit/iOS/RCTMaterialKit.xcodeproj"; sourceTree = "<group>"; };
+		325356EC1BE9E43A006885BD /* RCTMarqueeLabel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTMarqueeLabel.xcodeproj; path = "../App/node_modules/react-native-marquee-label/ios/RCTMarqueeLabel/RCTMarqueeLabel.xcodeproj"; sourceTree = "<group>"; };
 		3287E8AA1BE83AD90064C14F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3287E8BD1BE855150064C14F /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "/Users/fang/rn/KitchenSink/node_modules/react-native/Libraries/WebSocket/../ART/ART.xcodeproj"; sourceTree = "<absolute>"; };
+		3287E8E91BE9ABB40064C14F /* DesModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesModule.h; sourceTree = "<group>"; };
+		3287E8EA1BE9ABB40064C14F /* DesModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesModule.m; sourceTree = "<group>"; };
+		3287E8EC1BE9ABB40064C14F /* Base64Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Util.h; sourceTree = "<group>"; };
+		3287E8ED1BE9ABB40064C14F /* Base64Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Util.m; sourceTree = "<group>"; };
+		3287E8EE1BE9ABB40064C14F /* DesBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesBase64.h; sourceTree = "<group>"; };
+		3287E8EF1BE9ABB40064C14F /* DesBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesBase64.m; sourceTree = "<group>"; };
+		3287E8F01BE9ABB40064C14F /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		3287E8F11BE9ABB40064C14F /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		3287E8F21BE9ABB40064C14F /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		3287E8F31BE9ABB40064C14F /* MD5Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Encryption.h; sourceTree = "<group>"; };
+		3287E8F41BE9ABB40064C14F /* MD5Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5Encryption.m; sourceTree = "<group>"; };
 		4220AFC27E7E156B52A8508F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "KitchenSink/pod/Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5E2E704271DDA30057F083FE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "KitchenSink/pod/Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
@@ -156,6 +181,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				321D19DA1BE758B1008509D1 /* libRCTMaterialKit.a in Frameworks */,
 				3287E8CE1BE855550064C14F /* libART.a in Frameworks */,
+				325356FE1BE9E450006885BD /* libRCTMarqueeLabel.a in Frameworks */,
 				D8E6BB6F3327C548A2222A37 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,8 +248,9 @@
 		13B07FAE1A68108700A75B9A /* KitchenSink */ = {
 			isa = PBXGroup;
 			children = (
-				3287E8A91BE83AD90064C14F /* resource */,
 				321D19C31BE75440008509D1 /* main */,
+				3287E8E71BE9ABB40064C14F /* plugins */,
+				3287E8A91BE83AD90064C14F /* resource */,
 			);
 			name = KitchenSink;
 			sourceTree = "<group>";
@@ -252,6 +279,7 @@
 		321D19D31BE7584F008509D1 /* VendorLibraries */ = {
 			isa = PBXGroup;
 			children = (
+				325356EC1BE9E43A006885BD /* RCTMarqueeLabel.xcodeproj */,
 				321D19D41BE75886008509D1 /* RCTMaterialKit.xcodeproj */,
 			);
 			name = VendorLibraries;
@@ -261,6 +289,14 @@
 			isa = PBXGroup;
 			children = (
 				321D19D91BE75887008509D1 /* libRCTMaterialKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		325356ED1BE9E43A006885BD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				325356F61BE9E43B006885BD /* libRCTMarqueeLabel.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -280,6 +316,41 @@
 				3287E8C21BE855150064C14F /* libART.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3287E8E71BE9ABB40064C14F /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				3287E8E81BE9ABB40064C14F /* des */,
+			);
+			name = plugins;
+			path = KitchenSink/plugins;
+			sourceTree = "<group>";
+		};
+		3287E8E81BE9ABB40064C14F /* des */ = {
+			isa = PBXGroup;
+			children = (
+				3287E8E91BE9ABB40064C14F /* DesModule.h */,
+				3287E8EA1BE9ABB40064C14F /* DesModule.m */,
+				3287E8EB1BE9ABB40064C14F /* lib */,
+			);
+			path = des;
+			sourceTree = "<group>";
+		};
+		3287E8EB1BE9ABB40064C14F /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				3287E8EC1BE9ABB40064C14F /* Base64Util.h */,
+				3287E8ED1BE9ABB40064C14F /* Base64Util.m */,
+				3287E8EE1BE9ABB40064C14F /* DesBase64.h */,
+				3287E8EF1BE9ABB40064C14F /* DesBase64.m */,
+				3287E8F01BE9ABB40064C14F /* GTMBase64.h */,
+				3287E8F11BE9ABB40064C14F /* GTMBase64.m */,
+				3287E8F21BE9ABB40064C14F /* GTMDefines.h */,
+				3287E8F31BE9ABB40064C14F /* MD5Encryption.h */,
+				3287E8F41BE9ABB40064C14F /* MD5Encryption.m */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 		33256CDAB6A6ED92D09E7DC2 /* Frameworks */ = {
@@ -419,6 +490,10 @@
 					ProjectRef = 78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */;
 				},
 				{
+					ProductGroup = 325356ED1BE9E43A006885BD /* Products */;
+					ProjectRef = 325356EC1BE9E43A006885BD /* RCTMarqueeLabel.xcodeproj */;
+				},
+				{
 					ProductGroup = 321D19D51BE75886008509D1 /* Products */;
 					ProjectRef = 321D19D41BE75886008509D1 /* RCTMaterialKit.xcodeproj */;
 				},
@@ -518,6 +593,13 @@
 			remoteRef = 321D19D81BE75887008509D1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		325356F61BE9E43B006885BD /* libRCTMarqueeLabel.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTMarqueeLabel.a;
+			remoteRef = 325356F51BE9E43B006885BD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		3287E8C21BE855150064C14F /* libART.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -593,7 +675,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				321D19CE1BE75440008509D1 /* main.m in Sources */,
+				3287E8F81BE9ABB40064C14F /* GTMBase64.m in Sources */,
 				321D19CB1BE75440008509D1 /* AppDelegate.m in Sources */,
+				3287E8F61BE9ABB40064C14F /* Base64Util.m in Sources */,
+				3287E8F71BE9ABB40064C14F /* DesBase64.m in Sources */,
+				3287E8F91BE9ABB40064C14F /* MD5Encryption.m in Sources */,
+				3287E8F51BE9ABB40064C14F /* DesModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

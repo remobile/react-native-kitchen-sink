@@ -13,6 +13,7 @@ var {
     ScrollView,
     TextInput,
     TouchableOpacity,
+    requireNativeComponent,
 } = React;
 
 var sr = app.Screen;
@@ -150,5 +151,5 @@ var styles = StyleSheet.create({
         right: 5,
         bottom:5,
         backgroundColor: 'transparent'
-    },
+    }
 });
