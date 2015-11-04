@@ -59,6 +59,11 @@ module.exports = React.createClass({
 
         app.navigator.push(route);
     },
+    renderSeparator(sectionID, rowID) {
+        return (
+            <View style={styles.separator} key={sectionID+rowID}/>
+        );
+    },
     renderRow(obj) {
         return (
             <View>
@@ -79,7 +84,6 @@ module.exports = React.createClass({
                             style={styles.arrow} />
                     </View>
                 </TouchableHighlight>
-                <View style={{height:1, backgroundColor:'green'}} />
             </View>
         )
     },
@@ -90,6 +94,7 @@ module.exports = React.createClass({
                     style={styles.list}
                     dataSource={this.state.dataSource}
                     renderRow={this.renderRow}
+                    renderSeparator={this.renderSeparator}
                     />
             </View>
         );
@@ -120,6 +125,10 @@ var styles = StyleSheet.create({
     },
     title: {
         width:sr.w-70
+    },
+    separator: {
+        height: 1,
+        backgroundColor: '#CCC'
     },
     arrow: {
     },
