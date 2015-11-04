@@ -30,6 +30,28 @@ global.app = {
     isandroid: Platform.OS==="android"
 };
 
+app.configureScene = function(route) {
+    route = route||{};
+    var sceneConfig = route.sceneConfig;
+    if (sceneConfig) {
+        return sceneConfig;
+    }
+    if (Platform.OS==="android") {
+        if (route.fromBottom) {
+            sceneConfig = Navigator.SceneConfigs.FloatFromBottomAndroid;
+        } else {
+            sceneConfig = Navigator.SceneConfigs.FadeAndroid;
+        }
+    } else {
+        if (route.fromBottom) {
+            sceneConfig = Navigator.SceneConfigs.FloatFromBottom;
+        } else {
+            sceneConfig = Navigator.SceneConfigs.HorizontalSwipeJump;
+        }
+    }
+    return sceneConfig;
+};
+
 var Login = require('./modules/login/Login.js');
 var Home = require('./modules/home/Home.js');
 var EmptyView = require('./modules/empty/EmptyView.js');
@@ -115,9 +137,7 @@ module.exports = React.createClass({
         }
     },
     configureScene : function(route){
-        console.log(Navigator.SceneConfigs);
-        var sceneConfig = route.sceneConfig ? route.sceneConfig : Navigator.SceneConfigs.FadeAndroid;
-        return sceneConfig;
+        return app.configureScene(route);
     },
     renderScene: function(route, navigator) {
         return (

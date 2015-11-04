@@ -13,7 +13,7 @@ var {
 } = React;
 
 
-// var MaterialKit = require('../react-native-material-kit');
+var MaterialKit = require('../react-native-material-kit');
 var ProgressHud = require('../react-native-progress-hud');
 var Progress = require('../react-native-progress');
 var ImageProgress = require('../react-native-image-progress');
@@ -24,15 +24,15 @@ var LightBox = require('../react-native-lightbox');
 var ImageAnimation = require('../react-native-image-animation/index.js');
 
 var modules = [
-    // {text:'react-native-material-kit', image: require('image!tabnav_list'), module:MaterialKit},
-    {text:'eact-native-progress-hud', image: require('image!tabnav_list'), module:ProgressHud},
-    {text:'react-native-progress', image: require('image!tabnav_list'), module:Progress},
-    {text:'react-native-image-progress', image: require('image!tabnav_list'), module:ImageProgress},
-    {text:'react-native-htmlview', image: require('image!tabnav_list'), module:HtmlView},
-    {text:'react-native-grid-view', image: require('image!tabnav_list'), module:GridView},
-    {text:'react-native-slider', image: require('image!tabnav_list'), module:Slider, noSwipe:true},
-    {text:'react-native-lightbox', image: require('image!tabnav_list'), module:LightBox},
-    {text:'react-native-image-animation', image: require('image!tabnav_list'), module:ImageAnimation},
+    {title:'react-native-material-kit', image: require('image!tabnav_list'), module:MaterialKit},
+    {title:'eact-native-progress-hud', image: require('image!tabnav_list'), module:ProgressHud},
+    {title:'react-native-progress', image: require('image!tabnav_list'), module:Progress},
+    {title:'react-native-image-progress', image: require('image!tabnav_list'), module:ImageProgress},
+    {title:'react-native-htmlview', image: require('image!tabnav_list'), module:HtmlView},
+    {title:'react-native-grid-view', image: require('image!tabnav_list'), module:GridView},
+    {title:'react-native-slider', image: require('image!tabnav_list'), module:Slider, noSwipe:true},
+    {title:'react-native-lightbox', image: require('image!tabnav_list'), module:LightBox},
+    {title:'react-native-image-animation', image: require('image!tabnav_list'), module:ImageAnimation},
 ];
 
 
@@ -46,12 +46,12 @@ module.exports = React.createClass({
     },
     _onPressRow(obj) {
         var route = {
-            title: obj.text,
+            title: obj.title,
             component: obj.module,
         };
         if (obj.noSwipe) {
             route.sceneConfig = {
-                ...Navigator.SceneConfigs.HorizontalSwipeJump,
+                ...app.configureScene(),
                 gestures: null
             }
         }
@@ -70,8 +70,8 @@ module.exports = React.createClass({
                             resizeMode='stretch'
                             source={obj.image}
                             style={styles.icon} />
-                        <Text style={styles.text} >
-                            {obj.text}
+                        <Text style={styles.title} >
+                            {obj.title}
                         </Text>
                         <Image
                             resizeMode='contain'
@@ -118,7 +118,7 @@ var styles = StyleSheet.create({
         height:25,
         marginRight: 10,
     },
-    text: {
+    title: {
         width:sr.w-70
     },
     arrow: {

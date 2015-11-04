@@ -39,6 +39,7 @@ module.exports = React.createClass({
             title: '主页',
             component: Home,
             passProps: {},
+            fromBottom: true,
         });
     },
     doLoginFailed: function(error) {
@@ -50,6 +51,7 @@ module.exports = React.createClass({
             component: ForgetPassword,
             passProps: {},
             rightButton: { title: '注册', handler: this.doShowRegister},
+            fromLeft: true,
         });
     },
     doShowRegister: function() {

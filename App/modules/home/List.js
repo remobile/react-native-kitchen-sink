@@ -21,7 +21,7 @@ module.exports = React.createClass({
         if (init) {
         this.data.index = 0;
         this.data.list = [];
-        total = Math.floor(Math.random()*5);
+        total = Math.floor(Math.random()*0);
     }
         for (var i=0; i<total; i++) {
             this.data.list[this.data.index] = "Row" + this.data.index;

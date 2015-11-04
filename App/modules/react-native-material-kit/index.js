@@ -53,7 +53,7 @@ module.exports = React.createClass({
                             title: 'Sliders',
                             component: Sliders,
                             sceneConfig: {
-                                ...Navigator.SceneConfigs.HorizontalSwipeJump,
+                                ...app.configureScene(),
                                 gestures: null
                             }
                         });

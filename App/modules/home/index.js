@@ -49,7 +49,6 @@ var HomeTabBar = React.createClass({
                                 source={require('image!tabnav_notification')}
                                 style={styles.icon} />
                         }
-                        badgeText="1"
                         onPress={() => {
                             this.props.onTabIndex(0);
                             this.setState({ tabIndex: 0, });
@@ -109,8 +108,8 @@ module.exports = React.createClass({
                 initialRoute={ROUTE_STACK[INIT_ROUTE_INDEX]}
                 initialRouteStack={ROUTE_STACK}
                 renderScene={this.renderScene}
-                configureScene={() => ({
-                    ...Navigator.SceneConfigs.HorizontalSwipeJump,
+                configureScene={(route) => ({
+                    ...app.configureScene(route),
                 })}
                 navigationBar={
                     <HomeTabBar
