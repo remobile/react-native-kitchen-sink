@@ -23,6 +23,7 @@ var Slider = require('../react-native-slider');
 var LightBox = require('../react-native-lightbox');
 var ImageAnimation = require('../react-native-image-animation/index.js');
 var MarqueeLabel = require('../react-native-marquee-label');
+var Button = require('../react-native-button');
 
 var modules = [
     // {title:'react-native-material-kit', image: require('image!tabnav_list'), module:MaterialKit},
@@ -35,6 +36,7 @@ var modules = [
     {title:'react-native-lightbox', image: require('image!tabnav_list'), module:LightBox},
     {title:'react-native-image-animation', image: require('image!tabnav_list'), module:ImageAnimation},
     {title:'react-native-marquee-label', image: require('image!tabnav_list'), module:MarqueeLabel},
+    {title:'react-native-button', image: require('image!tabnav_list'), module:Button},
 ];
 
 
