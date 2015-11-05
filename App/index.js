@@ -21,6 +21,7 @@ var DefaultLeftButton = require('./components/DefaultLeftButton.js');
 var Dimensions = require('Dimensions');
 var cssVar = require('cssVar');
 
+
 global.app = {
     POST: POST,
     route: Route,
@@ -53,8 +54,7 @@ app.configureScene = function(route) {
 };
 
 var Login = require('./modules/login/Login.js');
-var Home = require('./modules/home/Home.js');
-var EmptyView = require('./modules/empty/EmptyView.js');
+var Home = require('./vaccinum/home/index.js');
 
 
 String.prototype.getCodeLength = function() {
@@ -149,8 +149,10 @@ module.exports = React.createClass({
     },
     render: function() {
         var initialRoute = {
-            title: '登录',
-            component: Login,
+            // title: '登录',
+            // component: Login,
+            title: '主页',
+            component: Home,
             passProps: {},
             leftButton: false,
         };
