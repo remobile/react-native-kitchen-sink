@@ -19,10 +19,17 @@ var {
 var sr = app.Screen;
 var RTImage = app.RTImage;
 var POST = app.POST;
+var Des = require('react-native-des');
 
 module.exports = React.createClass({
     doLogin: function() {
-        this.doLoginSuccess();
+        Des.encrypt("fangyunjiang is a good developer", "ABCDEFGH", function(base64) {
+            console.log(base64);
+            Des.decrypt(base64, "ABCDEFGH", function(text) {
+                console.log(text);
+            });
+        });
+        // this.doLoginSuccess();
         return;
         if (!this.state.phone) {
             app.Messagebox('手机号码不能为空');

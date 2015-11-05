@@ -1,12 +1,12 @@
 'use strict';
 
-var DesModule = require('NativeModules').DesModule;
+var Des = require('react-native-des');
 var queryString = require('query-string');
 var KEY = require('../../config/Route.js').DES_KEY;
 
 function POST(url, parameter, success, failed) {
     console.log("send:", parameter);
-    DesModule.encrypt(JSON.stringify(parameter), KEY, function(base64) {
+    Des.encrypt(JSON.stringify(parameter), KEY, function(base64) {
         var param = queryString.stringify({data:base64});
         fetch(url,  {
             method: 'post',
@@ -18,7 +18,7 @@ function POST(url, parameter, success, failed) {
         })
         .then((response) => response.text())
         .then((base64) => {
-            DesModule.decrypt(base64, KEY, function(jsonString) {
+            Des.decrypt(base64, KEY, function(jsonString) {
                 try {
                     var json = JSON.parse(jsonString);
                     console.log("recv:", json);

@@ -2,3 +2,6 @@ rootProject.name = 'KitchenSink'
 
 include ':app'
 
+include ':react-native-des'
+project(':react-native-des').projectDir = new File(settingsDir, '../App/node_modules/react-native-des/android/RCTDes')
+
