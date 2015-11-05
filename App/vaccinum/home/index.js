@@ -10,6 +10,7 @@ var {
     TouchableOpacity,
 } = React;
 
+var Personal = require('../personal/index.js');
 
 var CCTouchable =  React.createClass({
     render() {
@@ -35,6 +36,11 @@ module.exports = React.createClass({
         };
     },
     enterPersonal(){
+        app.navigator.push({
+            title: '个人中心',
+            component: Personal,
+            passProps: {}
+        });
     },
     enterVaccinumSearch(){
     },
