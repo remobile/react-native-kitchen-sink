@@ -200,6 +200,6 @@ var styles = StyleSheet.create({
         paddingRight: 10,
     },
     navBarButtonText: {
-        color: cssVar('fbui-accent-blue'),
+        color: '#007aff',
     },
 });

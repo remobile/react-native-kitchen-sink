@@ -1,5 +1,6 @@
 'use strict';
 
+var Button = require('react-native-simple-button');
 var React = require('react-native');
 var Home = require('../home');
 var Register = require('./Register.js');
@@ -82,23 +83,11 @@ module.exports = React.createClass({
                     onChangeText={(text) => this.setState({password: text})}
                     />
                 {/*登录按钮*/}
-                <TouchableOpacity
-                    onPress={this.doLogin}
-                    style={styles.btnLoginContainer}>
-                    <Text>登录</Text>
-                </TouchableOpacity>
+                <Button onPress={this.doLogin} style={styles.btnLogin}>登录</Button>
                 {/*忘记密码按钮*/}
-                <TouchableOpacity
-                    onPress={this.doShowForgetPassword}
-                    style={styles.btnForgetPassWordContainer}>
-                    <Text>找回密码</Text>
-                </TouchableOpacity>
+                <Button onPress={this.doShowForgetPassword} style={styles.btnForgetPassWord}>找回密码</Button>
                 {/*注册按钮*/}
-                <TouchableOpacity
-                    onPress={this.doShowRegister}
-                    style={styles.btnRigisterContainer}>
-                    <Text>注册</Text>
-                </TouchableOpacity>
+                <Button onPress={this.doShowRegister} style={styles.btnRigister}>注册</Button>
             </View>
         );
     }
@@ -115,7 +104,7 @@ var styles = StyleSheet.create({
         width:sr.ws(120),
         height:sr.hs(30),
         left: sr.mw-sr.ws(105)/2,
-        top: sr.mh-sr.hs(170)/2,
+        top: sr.mh-sr.hs(240)/2,
         backgroundColor: '#BBFFFF',
         color:'white'
     },
@@ -124,32 +113,23 @@ var styles = StyleSheet.create({
         width:sr.ws(120),
         height:sr.hs(30),
         left: sr.mw-sr.ws(105)/2,
-        top: sr.mh-sr.hs(60)/2,
+        top: sr.mh-sr.hs(120)/2,
         backgroundColor: '#BBFFFF',
         color:'white'
     },
-    btnLoginContainer: {
+    btnLogin: {
         position: 'absolute',
-        width:sr.ws(70),
-        height:sr.hs(30),
         left: sr.mw-sr.ws(30)/2,
-        top:sr.mh+sr.hs(150)/2,
-        backgroundColor: 'transparent'
+        top:sr.mh+sr.hs(50)/2,
     },
-    btnForgetPassWordContainer: {
+    btnForgetPassWord: {
         position: 'absolute',
-        width:sr.ws(70),
-        height:sr.hs(30),
         left: 5,
         bottom: 5,
-        backgroundColor: 'transparent'
     },
-    btnRigisterContainer: {
+    btnRigister: {
         position: 'absolute',
-        width:sr.ws(70),
-        height:sr.hs(30),
         right: 5,
         bottom:5,
-        backgroundColor: 'transparent'
     }
 });
