@@ -7,19 +7,27 @@ var {
     View,
     Text,
     Image,
-    TouchableHighlight,
+    TouchableOpacity,
 } = React;
+
+var Button = require('react-native-simple-button');
 
 var InfoItem = React.createClass({
     render() {
         return (
             <View style={styles.infoItem}>
-              <Image
-				                resizeMode='stretch'
-				                source={this.props.icon)}
-				                style={styles.infoItemIcon} />
-				              <text style={styles.infoItemLabel}>{this.props.label}</text>
-				              	<text style={styles.infoItemValue}>{this.props.value}</text>
+                <Image
+                    resizeMode='stretch'
+                    source={this.props.icon}
+                    style={styles.infoItemIcon} />
+
+                <Text style={styles.infoItemLabel}>
+                    {this.props.label}
+                </Text>
+
+                <Text style={styles.infoItemValue}>
+                    {this.props.value}
+                </Text>
             </View>
         );
     }
@@ -27,68 +35,76 @@ var InfoItem = React.createClass({
 
 
 module.exports = React.createClass({
-		getInitialState() {
-				return {
-					username: '',
-					birthday: '',
-					mothername: '',
-					phone: '',
-					infoBinded: false
-				};
-			},
-			doShowCameraMenu() {
-			},
-			doBindInfo() {
-				this.setState({infoBinded:true});
-			},
-			cancelBind() {
-				this.setState({infoBinded:false});
-			},
+    getInitialState() {
+        return {
+            username:'ÊñπËøúËà™',
+            birthday:'2012-10-13',
+            mothername: 'Ë£¥ÂÖãÂ®ü',
+            phone: '18085192480',
+            infoBinded: true,
+        }
+    },
+    doShowCameraMenu() {
+    },
+    doBindInfo() {
+        this.setState({infoBinded:true});
+    },
+    cancelBind() {
+        this.setState({infoBinded:false});
+    },
     render() {
         return (
             <View style={styles.container}>
                 <View style={styles.headContainer}>
-        					<TouchableHighlight
-                    onPress={this.doShowCameraMenu}
-                    underlayColor="#EEB422">
-                		<Image
-				                resizeMode='stretch'
-				                source={require('image!personalHead')}
-				                style={styles.vaccinumSearch} />
-            		 </TouchableHighlight>
-            		</View>
-            		 
-            		<View style={styles.infoContainer}>
-            				<InfoItem 
-            					icon={require('image!xx')}
-            					label="±¶±¶√˚◊÷"
-            					value={this.state.username}
-            				/>
-            				<InfoItem 
-            					icon={require('image!xx')}
-            					label="≥ˆ…˙»’∆⁄"
-            					value={this.state.birthday}
-            				/>
-            				<InfoItem 
-            					icon={require('image!xx')}
-            					label="ƒ∏«◊√˚◊÷"
-            					value={this.state.mothername}
-            				/>
-            				<InfoItem 
-            					icon={require('image!xx')}
-            					label="±¶±¶√˚◊÷"
-            					value={this.state.phone}
-            				/>
-            		</View>
+                    <TouchableOpacity
+                        onPress={this.doShowCameraMenu}
+                        underlayColor="#EEB422">
 
-            		<View style={styles.vaccinumBaikeContainer}>
-            				{this.state.infoBinded?
-            					<text>±¶±¶–≈œ¢“—æ≠∞Û∂®</text>
-            					<Button onPress={this.cancelBind}>»°œ˚∞Û∂®</Button>
-            					:
-            					<Button onPress={this.doBindInfo}>∞Û∂®±¶±¶–≈œ¢</Button>
-            					}
-            		</View>
+                        <Image
+                            resizeMode='stretch'
+                            source={require('../image/personalHead.jpg')}
+                            style={styles.head} />
+
+                    </TouchableOpacity>
+
+                </View>
+
+                <View style={styles.separator} />
+                <View style={styles.infoContainer}>
+                    <InfoItem
+                        icon={require('image!tabnav_list')}
+                        label="ÂÆùÂÆùÂêçÂ≠óÔºö"
+                        value={this.state.username}
+                        />
+                    <InfoItem
+                        icon={require('image!tabnav_list')}
+                        label="Âá∫ÁîüÊó•ÊúüÔºö"
+                        value={this.state.birthday}
+                        />
+                    <InfoItem
+                        icon={require('image!tabnav_list')}
+                        label="ÊØç‰∫≤ÂêçÂ≠óÔºö"
+                        value={this.state.mothername}
+                        />
+                    <InfoItem
+                        icon={require('image!tabnav_list')}
+                        label="ÁªÉ‰π†ÁîµËØùÔºö"
+                        value={this.state.phone}
+                        />
+                </View>
+
+                <View style={styles.separator} />
+                <View style={styles.buttonContainer}>
+                    {this.state.infoBinded?
+                        [
+                            <Text>ÂÆùÂÆù‰ø°ÊÅØÂ∑≤ÁªèÁªëÂÆö</Text>
+                            ,
+                            <Button onPress={this.cancelBind} style={styles.cancelBind} textStyle={{color:'red', fontSize:12}}>Ëß£Èô§ÁªëÂÆö</Button>
+                        ]
+                        :
+                        <Button onPress={this.doBindInfo}>ÁªëÂÆöÂÆùÂÆù‰ø°ÊÅØ</Button>
+                    }
+                </View>
             </View>
         );
     }
@@ -103,26 +119,44 @@ var styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-     infoContainer: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
+    head:{
+        width:150,
+        height:150,
+        borderRadius:75,
+    },
+    infoContainer: {
+        flex: 3,
+        alignItems: 'flex-start',
+        justifyContent: 'space-around',
+        paddingTop:50,
+        paddingBottom:50,
     },
     infoItem: {
-    	  flex: 1,
-    	  flexDirection: 'row',
+        flexDirection: 'row',
     },
     infoItemIcon: {
-    	  flex: 1,
-    	  flexDirection: 'row',
+        marginLeft: 50,
+        width:25,
+        height:25,
+        marginRight: 10,
     },
     infoItemLabel: {
-    	  flex: 1,
-    	  flexDirection: 'row',
     },
     infoItemValue: {
-    	  flex: 1,
-    	  flexDirection: 'row',
     },
-     
+    buttonContainer: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        height:60,
+    },
+    separator: {
+        height: 10,
+        backgroundColor: '#CCC'
+    },
+    cancelBind: {
+        position:'absolute',
+        bottom:10,
+        right:20
+    }
+
 });
