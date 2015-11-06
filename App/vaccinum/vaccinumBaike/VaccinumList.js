@@ -35,7 +35,7 @@ module.exports = React.createClass({
     renderRow(obj) {
         return (
             <View>
-                <TouchableHighlight
+                <TouchableOpacity
                     onPress={this.onPressRow.bind(null, obj)}
                     underlayColor="#EEB422">
                     <View style={styles.row}>
@@ -53,7 +53,7 @@ module.exports = React.createClass({
                             style={styles.arrow} />
                     </View>
 
-                </TouchableHighlight>
+                </TouchableOpacity>
             </View>
         )
     },
@@ -79,10 +79,13 @@ var styles = StyleSheet.create({
         justifyContent: 'center'
     },
     row: {
-        height:60,
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
+        marginTop:5,
+        marginBottom:5,
+        marginHorizontal:20,
+        backgroundColor:'#E6E6FA',
     },
     rowInfo: {
         flex: 1,
@@ -97,12 +100,15 @@ var styles = StyleSheet.create({
         alignSelf:'stretch'
     },
     title: {
-        width:sr.w-70
+        flex: 1,
     },
     separator: {
         height: 1,
         backgroundColor: '#CCC'
     },
     arrow: {
+        marginRight:20,
+        marginVertical: 10,
+        height: 25
     },
 });

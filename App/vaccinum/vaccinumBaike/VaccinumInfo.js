@@ -48,32 +48,32 @@ module.exports = React.createClass({
         return (
             <View style={styles.container}>
                 <InfoItem
-                    icon={app.img.tabnav_list}
+                    icon={app.img.companyLogo}
                     label="预防疾病："
                     value={this.state.function}
                     />
                 <InfoItem
-                    icon={app.img.tabnav_list}
+                    icon={app.img.companyLogo}
                     label="接种对象："
                     value={this.state.target}
                     />
                 <InfoItem
-                    icon={app.img.tabnav_list}
+                    icon={app.img.companyLogo}
                     label="免疫效果："
                     value={this.state.effect}
                     />
                 <InfoItem
-                    icon={app.img.tabnav_list}
+                    icon={app.img.companyLogo}
                     label="禁忌："
                     value={this.state.avoid}
                     />
                 <InfoItem
-                    icon={app.img.tabnav_list}
+                    icon={app.img.companyLogo}
                     label="注意事项："
                     value={this.state.caution}
                     />
                 <InfoItem
-                    icon={app.img.tabnav_list}
+                    icon={app.img.companyLogo}
                     label="接种反应："
                     value={this.state.feed}
                     />
@@ -87,9 +87,11 @@ var styles = StyleSheet.create({
         flex: 1
     },
     infoItem: {
+        marginTop: 20,
     },
     infoItemPre: {
         flexDirection: 'row',
+        margin: 10,
     },
     infoItemIcon: {
         marginLeft: 10,
@@ -98,12 +100,16 @@ var styles = StyleSheet.create({
         marginRight: 10,
     },
     infoItemLabel: {
+        fontSize:16,
+        color:'#EE6A50',
     },
     infoItemValue: {
+        marginTop:10,
         marginLeft: 80,
     },
     separator: {
         height: 2,
+        width: 120,
         backgroundColor: '#CCC'
     },
 });

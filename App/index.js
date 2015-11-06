@@ -58,8 +58,8 @@ app.configureScene = function(route) {
 };
 
 var Login = require('./modules/login/Login.js');
-// var Home = require('./vaccinum/vaccinumBaike/index.js');
-var Home = require('./modules/home/index.js');
+var Home = require('./vaccinum/home/index.js');
+// var Home = require('./modules/home/index.js');
 
 
 String.prototype.getCodeLength = function() {
