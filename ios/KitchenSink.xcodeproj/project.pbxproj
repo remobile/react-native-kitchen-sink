@@ -22,9 +22,9 @@
 		321D19CE1BE75440008509D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 321D19C81BE75440008509D1 /* main.m */; };
 		321D19DA1BE758B1008509D1 /* libRCTMaterialKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 321D19D91BE75887008509D1 /* libRCTMaterialKit.a */; };
 		325356FE1BE9E450006885BD /* libRCTMarqueeLabel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 325356F61BE9E43B006885BD /* libRCTMarqueeLabel.a */; };
-		3287E8AB1BE83AD90064C14F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3287E8AA1BE83AD90064C14F /* Images.xcassets */; };
 		3287E8CE1BE855550064C14F /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3287E8C21BE855150064C14F /* libART.a */; };
 		32D981531BEAE32800FA27E5 /* libRCTDes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D981521BEAE2E300FA27E5 /* libRCTDes.a */; };
+		32FAC39A1BEC7C61006C9224 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32FAC3991BEC7C61006C9224 /* Images.xcassets */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		D8E6BB6F3327C548A2222A37 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F776CB994C700E43FCD644 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -147,9 +147,9 @@
 		321D19C81BE75440008509D1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		321D19D41BE75886008509D1 /* RCTMaterialKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTMaterialKit.xcodeproj; path = "../node_modules/react-native-material-kit/iOS/RCTMaterialKit.xcodeproj"; sourceTree = "<group>"; };
 		325356EC1BE9E43A006885BD /* RCTMarqueeLabel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTMarqueeLabel.xcodeproj; path = "../App/node_modules/react-native-marquee-label/ios/RCTMarqueeLabel/RCTMarqueeLabel.xcodeproj"; sourceTree = "<group>"; };
-		3287E8AA1BE83AD90064C14F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3287E8BD1BE855150064C14F /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "/Users/fang/rn/KitchenSink/node_modules/react-native/Libraries/WebSocket/../ART/ART.xcodeproj"; sourceTree = "<absolute>"; };
 		32D9814D1BEAE2E300FA27E5 /* RCTDes.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTDes.xcodeproj; path = "../App/node_modules/react-native-des/ios/RCTDes/RCTDes.xcodeproj"; sourceTree = "<group>"; };
+		32FAC3991BEC7C61006C9224 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4220AFC27E7E156B52A8508F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "KitchenSink/pod/Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5E2E704271DDA30057F083FE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "KitchenSink/pod/Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
@@ -243,7 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				321D19C31BE75440008509D1 /* main */,
-				3287E8A91BE83AD90064C14F /* resource */,
 			);
 			name = KitchenSink;
 			sourceTree = "<group>";
@@ -295,15 +294,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3287E8A91BE83AD90064C14F /* resource */ = {
-			isa = PBXGroup;
-			children = (
-				3287E8AA1BE83AD90064C14F /* Images.xcassets */,
-			);
-			name = resource;
-			path = KitchenSink/resource;
-			sourceTree = "<group>";
-		};
 		3287E8BE1BE855150064C14F /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +308,15 @@
 				32D981521BEAE2E300FA27E5 /* libRCTDes.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		32FAC3981BEC7C61006C9224 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				32FAC3991BEC7C61006C9224 /* Images.xcassets */,
+			);
+			name = resource;
+			path = KitchenSink/resource;
 			sourceTree = "<group>";
 		};
 		33256CDAB6A6ED92D09E7DC2 /* Frameworks */ = {
@@ -366,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				13B07FAE1A68108700A75B9A /* KitchenSink */,
+				32FAC3981BEC7C61006C9224 /* resource */,
 				321D19D31BE7584F008509D1 /* VendorLibraries */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
@@ -606,7 +606,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3287E8AB1BE83AD90064C14F /* Images.xcassets in Resources */,
+				32FAC39A1BEC7C61006C9224 /* Images.xcassets in Resources */,
 				321D19CD1BE75440008509D1 /* LaunchScreen.xib in Resources */,
 				321D19CC1BE75440008509D1 /* Info.plist in Resources */,
 			);
@@ -673,6 +673,7 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 				);
 				INFOPLIST_FILE = KitchenSink/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = KitchenSink;
@@ -691,6 +692,7 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 				);
 				INFOPLIST_FILE = KitchenSink/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = KitchenSink;
