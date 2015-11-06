@@ -1,0 +1,14 @@
+#!/bin/bash
+source ~/command/common
+
+file=image.js
+
+echo "module.exports = {" > $file
+files=(`ls image`)
+for item in ${files[@]};do
+    purefilename=`__get_pure_filename $item`
+    filename=`basename $item`
+    echo "${purefilename}:require('./image/${filename}')," >> $file
+done
+
+echo "};" >> $file

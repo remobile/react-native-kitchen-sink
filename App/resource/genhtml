@@ -1,0 +1,11 @@
+#!/bin/bash
+source ~/command/common
+rm -fr html
+
+mkdir -p html
+
+cd image
+ls|xargs -I bbbb ximage bbbb ../html html
+cd ..
+
+

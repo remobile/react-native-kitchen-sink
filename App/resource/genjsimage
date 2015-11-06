@@ -1,0 +1,23 @@
+#!/bin/bash
+source ~/command/common
+rm -fr jsimage
+
+mkdir -p jsimage
+
+cd image
+ls|xargs -I bbbb ximage bbbb ../jsimage
+cd ..
+
+file=jsimage.js
+
+echo "module.exports = {" > $file
+files=(`ls image`)
+for item in ${files[@]};do
+    purefilename=`__get_pure_filename $item`
+    filename=`basename $item`
+    echo "${purefilename}:{uri:require('./jsimage/${filename}.js')}," >> $file
+done
+
+echo "};" >> $file
+
+

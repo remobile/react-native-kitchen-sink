@@ -23,3 +23,6 @@
 !/ios/KitchenSink/cocoapods/Podfile
 !/ios/KitchenSink/cocoapods/install.sh
 
+/App/resource/image.js
+/App/resource/jsimage
+/App/resource/jsimage.js
