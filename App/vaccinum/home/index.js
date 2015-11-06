@@ -11,6 +11,9 @@ var {
 } = React;
 
 var Personal = require('../personal/index.js');
+var Settings = require('../settings/index.js');
+var VaccinumSearch = require('../vaccinumSearch/index.js');
+var VaccinumBaike = require('../vaccinumBaike/index.js');
 
 var CCTouchable =  React.createClass({
     render() {
@@ -35,16 +38,30 @@ module.exports = React.createClass({
             nextVaccinumName:'百白破'
         };
     },
+    enterSettings() {
+        app.navigator.push({
+            title: '设置',
+            component: Settings,
+        });
+    },
     enterPersonal(){
         app.navigator.push({
             title: '个人中心',
             component: Personal,
-            passProps: {}
+            rightButton: {  image: require('image!tabnav_list'), handler: this.enterSettings},
         });
     },
     enterVaccinumSearch(){
+        app.navigator.push({
+            title: '疫苗查询',
+            component: VaccinumSearch,
+        });
     },
     enterVaccinumBaike(){
+        app.navigator.push({
+            title: '疫苗百科',
+            component: VaccinumBaike,
+        });
     },
     render() {
         return (

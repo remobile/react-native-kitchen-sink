@@ -7,114 +7,154 @@ var {
     View,
     Text,
     Image,
-    TouchableHighlight,
+    TouchableOpacity,
 } = React;
+
+var Feedback = require('./FeedBack.js');
+var About = require('./About.js');
+var LawInfo = require('./LawInfo.js');
 
 var MenuItem = React.createClass({
     render() {
         return (
-        <TouchableHighlight
-                    onPress={this.props.onPress}
-                    underlayColor="#EEB422">
-            <View style={styles.menuItem}>
-              <Image
-				                resizeMode='stretch'
-				                source={this.props.icon)}
-				                style={styles.infoItemIcon} />
-				              <text style={styles.infoItemLabel}>{this.props.label}</text>
-				               <Image
-				                resizeMode='stretch'
-				                source={require('image!arrow'))}
-				                style={styles.infoItemArrow} />
-            </View>
-             </TouchableHighlight>
+            <TouchableOpacity
+                onPress={this.props.onPress}
+                activeOpacity={0.2}
+                style={styles.menuItem}
+                >
+
+                <Image
+                    resizeMode='contain'
+                    source={this.props.icon}
+                    style={styles.menuItemIcon} />
+
+                <Text style={styles.menuItemLabel}>
+                    {this.props.label}
+                </Text>
+
+                <Image
+                    resizeMode='contain'
+                    source={require('image!iau')}
+                    style={styles.menuItemArrow} />
+            </TouchableOpacity>
         );
     }
 });
 
 
 module.exports = React.createClass({
-		getInitialState() {
-				return {
-					version: '',
-					birthday: '',
-					mothername: '',
-					phone: '',
-					infoBinded: false
-				};
-			},
-			showFeedback() {},
-			showAbout() {},
-			showLawInfo() {},
+    getInitialState() {
+        return {
+            version: '1.0.1',
+            company: '贵州恒智通创信息产业有限公司',
+        }
+    },
+    showFeedback() {
+        app.navigator.push({
+            title: '意见反馈',
+            component: Feedback,
+            passProps: {}
+        });
+    },
+    showAbout() {
+        app.navigator.push({
+            title: '关于',
+            component: About,
+            passProps: {}
+        });
+    },
+    showLawInfo() {
+        app.navigator.push({
+            title: '软件许可协议',
+            component: LawInfo,
+            passProps: {}
+        });
+    },
     render() {
         return (
             <View style={styles.container}>
-                <Image
-				                resizeMode='stretch'
-				                source={require('image!companyLogo')}
-				                style={styles.vaccinumSearch} />
-				             <View style={styles.nameContainer}>
-				             	 <text>{this.state.username}</text>
-				               <text>{this.state.birthday}</text>
-				             </View>
-				              <View style={styles.nextTimeContainer}>
-				              	<text>{this.state.version}</text>
-				             </View>
-				              <View style={styles.nextVaccinumSearchContainer}>
-				               	<text>{this.state.company}</text>
-				             </View>
-            		</View>
-            		 
-            		<View style={styles.menuContainer}>
-            				<MenuItem 
-            					icon={require('image!xx')}
-            					label="�������"
-            					onPress={this.showFeedback}
-            				/>
-            				<MenuItem 
-            					icon={require('image!xx')}
-            					label="����"
-            					onPress={this.showAbout}
-            				/>
-            				<MenuItem 
-            					icon={require('image!xx')}
-            					label="��������֤"
-            					onPress={this.showLawInfo}
-            				/>
-            		</View>
+                <View style={styles.companyContainer}>
+                    <Image
+                        resizeMode='contain'
+                        source={require('../image/companyLogo.png')}
+                        style={styles.companyLogo} />
+                    <Text style={styles.version} >
+                        {this.state.version}
+                    </Text>
+                    <Text style={styles.company} >
+                        {this.state.company}
+                    </Text>
+                </View>
+
+
+                <View style={styles.menuContainer}>
+                    <MenuItem
+                        icon={require('image!tabnav_list')}
+                        label="意见反馈"
+                        onPress={this.showFeedback}
+                        />
+                    <MenuItem
+                        icon={require('image!tabnav_list')}
+                        label="关于"
+                        onPress={this.showAbout}
+                        />
+                    <MenuItem
+                        icon={require('image!tabnav_list')}
+                        label="软件许可证"
+                        onPress={this.showLawInfo}
+                        />
+                </View>
             </View>
         );
     }
 });
 
+var sr = app.Screen;
 var styles = StyleSheet.create({
     container: {
         flex: 1
     },
-    headContainer: {
+    companyContainer: {
         flex: 2,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: '#D8BFD8',
     },
-     menuContainer: {
-        flex: 1,
+    companyLogo: {
+        flex:1,
+    },
+    version: {
+        fontSize:12,
+        margin:10,
+    },
+    company: {
+        fontSize:16,
+        margin:10,
+    },
+    menuContainer: {
+        flex: 3,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     menuItem: {
-    	  flex: 1,
-    	  flexDirection: 'row',
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop:5,
+        marginBottom:5,
+        borderWidth:1,
     },
-    infoItemIcon: {
-    	  flex: 1,
-    	  flexDirection: 'row',
+    menuItemIcon: {
+        marginLeft: 50,
+        width:25,
+        height:25,
+        marginRight: 10,
     },
-    infoItemLabel: {
-    	  flex: 1,
-    	  flexDirection: 'row',
+    menuItemLabel: {
+        width:sr.mw,
+        fontSize: 18,
+        marginVertical: 20,
     },
-     infoItemArrow: {
-    	  flex: 1,
-    	  flexDirection: 'row',
-    },
+    menuItemArrow: {
+        marginRight:20
+    }
 });

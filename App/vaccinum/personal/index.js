@@ -99,7 +99,10 @@ module.exports = React.createClass({
                         [
                             <Text>宝宝信息已经绑定</Text>
                             ,
-                            <Button onPress={this.cancelBind} style={styles.cancelBind} textStyle={{color:'red', fontSize:12}}>解除绑定</Button>
+                            <Button
+                                onPress={this.cancelBind}
+                                style={styles.cancelBind}
+                                textStyle={{color:'red', fontSize:12}}>解除绑定</Button>
                         ]
                         :
                         <Button onPress={this.doBindInfo}>绑定宝宝信息</Button>
@@ -158,5 +161,4 @@ var styles = StyleSheet.create({
         bottom:10,
         right:20
     }
-
 });

@@ -1,4 +1,4 @@
-     'use strict';
+'use strict';
 
 var React = require('react-native');
 var {
@@ -9,6 +9,7 @@ var {
     View,
     PixelRatio,
     Text,
+    Image,
     TouchableOpacity,
 } = React;
 
@@ -54,7 +55,7 @@ app.configureScene = function(route) {
 };
 
 var Login = require('./modules/login/Login.js');
-var Home = require('./vaccinum/home/index.js');
+var Home = require('./vaccinum/vaccinumBaike/index.js');
 
 
 String.prototype.getCodeLength = function() {
@@ -87,8 +88,12 @@ var NavigationBarRouteMapper = {
             <TouchableOpacity
                 onPress={() => navigator.pop()}
                 style={styles.navBarLeftButton}>
-                <Text style={[styles.navBarText, styles.navBarButtonText]}>
-                    {"< "+title}
+                <Image
+                    resizeMode='contain'
+                    source={require('./image/dxv.png')}
+                    style={styles.leftNavBarIcon} />
+                <Text style={[styles.navBarText, styles.navBarButtonText, {left:-10}]}>
+                    {title}
                 </Text>
             </TouchableOpacity>
         );
@@ -98,15 +103,31 @@ var NavigationBarRouteMapper = {
         if (!rightButton) {
             return null;
         }
-        return (
-            <TouchableOpacity
-                onPress={rightButton.handler}
-                style={styles.navBarRightButton}>
-                <Text style={[styles.navBarText, styles.navBarButtonText]}>
-                    {rightButton.title}
-                </Text>
-            </TouchableOpacity>
-        );
+        if (rightButton.image) {
+            return (
+                <TouchableOpacity
+                    onPress={rightButton.handler}
+                    style={styles.navBarRightButton}>
+                    <Text style={[styles.navBarText, styles.navBarButtonText]}>
+                        {' '}
+                    </Text>
+                    <Image
+                        resizeMode='contain'
+                        source={rightButton.image}
+                        style={styles.rightNavBarIcon} />
+                </TouchableOpacity>
+            );
+        } else {
+            return (
+                <TouchableOpacity
+                    onPress={rightButton.handler}
+                    style={styles.navBarRightButton}>
+                    <Text style={[styles.navBarText, styles.navBarButtonText]}>
+                        {rightButton.title}
+                    </Text>
+                </TouchableOpacity>
+            );
+        }
     },
     Title: function(route, navigator, index, navState) {
         return (
@@ -149,10 +170,10 @@ module.exports = React.createClass({
     },
     render: function() {
         var initialRoute = {
-            title: '登录',
-            component: Login,
-            // title: '主页',
-            // component: Home,
+            // title: '登录',
+            // component: Login,
+            title: '主页',
+            component: Home,
             passProps: {},
             leftButton: false,
         };
@@ -185,6 +206,7 @@ var styles = StyleSheet.create({
     },
     navBar: {
         backgroundColor: '#FFB90F',
+        alignItems:'center'
     },
     navBarText: {
         fontSize: 18,
@@ -196,12 +218,23 @@ var styles = StyleSheet.create({
         marginVertical: 9,
     },
     navBarLeftButton: {
-        paddingLeft: 10,
+        flexDirection: 'row',
+        paddingLeft: 2,
+        alignItems:'center',
     },
     navBarRightButton: {
-        paddingRight: 10,
+        flexDirection: 'row',
+        paddingRight: 6,
+        alignItems:'center'
     },
     navBarButtonText: {
-        color: '#007aff',
+        color: cssVar('fbui-accent-blue'),
     },
+    leftNavBarIcon: {
+        height:18,
+        left: -5,
+    },
+    rightNavBarIcon: {
+        height: 30,
+    }
 });
