@@ -49,7 +49,7 @@ module.exports = React.createClass({
 
                         <Image
                             resizeMode='contain'
-                            source={require('image!iau')}
+                            source={app.img.list_arrow}
                             style={styles.arrow} />
                     </View>
 

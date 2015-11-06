@@ -62,7 +62,7 @@ module.exports = React.createClass({
 
                         <Image
                             resizeMode='stretch'
-                            source={require('../image/personalHead.jpg')}
+                            source={app.img.personalHead}
                             style={styles.head} />
 
                     </TouchableOpacity>
@@ -72,22 +72,22 @@ module.exports = React.createClass({
                 <View style={styles.separator} />
                 <View style={styles.infoContainer}>
                     <InfoItem
-                        icon={require('image!tabnav_list')}
+                        icon={app.img.tabnav_list}
                         label="宝宝名字："
                         value={this.state.username}
                         />
                     <InfoItem
-                        icon={require('image!tabnav_list')}
+                        icon={app.img.tabnav_list}
                         label="出生日期："
                         value={this.state.birthday}
                         />
                     <InfoItem
-                        icon={require('image!tabnav_list')}
+                        icon={app.img.tabnav_list}
                         label="母亲名字："
                         value={this.state.mothername}
                         />
                     <InfoItem
-                        icon={require('image!tabnav_list')}
+                        icon={app.img.tabnav_list}
                         label="练习电话："
                         value={this.state.phone}
                         />

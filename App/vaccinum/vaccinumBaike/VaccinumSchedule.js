@@ -17,7 +17,7 @@ module.exports = React.createClass({
             <ScrollView style={styles.container}>
                 <Image
                     resizeMode='stretch'
-                    source={require('../image/vaccinumSchedule.jpg')}
+                    source={app.img.vaccinumSchedule}
                     style={styles.image} />
             </ScrollView>
         );

@@ -11,6 +11,7 @@ var {
     Text,
     Image,
     TouchableOpacity,
+    cssVar
 } = React;
 
 var POST = require('./utils/net/Post.js');
@@ -21,6 +22,7 @@ var Messagebox = require('./components/Messagebox.js');
 var DefaultLeftButton = require('./components/DefaultLeftButton.js');
 var Dimensions = require('Dimensions');
 var cssVar = require('cssVar');
+var img = require('./resource/image.js');
 
 
 global.app = {
@@ -29,6 +31,7 @@ global.app = {
     Screen: Screen,
     RTImage: RTImage,
     Messagebox: Messagebox,
+    img: img,
     isandroid: Platform.OS==="android"
 };
 
@@ -55,7 +58,8 @@ app.configureScene = function(route) {
 };
 
 var Login = require('./modules/login/Login.js');
-var Home = require('./vaccinum/vaccinumBaike/index.js');
+// var Home = require('./vaccinum/vaccinumBaike/index.js');
+var Home = require('./modules/home/index.js');
 
 
 String.prototype.getCodeLength = function() {
@@ -90,7 +94,7 @@ var NavigationBarRouteMapper = {
                 style={styles.navBarLeftButton}>
                 <Image
                     resizeMode='contain'
-                    source={require('./image/dxv.png')}
+                    source={app.img.back_arrow}
                     style={styles.leftNavBarIcon} />
                 <Text style={[styles.navBarText, styles.navBarButtonText, {left:-10}]}>
                     {title}

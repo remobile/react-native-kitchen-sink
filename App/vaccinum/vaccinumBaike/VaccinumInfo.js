@@ -48,32 +48,32 @@ module.exports = React.createClass({
         return (
             <View style={styles.container}>
                 <InfoItem
-                    icon={require('image!tabnav_list')}
+                    icon={app.img.tabnav_list}
                     label="预防疾病："
                     value={this.state.function}
                     />
                 <InfoItem
-                    icon={require('image!tabnav_list')}
+                    icon={app.img.tabnav_list}
                     label="接种对象："
                     value={this.state.target}
                     />
                 <InfoItem
-                    icon={require('image!tabnav_list')}
+                    icon={app.img.tabnav_list}
                     label="免疫效果："
                     value={this.state.effect}
                     />
                 <InfoItem
-                    icon={require('image!tabnav_list')}
+                    icon={app.img.tabnav_list}
                     label="禁忌："
                     value={this.state.avoid}
                     />
                 <InfoItem
-                    icon={require('image!tabnav_list')}
+                    icon={app.img.tabnav_list}
                     label="注意事项："
                     value={this.state.caution}
                     />
                 <InfoItem
-                    icon={require('image!tabnav_list')}
+                    icon={app.img.tabnav_list}
                     label="接种反应："
                     value={this.state.feed}
                     />

@@ -53,7 +53,7 @@ module.exports = React.createClass({
                 </View>
                 <Image
                     resizeMode='contain'
-                    source={require('image!iau')}
+                    source={app.img.list_arrow}
                     style={styles.arrow} />
             </TouchableOpacity>
         )

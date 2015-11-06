@@ -48,7 +48,7 @@ module.exports = React.createClass({
         app.navigator.push({
             title: '个人中心',
             component: Personal,
-            rightButton: {  image: require('image!tabnav_list'), handler: this.enterSettings},
+            rightButton: {  image: app.img.tabnav_list, handler: this.enterSettings},
         });
     },
     enterVaccinumSearch(){
@@ -73,7 +73,7 @@ module.exports = React.createClass({
                     <View style={styles.headContainer}>
                         <Image
                             resizeMode='stretch'
-                            source={require('../image/personalHead.jpg')}
+                            source={app.img.personalHead}
                             style={styles.head} />
                     </View>
                     <View style={styles.infoContainer}>
@@ -106,7 +106,7 @@ module.exports = React.createClass({
                     >
                     <Image
                         resizeMode='contain'
-                        source={require('../image/vaccinumSearch.png')}
+                        source={app.img.vaccinumSearch}
                         style={styles.menuImage} />
                     <Text style={styles.menuText}>接种疫苗查询</Text>
                 </CCTouchable>
@@ -117,7 +117,7 @@ module.exports = React.createClass({
                     >
                     <Image
                         resizeMode='contain'
-                        source={require('../image/vaccinumBaike.jpg')}
+                        source={app.img.vaccinumBaike}
                         style={styles.menuImage} />
                     <Text style={styles.menuText}>疫苗百科</Text>
                 </CCTouchable>

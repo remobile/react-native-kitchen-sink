@@ -46,7 +46,7 @@ var HomeTabBar = React.createClass({
                         renderIcon={() =>
                             <Image
                                 resizeMode='stretch'
-                                source={require('image!tabnav_notification')}
+                                source={app.img.tabnav_notification}
                                 style={styles.icon} />
                         }
                         onPress={() => {
@@ -61,7 +61,7 @@ var HomeTabBar = React.createClass({
                         renderIcon={() =>
                             <Image
                                 resizeMode='stretch'
-                                source={require('image!tabnav_list')}
+                                source={app.img.tabnav_list}
                                 style={styles.icon} />
                         }
                         onPress={() => {
@@ -76,7 +76,7 @@ var HomeTabBar = React.createClass({
                         renderIcon={() =>
                             <Image
                                 resizeMode='stretch'
-                                source={require('image!tabnav_settings')}
+                                source={app.img.tabnav_settings}
                                 style={styles.icon} />
                         }
                         onPress={() => {

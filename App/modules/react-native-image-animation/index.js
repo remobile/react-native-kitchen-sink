@@ -9,14 +9,14 @@ var {
 var AImage = require('react-native-image-animation');
 module.exports = React.createClass({
     animationImages:[
-        require('image!loading_1'),
-        require('image!loading_2'),
-        require('image!loading_3'),
-        require('image!loading_4'),
-        require('image!loading_5'),
-        require('image!loading_6'),
-        require('image!loading_7'),
-        require('image!loading_8'),
+        app.img.loading_1,
+        app.img.loading_2,
+        app.img.loading_3,
+        app.img.loading_4,
+        app.img.loading_5,
+        app.img.loading_6,
+        app.img.loading_7,
+        app.img.loading_8,
     ],
     render: function() {
         return (

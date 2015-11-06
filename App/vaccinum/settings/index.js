@@ -34,7 +34,7 @@ var MenuItem = React.createClass({
 
                 <Image
                     resizeMode='contain'
-                    source={require('image!iau')}
+                    source={app.img.list_arrow}
                     style={styles.menuItemArrow} />
             </TouchableOpacity>
         );
@@ -76,7 +76,7 @@ module.exports = React.createClass({
                 <View style={styles.companyContainer}>
                     <Image
                         resizeMode='contain'
-                        source={require('../image/companyLogo.png')}
+                        source={app.img.companyLogo}
                         style={styles.companyLogo} />
                     <Text style={styles.version} >
                         {this.state.version}
@@ -89,17 +89,17 @@ module.exports = React.createClass({
 
                 <View style={styles.menuContainer}>
                     <MenuItem
-                        icon={require('image!tabnav_list')}
+                        icon={app.img.tabnav_list}
                         label="意见反馈"
                         onPress={this.showFeedback}
                         />
                     <MenuItem
-                        icon={require('image!tabnav_list')}
+                        icon={app.img.tabnav_list}
                         label="关于"
                         onPress={this.showAbout}
                         />
                     <MenuItem
-                        icon={require('image!tabnav_list')}
+                        icon={app.img.tabnav_list}
                         label="软件许可证"
                         onPress={this.showLawInfo}
                         />
