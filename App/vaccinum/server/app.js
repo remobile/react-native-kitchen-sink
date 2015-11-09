@@ -11,15 +11,18 @@ app.use(bodyParser.json());
 app.use(bodyParser.text());
 
 app.send = function(res, data, timeout) {
-    timeout = timeout||3000,
+    timeout = timeout||1000,
     setTimeout(function() {
-        console.log(data);
-        res.send(JSON.stringify(data));
+        res.send(JSON.stringify({success:true, content:data}));
     }, timeout);
 };
 
-app.post('/login', function (req, res) {
-    app.send(res, req.body);
+app.post('/bindInfo', function (req, res) {
+    var body = req.body;
+    body.nextVaccinumTime = '2017-01-09';
+    body.nextVaccinumName ='百白破';
+    console.log(body);
+    app.send(res, body);
 });
 
 

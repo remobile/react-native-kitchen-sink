@@ -15,8 +15,9 @@ function POST(url, parameter, success, failed) {
         },
         body: param
     })
-    .then((response) => response.text())
+    .then((response) => response.json())
     .then((json) => {
+        console.log("reav:", json);
         app.dismissProgressHUD();
         success && success(json);
     })

@@ -59,7 +59,7 @@ app.configureScene = function(route) {
 };
 
 var Login = require('./modules/login/Login.js');
-var Home = require('./vaccinum/home/views/index.js');
+var Home = require('./vaccinum/home/index.js');
 // var Home = require('./modules/home/index.js');
 
 String.prototype.getCodeLength = function() {
@@ -207,9 +207,9 @@ module.exports = React.createClass({
     render: function() {
         var initialRoute = {
             // title: '登录',
-            // component: Login,
+            component: Login,
             // title: '主页',
-            component: Home,
+            // component: Home,
             passProps: {},
         };
         var navigationBar = (

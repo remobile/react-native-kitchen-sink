@@ -10,12 +10,10 @@ var {
     TouchableOpacity,
 } = React;
 
-var Store = require('react-native-simple-store');
-
-var Personal = require('../../personal/views/index.js');
-var Settings = require('../../settings/views/index.js');
-var VaccinumSearch = require('../../vaccinumSearch/views/index.js');
-var VaccinumBaike = require('../../vaccinumBaike/views/index.js');
+var Personal = require('../personal/index.js');
+var Settings = require('../settings/index.js');
+var VaccinumSearch = require('../vaccinumSearch/index.js');
+var VaccinumBaike = require('../vaccinumBaike/index.js');
 
 var CCTouchable =  React.createClass({
     render() {
@@ -40,23 +38,6 @@ module.exports = React.createClass({
             nextVaccinumTime:'2017-01-09',
             nextVaccinumName:'百白破'
         };
-    },
-    componentDidMount() {
-        Store.get('PersonalInfo').then(info=>{
-            if (!info) {
-                this.fetchPersonalInfo();
-            } else {
-                this.setState({
-                    loaded: true,
-                    username:info.username,
-                    birthday:info.birthday,
-                    nextVaccinumTime:info.nextVaccinumTime,
-                    nextVaccinumName:info.nextVaccinumName
-                });
-            }
-        });
-    },
-    fetchPersonalInfo() {
     },
     enterSettings() {
         app.navigator.push({

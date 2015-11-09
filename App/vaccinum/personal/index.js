@@ -6,11 +6,16 @@ var {
     StyleSheet,
     View,
     Text,
+    TextInput,
     Image,
     TouchableOpacity,
 } = React;
 
+var POST = app.POST;
+
 var Button = require('react-native-simple-button');
+var Main = require('../home/main.js');
+var PersonalInfo = require('../data/PersonalInfo.js');
 
 var InfoItem = React.createClass({
     render() {
@@ -20,14 +25,15 @@ var InfoItem = React.createClass({
                     resizeMode='stretch'
                     source={this.props.icon}
                     style={styles.infoItemIcon} />
-
                 <Text style={styles.infoItemLabel}>
                     {this.props.label}
                 </Text>
-
-                <Text style={styles.infoItemValue}>
-                    {this.props.value}
-                </Text>
+                <TextInput
+                    style={styles.infoItemValue}
+                    onChangeText={this.props.onChangeText}
+                    value={this.props.value}
+                    editable = {this.props.editable}
+                    />
             </View>
         );
     }
@@ -36,18 +42,57 @@ var InfoItem = React.createClass({
 
 module.exports = React.createClass({
     getInitialState() {
+        var info = PersonalInfo.info||{};
         return {
-            username:'方远航',
-            birthday:'2012-10-13',
-            mothername: '裴克娟',
-            phone: '18085192480',
-            infoBinded: true,
+            infoBinded: PersonalInfo.info,
+            username: info.username||'方远航',
+            birthday: info.birthday||'2012-10-13',
+            mothername: info.mothername||'裴克娟',
+            phone: info.phone||'18085192480',
         }
     },
     doShowCameraMenu() {
     },
     doBindInfo() {
-        this.setState({infoBinded:true});
+        var state = this.state;
+        if (!state.username) {
+            app.Messagebox("请输入宝宝名字");
+            return;
+        }
+        if (!state.birthday) {
+            app.Messagebox("请输入出生日期");
+            return;
+        }
+        if (!state.mothername) {
+            app.Messagebox("请输入母亲名字");
+            return;
+        }
+        if (!state.phone) {
+            app.Messagebox("请输入联系电话");
+            return;
+        }
+        var param = {
+            username: state.username,
+            birthday: state.birthday,
+            mothername: state.mothername,
+            phone: state.phone,
+        };
+        POST(app.route.ROUTE_BIND_INFO, param, this.doBindInfoSuccess, this.doBindInfoFailed);
+    },
+    doBindInfoSuccess(data) {
+        console.log(data);
+        if (data.success) {
+            PersonalInfo.set(data.content);
+            // app.navigator.replace({
+            //     title: '主页',
+            //     component: Main
+            // });
+        } else {
+            app.Messagebox("绑定失败");
+        }
+    },
+    doBindInfoFailed(error) {
+        app.Messagebox("绑定失败");
     },
     cancelBind() {
         this.setState({infoBinded:false});
@@ -75,21 +120,29 @@ module.exports = React.createClass({
                         icon={app.img.tabnav_list}
                         label="宝宝名字："
                         value={this.state.username}
+                        onChangeText={username=>{this.setState({username})}}
+                        editable={!this.state.infoBinded}
                         />
                     <InfoItem
                         icon={app.img.tabnav_list}
                         label="出生日期："
                         value={this.state.birthday}
+                        onChangeText={birthday=>{this.setState({birthday})}}
+                        editable={!this.state.infoBinded}
                         />
                     <InfoItem
                         icon={app.img.tabnav_list}
                         label="母亲名字："
                         value={this.state.mothername}
+                        onChangeText={mothername=>{this.setState({mothername})}}
+                        editable={!this.state.infoBinded}
                         />
                     <InfoItem
                         icon={app.img.tabnav_list}
-                        label="练习电话："
+                        label="联系电话："
                         value={this.state.phone}
+                        onChangeText={phone=>{this.setState({phone})}}
+                        editable={!this.state.infoBinded}
                         />
                 </View>
 
@@ -136,6 +189,7 @@ var styles = StyleSheet.create({
     },
     infoItem: {
         flexDirection: 'row',
+        alignItems: 'center',
     },
     infoItemIcon: {
         marginLeft: 50,
@@ -146,6 +200,9 @@ var styles = StyleSheet.create({
     infoItemLabel: {
     },
     infoItemValue: {
+        width:120,
+        height:30,
+        backgroundColor: '#F0F0F0',
     },
     buttonContainer: {
         alignItems: 'center',

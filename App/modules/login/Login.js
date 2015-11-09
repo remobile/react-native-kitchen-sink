@@ -14,30 +14,48 @@ var {
     ScrollView,
     TextInput,
     TouchableOpacity,
-    requireNativeComponent,
+    AsyncStorage,
 } = React;
 
 var sr = app.Screen;
 var RTImage = app.RTImage;
 var POST = app.POST;
 
-var readFile = function (fileName){
-  return new Promise(function (resolve, reject){
-    setTimeout(function(){
-      console.log(fileName);
-      resolve(fileName);
-  }, 1000);
-  });
-};
+var reactNativeStore = require('react-native-store');
+var PersonalInfo = require('../../vaccinum/data/PersonalInfo.js');
 
 module.exports = React.createClass({
     doLogin: function() {
-        (async function (){
-  var f1 = await readFile('/etc/fstab');
-  var f2 = await readFile('/etc/shells');
-  console.log(f1.toString());
-  console.log(f2.toString());
-})();
+        (async function(){
+            await AsyncStorage.removeItem("react-native-store");
+            var list =  await AsyncStorage.getItem("react-native-store");
+            // var list = await AsyncStorage.getAllKeys();
+            console.log(list);
+
+        })();
+
+
+  //       (async function(){
+  // var userModel = await reactNativeStore.model("user");
+  //
+  // // Add Data
+  // var add_data = await userModel.add({
+  //   username: "tom",
+  //   age: 12,
+  //   sex: "man"
+  // });
+  //   console.log("find",find_data);
+  // var find_data = await userModel.find();
+  // console.log("find",find_data);
+  //
+  //
+  // })();
+
+
+
+        // PersonalInfo.set({a:1,b:2}).then(info=>{console.log(info)});
+                // PersonalInfo.get().then(info=>console.log(info));
+
         // this.doLoginSuccess();
         return;
         if (!this.state.phone) {
