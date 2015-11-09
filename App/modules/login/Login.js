@@ -21,9 +21,24 @@ var sr = app.Screen;
 var RTImage = app.RTImage;
 var POST = app.POST;
 
+var readFile = function (fileName){
+  return new Promise(function (resolve, reject){
+    setTimeout(function(){
+      console.log(fileName);
+      resolve(fileName);
+  }, 1000);
+  });
+};
+
 module.exports = React.createClass({
     doLogin: function() {
-        this.doLoginSuccess();
+        (async function (){
+  var f1 = await readFile('/etc/fstab');
+  var f2 = await readFile('/etc/shells');
+  console.log(f1.toString());
+  console.log(f2.toString());
+})();
+        // this.doLoginSuccess();
         return;
         if (!this.state.phone) {
             app.Messagebox('手机号码不能为空');

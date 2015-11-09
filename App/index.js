@@ -161,6 +161,11 @@ var NavigationBarRouteMapper = {
 
 module.exports = React.createClass({
     mixins: [ProgressHUD.Mixin],
+    getInitialState() {
+        return {
+            navigationBar: true
+        };
+    },
     componentDidMount: function() {
         app.root = this;
         app.showProgressHUD = this.showProgressHUD;
@@ -182,25 +187,37 @@ module.exports = React.createClass({
         }
     },
     configureScene : function(route){
+        this.setState({navigationBar:!!route.title});
         return app.configureScene(route);
     },
     renderScene: function(route, navigator) {
-        return (
-            <View style={{flex: 1}}>
-                <View style={{height:Navigator.NavigationBar.Styles.General.TotalNavHeight}} />
+        if (route.title) {
+            return (
+                <View style={{flex: 1}}>
+                    <View style={{height:Navigator.NavigationBar.Styles.General.TotalNavHeight}} />
+                    <route.component {...route.passProps}/>
+                </View>
+            );
+        } else {
+            return (
                 <route.component {...route.passProps}/>
-            </View>
-        );
+            );
+        }
     },
     render: function() {
         var initialRoute = {
             // title: '登录',
             // component: Login,
-            title: '主页',
+            // title: '主页',
             component: Home,
             passProps: {},
-            leftButton: false,
         };
+        var navigationBar = (
+            <Navigator.NavigationBar
+                routeMapper={NavigationBarRouteMapper}
+                style={styles.navBar}
+                />
+        );
         return (
             <View style={{flex:1}}>
                 <Navigator
@@ -212,12 +229,7 @@ module.exports = React.createClass({
                     initialRoute={initialRoute}
                     configureScene={this.configureScene}
                     renderScene={this.renderScene}
-                    navigationBar={
-                        <Navigator.NavigationBar
-                            routeMapper={NavigationBarRouteMapper}
-                            style={styles.navBar}
-                            />
-                    }
+                    navigationBar={this.state.navigationBar ? navigationBar : null}
                     />
                 <ProgressHUD
                     isVisible={this.state.is_hud_visible}
