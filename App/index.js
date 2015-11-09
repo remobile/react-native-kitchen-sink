@@ -194,10 +194,10 @@ module.exports = React.createClass({
     },
     render: function() {
         var initialRoute = {
-            title: '登录',
-            component: Login,
-            // title: '主页',
-            // component: Home,
+            // title: '登录',
+            // component: Login,
+            title: '主页',
+            component: Home,
             passProps: {},
             leftButton: false,
         };

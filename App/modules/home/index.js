@@ -114,7 +114,6 @@ module.exports = React.createClass({
                 navigationBar={
                     <HomeTabBar
                         initTabIndex={INIT_ROUTE_INDEX}
-                        routeStack={ROUTE_STACK}
                         onTabIndex={(index) => {
                             this._navigator.jumpTo(ROUTE_STACK[index]);
                         }}
@@ -132,13 +131,6 @@ var styles = StyleSheet.create({
     },
     tabs: {
         height: 50,
-    },
-    emptyPage: {
-        flex: 1,
-        paddingTop: 64,
-    },
-    emptyPageText: {
-        margin: 10,
     },
     icon: {
         width:25,

@@ -8,6 +8,8 @@ var {
     Text,
     Image,
     ListView,
+    Navigator,
+    TouchableOpacity
 } = React;
 
 var SegmentedView = require('react-native-segmented-view');
@@ -62,36 +64,77 @@ var FeeVaccinum =  React.createClass({
     }
 });
 
-module.exports = React.createClass({
-    getInitialState () {
+var ROUTE_STACK = [
+    {tabIndex: 0, component: VaccinumSchedule},
+    {tabIndex: 1, component: FreeVaccinum},
+    {tabIndex: 2, component: FeeVaccinum},
+];
+var INIT_ROUTE_INDEX = 0;
+
+var TabNavigator = require('react-native-tab-navigator');
+
+
+var HomeTabBar = React.createClass({
+    getInitialState: function() {
         return {
-            index:0
+            tabIndex: this.props.initTabIndex
         };
     },
-    render() {
-        var page = [
-            <VaccinumSchedule />
-            ,
-            <FreeVaccinum />
-            ,
-            <FeeVaccinum/>
-        ][this.state.index];
-
+    handleWillFocus: function(route) {
+        var tabIndex = route.tabIndex;
+        this.setState({ tabIndex, });
+    },
+    render: function() {
         return (
-            <View style={styles.container}>
-                <SegmentedView
-                    titles={["疫苗时间表", "计划内疫苗", "计划外疫苗"]}
-                    index={this.state.index}
-                    stretch={true}
-                    style={{flex:0}}
-                    onPress={index => this.setState({index})}
-                    selectedTitleStyle={{color:'blue'}}
-                    titleStyle={{fontSize:16, fontWeight:'800'}}
-                    />
-                <View style={styles.pageContainer}>
-                    {page}
-                </View>
+            <SegmentedView
+                titles={["疫苗时间表", "计划内疫苗", "计划外疫苗"]}
+                index={this.state.tabIndex}
+                stretch={true}
+                style={styles.tabs}
+                onPress={
+                    tabIndex => { this.props.onTabIndex(tabIndex);
+                        this.setState({tabIndex});}
+                    }
+                selectedTitleStyle={{color:'blue'}}
+                titleStyle={{fontSize:16, fontWeight:'800'}}
+                />
+        );
+    },
+});
+
+
+module.exports = React.createClass({
+    renderScene: function(route, navigator) {
+        return (
+            <View style={{flex: 1}}>
+                <View style={{height:41}} />
+                <route.component/>
             </View>
+        );
+    },
+    render() {
+        return (
+            <Navigator
+                debugOverlay={false}
+                style={styles.container}
+                ref={(navigator) => {
+                    this._navigator = navigator;
+                }}
+                initialRoute={ROUTE_STACK[INIT_ROUTE_INDEX]}
+                initialRouteStack={ROUTE_STACK}
+                renderScene={this.renderScene}
+                configureScene={(route) => ({
+                    ...app.configureScene(route),
+                })}
+                navigationBar={
+                    <HomeTabBar
+                        initTabIndex={INIT_ROUTE_INDEX}
+                        onTabIndex={(index) => {
+                            this._navigator.jumpTo(ROUTE_STACK[index]);
+                        }}
+                        />
+                }
+                />
         );
     }
 });
@@ -99,9 +142,16 @@ module.exports = React.createClass({
 var sr = app.Screen;
 var styles = StyleSheet.create({
     container: {
+        overflow: 'hidden',
         flex: 1,
     },
     pageContainer: {
         flex: 1,
+    },
+    tabs: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
     },
 });
