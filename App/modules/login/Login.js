@@ -23,8 +23,11 @@ var POST = app.POST;
 
 module.exports = React.createClass({
     doLogin: function() {
-        this.doLoginSuccess();
+        var param = {phone:"this.state.phone", password:"this.state.password"};
+        POST(app.route.ROUTE_LOGIN, param, this.doLoginSuccess, this.doLoginFailed);
         return;
+        // this.doLoginSuccess();
+        // return;
         if (!this.state.phone) {
             app.Messagebox('手机号码不能为空');
         }
@@ -37,12 +40,13 @@ module.exports = React.createClass({
 
     },
     doLoginSuccess: function(data) {
-        app.navigator.replace({
-            title: '主页',
-            component: Home,
-            passProps: {},
-            fromBottom: true,
-        });
+        console.log(data);
+        // app.navigator.replace({
+        //     title: '主页',
+        //     component: Home,
+        //     passProps: {},
+        //     fromBottom: true,
+        // });
     },
     doLoginFailed: function(error) {
         console.log(error);

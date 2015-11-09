@@ -14,6 +14,8 @@ var {
     cssVar
 } = React;
 
+var ProgressHUD = require('react-native-progress-hud');
+
 var POST = require('./utils/net/Post.js');
 var Route = require('./config/Route.js');
 var Screen = require('./config/Screen.js');
@@ -107,7 +109,9 @@ var NavigationBarRouteMapper = {
                     resizeMode='contain'
                     source={app.img.back_arrow}
                     style={styles.leftNavBarIcon} />
-                <Text numberOfLines={1} style={[styles.navBarText, styles.navBarButtonText, {left:-10}]}>
+                <Text
+                    numberOfLines={1}
+                    style={[styles.navBarText, styles.navBarButtonText, {left:-10}]}>
                     {title}
                 </Text>
             </TouchableOpacity>
@@ -146,7 +150,9 @@ var NavigationBarRouteMapper = {
     },
     Title: function(route, navigator, index, navState) {
         return (
-            <Text numberOfLines={1} style={[styles.navBarText, styles.navBarTitleText, {textAlign: (app.isandroid ? 'left' : 'center')}]}>
+            <Text
+                numberOfLines={1}
+                style={[styles.navBarText, styles.navBarTitleText, {textAlign: (app.isandroid ? 'left' : 'center')}]}>
                 {route.title}
             </Text>
         );
@@ -154,8 +160,11 @@ var NavigationBarRouteMapper = {
 };
 
 module.exports = React.createClass({
+    mixins: [ProgressHUD.Mixin],
     componentDidMount: function() {
         app.root = this;
+        app.showProgressHUD = this.showProgressHUD;
+        app.dismissProgressHUD = this.dismissProgressHUD;
         if (app.isandroid) {
             BackAndroid.addEventListener('hardwareBackPress', function() {
                 if (app.navigator.getCurrentRoutes().length > 1) {
@@ -185,30 +194,37 @@ module.exports = React.createClass({
     },
     render: function() {
         var initialRoute = {
-            // title: '登录',
-            // component: Login,
-            title: '主页',
-            component: Home,
+            title: '登录',
+            component: Login,
+            // title: '主页',
+            // component: Home,
             passProps: {},
             leftButton: false,
         };
         return (
-            <Navigator
-                ref={(navigator) => {
-                    app.navigator = navigator;
-                }}
-                debugOverlay={false}
-                style={styles.container}
-                initialRoute={initialRoute}
-                configureScene={this.configureScene}
-                renderScene={this.renderScene}
-                navigationBar={
-                    <Navigator.NavigationBar
-                        routeMapper={NavigationBarRouteMapper}
-                        style={styles.navBar}
-                        />
-                }
-                />
+            <View style={{flex:1}}>
+                <Navigator
+                    ref={(navigator) => {
+                        app.navigator = navigator;
+                    }}
+                    debugOverlay={false}
+                    style={styles.container}
+                    initialRoute={initialRoute}
+                    configureScene={this.configureScene}
+                    renderScene={this.renderScene}
+                    navigationBar={
+                        <Navigator.NavigationBar
+                            routeMapper={NavigationBarRouteMapper}
+                            style={styles.navBar}
+                            />
+                    }
+                    />
+                <ProgressHUD
+                    isVisible={this.state.is_hud_visible}
+                    isDismissible={false}
+                    overlayColor="rgba(0, 0, 0, 0.11)"
+                    />
+            </View>
         );
     },
 
