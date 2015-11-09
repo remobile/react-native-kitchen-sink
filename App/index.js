@@ -60,9 +60,6 @@ var Login = require('./modules/login/Login.js');
 var Home = require('./vaccinum/home/index.js');
 // var Home = require('./modules/home/index.js');
 
-console.log(Navigator.NavigationBar.StylesAndroid);
-console.log(Navigator.NavigationBar.StylesIOS);
-
 String.prototype.getCodeLength = function() {
     var realLength = 0, len = this.length, charCode = -1;
     for (var i = 0; i < len; i++) {
@@ -149,7 +146,7 @@ var NavigationBarRouteMapper = {
     },
     Title: function(route, navigator, index, navState) {
         return (
-            <Text numberOfLines={1} style={[styles.navBarText, styles.navBarTitleText]}>
+            <Text numberOfLines={1} style={[styles.navBarText, styles.navBarTitleText, {textAlign: (app.isandroid ? 'left' : 'center')}]}>
                 {route.title}
             </Text>
         );
@@ -236,7 +233,6 @@ var styles = StyleSheet.create({
         fontWeight: '500',
         marginVertical: 9,
         width: sr.mw,
-        textAlign: 'center',
     },
     navBarLeftButton: {
         flexDirection: 'row',
