@@ -24,7 +24,6 @@ var Dimensions = require('Dimensions');
 var cssVar = require('cssVar');
 var img = require('./resource/image.js');
 
-
 global.app = {
     POST: POST,
     route: Route,
@@ -58,9 +57,11 @@ app.configureScene = function(route) {
 };
 
 var Login = require('./modules/login/Login.js');
-var Home = require('./vaccinum/home/index.js');
-// var Home = require('./modules/home/index.js');
+// var Home = require('./vaccinum/home/index.js');
+var Home = require('./modules/home/index.js');
 
+console.log(Navigator.NavigationBar.StylesAndroid);
+console.log(Navigator.NavigationBar.StylesIOS);
 
 String.prototype.getCodeLength = function() {
     var realLength = 0, len = this.length, charCode = -1;
@@ -73,21 +74,34 @@ String.prototype.getCodeLength = function() {
 };
 
 var NavigationBarRouteMapper = {
+    getVisibleTitle: function(title) {
+        var realLength = 0, len = title.length, preLen = -1, charCode = -1, needCut = false;
+        for (var i=0; i<len; i++) {
+            charCode = title.charCodeAt(i);
+            if (charCode >= 0 && charCode <= 128) {
+                realLength += 1;
+            } else {
+                realLength += 2;
+            }
+            if (preLen===-1 && realLength >= 4) {
+                preLen = i+1;
+            } else if (realLength > 6) {
+                needCut = true;
+                break;
+            }
+        }
+        console.log(preLen);
+        if (needCut) {
+            title = title.substr(0, preLen)+'..';
+        }
+        return title;
+    },
     LeftButton: function(route, navigator, index, navState) {
         if (index === 0) {
             return null;
         }
         var previousRoute = navState.routeStack[index - 1];
-        var title = previousRoute.title;
-        var len = 4;
-        while (title.getCodeLength()>4) {
-            title = title.substr(0, len);
-            console.log(title);
-            len--;
-        }
-        if (len !== 4) {
-            title += '..';
-        }
+        var title = this.getVisibleTitle(previousRoute.title);
         return (
             <TouchableOpacity
                 onPress={() => navigator.pop()}
@@ -96,7 +110,7 @@ var NavigationBarRouteMapper = {
                     resizeMode='contain'
                     source={app.img.back_arrow}
                     style={styles.leftNavBarIcon} />
-                <Text style={[styles.navBarText, styles.navBarButtonText, {left:-10}]}>
+                <Text numberOfLines={1} style={[styles.navBarText, styles.navBarButtonText, {left:-10}]}>
                     {title}
                 </Text>
             </TouchableOpacity>
@@ -135,7 +149,7 @@ var NavigationBarRouteMapper = {
     },
     Title: function(route, navigator, index, navState) {
         return (
-            <Text style={[styles.navBarText, styles.navBarTitleText]}>
+            <Text numberOfLines={1} style={[styles.navBarText, styles.navBarTitleText]}>
                 {route.title}
             </Text>
         );
@@ -167,17 +181,17 @@ module.exports = React.createClass({
     renderScene: function(route, navigator) {
         return (
             <View style={{flex: 1}}>
-                <View style={{height:64}} />
+                <View style={{height:Navigator.NavigationBar.Styles.General.TotalNavHeight}} />
                 <route.component {...route.passProps}/>
             </View>
         );
     },
     render: function() {
         var initialRoute = {
-            // title: '登录',
-            // component: Login,
-            title: '主页',
-            component: Home,
+            title: '登录',
+            component: Login,
+            // title: '主页',
+            // component: Home,
             passProps: {},
             leftButton: false,
         };
@@ -203,6 +217,7 @@ module.exports = React.createClass({
 
 });
 
+var sr = Screen;
 var styles = StyleSheet.create({
     container: {
         flex:1,
@@ -220,6 +235,8 @@ var styles = StyleSheet.create({
         color: cssVar('fbui-bluegray-60'),
         fontWeight: '500',
         marginVertical: 9,
+        width: sr.mw,
+        textAlign: 'center',
     },
     navBarLeftButton: {
         flexDirection: 'row',
