@@ -59,7 +59,7 @@ app.configureScene = function(route) {
 };
 
 var Login = require('./modules/login/Login.js');
-var Home = require('./vaccinum/home/index.js');
+var Home = require('./vaccinum/home/views/index.js');
 // var Home = require('./modules/home/index.js');
 
 String.prototype.getCodeLength = function() {
@@ -222,7 +222,7 @@ module.exports = React.createClass({
                 <ProgressHUD
                     isVisible={this.state.is_hud_visible}
                     isDismissible={false}
-                    overlayColor="rgba(0, 0, 0, 0.11)"
+                    overlayColor="rgba(0, 0, 0, 0.6)"
                     />
             </View>
         );

@@ -10,10 +10,10 @@ var {
     TouchableOpacity,
 } = React;
 
-var Personal = require('../personal/index.js');
-var Settings = require('../settings/index.js');
-var VaccinumSearch = require('../vaccinumSearch/index.js');
-var VaccinumBaike = require('../vaccinumBaike/index.js');
+var Personal = require('../../personal/views/index.js');
+var Settings = require('../../settings/views/index.js');
+var VaccinumSearch = require('../../vaccinumSearch/views/index.js');
+var VaccinumBaike = require('../../vaccinumBaike/views/index.js');
 
 var CCTouchable =  React.createClass({
     render() {

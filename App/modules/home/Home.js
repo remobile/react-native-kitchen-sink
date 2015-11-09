@@ -13,7 +13,7 @@ var {
 } = React;
 
 
-var Vaccinum = require('../../vaccinum/home/index.js');
+var Vaccinum = require('../../vaccinum/home/views/index.js');
 var MaterialKit = require('../react-native-material-kit');
 var ProgressHud = require('../react-native-progress-hud');
 var Progress = require('../react-native-progress');
