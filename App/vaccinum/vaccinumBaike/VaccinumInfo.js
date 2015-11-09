@@ -8,6 +8,7 @@ var {
     Text,
     Image,
     TouchableOpacity,
+    ScrollView,
 } = React;
 
 var InfoItem = React.createClass({
@@ -46,7 +47,7 @@ module.exports = React.createClass({
     },
     render() {
         return (
-            <View style={styles.container}>
+            <ScrollView style={styles.container}>
                 <InfoItem
                     icon={app.img.companyLogo}
                     label="预防疾病："
@@ -77,7 +78,7 @@ module.exports = React.createClass({
                     label="接种反应："
                     value={this.state.feed}
                     />
-            </View>
+            </ScrollView>
         );
     }
 });

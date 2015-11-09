@@ -30,7 +30,6 @@ var styles = StyleSheet.create({
         flex: 1
     },
     image: {
-        width:sr.w,
-        backgroundColor:'red',
+        width:sr.w
     },
 });
