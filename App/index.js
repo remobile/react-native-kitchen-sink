@@ -61,7 +61,7 @@ app.configureScene = function(route) {
 
 var Login = require('./modules/login/Login.js');
 var Home1 = require('./vaccinum/home/index.js');
-var Home = require('./modules/home/index.js');
+var Home = require('./modules/store/index.js');
 
 String.prototype.getCodeLength = function() {
     var realLength = 0, len = this.length, charCode = -1;
@@ -209,7 +209,7 @@ module.exports = React.createClass({
             // title: '登录',
             // component: Login,
             title: '主页',
-            component: Home1,
+            component: Home,
             passProps: {},
         };
         var navigationBar = (
