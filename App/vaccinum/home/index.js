@@ -27,6 +27,9 @@ module.exports = React.createClass({
         });
     },
     componentDidMount() {
+        app.module = app.module || {};
+        app.module.Personal = Personal;
+        app.module.Main = Main;
         PersonalInfo.get().then(info => {
             this.setTimeout(() =>{
                 if (!info) {
@@ -41,7 +44,7 @@ module.exports = React.createClass({
                         component: Main
                     });
                 }
-            }, 200);
+            }, 1000);
         });
     },
     render() {

@@ -26,6 +26,7 @@ var Dimensions = require('Dimensions');
 var cssVar = require('cssVar');
 var img = require('./resource/image.js');
 
+
 global.app = {
     POST: POST,
     route: Route,
@@ -59,8 +60,8 @@ app.configureScene = function(route) {
 };
 
 var Login = require('./modules/login/Login.js');
-var Home = require('./vaccinum/home/index.js');
-// var Home = require('./modules/home/index.js');
+var Home1 = require('./vaccinum/home/index.js');
+var Home = require('./modules/home/index.js');
 
 String.prototype.getCodeLength = function() {
     var realLength = 0, len = this.length, charCode = -1;
@@ -89,7 +90,6 @@ var NavigationBarRouteMapper = {
                 break;
             }
         }
-        console.log(preLen);
         if (needCut) {
             title = title.substr(0, preLen)+'..';
         }
@@ -100,7 +100,7 @@ var NavigationBarRouteMapper = {
             return null;
         }
         var previousRoute = navState.routeStack[index - 1];
-        var title = this.getVisibleTitle(previousRoute.title);
+        var title = this.getVisibleTitle(previousRoute.title||'');
         return (
             <TouchableOpacity
                 onPress={() => navigator.pop()}
@@ -207,9 +207,9 @@ module.exports = React.createClass({
     render: function() {
         var initialRoute = {
             // title: '登录',
-            component: Login,
-            // title: '主页',
-            // component: Home,
+            // component: Login,
+            title: '主页',
+            component: Home1,
             passProps: {},
         };
         var navigationBar = (

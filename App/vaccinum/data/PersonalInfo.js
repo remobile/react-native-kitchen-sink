@@ -15,16 +15,18 @@ module.exports = {
     async set(info) {
         var model = await Store.model(DB_NAME);
         info.active = true;
-        var req = await model.get({
+        this.info = info;
+        var obj = {
             username: info.username,
             birthday: info.birthday,
             mothername: info.mothername,
-            phone: info.phone}
-        );
+            phone: info.phone
+        };
+        var req = await model.get(obj);
         if (!req.length) {
             await model.add(info);
         } else {
-            await model.update(info, req);
+            await model.update(info, req[0]);
         }
         return new Promise(function (resolve, reject){
             resolve();

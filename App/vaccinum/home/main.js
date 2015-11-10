@@ -10,7 +10,7 @@ var {
     TouchableOpacity,
 } = React;
 
-var Personal = require('../personal/index.js');
+var PersonalInfo = require('../data/PersonalInfo.js');
 var Settings = require('../settings/index.js');
 var VaccinumSearch = require('../vaccinumSearch/index.js');
 var VaccinumBaike = require('../vaccinumBaike/index.js');
@@ -31,12 +31,12 @@ var CCTouchable =  React.createClass({
 
 module.exports = React.createClass({
     getInitialState() {
+        var info = PersonalInfo.info||{};
         return {
-            loaded: false,
-            username:'方远航',
-            birthday:'3岁1个月15天',
-            nextVaccinumTime:'2017-01-09',
-            nextVaccinumName:'百白破'
+            username: info.username,
+            birthday: info.birthday,
+            nextVaccinumTime: info.nextVaccinumTime,
+            nextVaccinumName: info.nextVaccinumName
         };
     },
     enterSettings() {
@@ -48,7 +48,7 @@ module.exports = React.createClass({
     enterPersonal(){
         app.navigator.push({
             title: '个人中心',
-            component: Personal,
+            component: app.module.Personal,
             rightButton: {  image: app.img.tabnav_list, handler: this.enterSettings},
         });
     },

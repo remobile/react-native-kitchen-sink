@@ -14,7 +14,6 @@ var {
 var POST = app.POST;
 
 var Button = require('react-native-simple-button');
-var Main = require('../home/main.js');
 var PersonalInfo = require('../data/PersonalInfo.js');
 
 var InfoItem = React.createClass({
@@ -80,13 +79,13 @@ module.exports = React.createClass({
         POST(app.route.ROUTE_BIND_INFO, param, this.doBindInfoSuccess, this.doBindInfoFailed);
     },
     doBindInfoSuccess(data) {
-        console.log(data);
         if (data.success) {
-            PersonalInfo.set(data.content);
-            // app.navigator.replace({
-            //     title: '主页',
-            //     component: Main
-            // });
+            PersonalInfo.set(data.content).then(()=>{
+                app.navigator.replacePreviousAndPop({
+                    title: '主页',
+                    component: app.module.Main
+                });
+            });
         } else {
             app.Messagebox("绑定失败");
         }

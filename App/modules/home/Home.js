@@ -14,6 +14,7 @@ var {
 
 
 var Vaccinum = require('../../vaccinum/home/index.js');
+var Store = require('../store/index.js');
 var MaterialKit = require('../react-native-material-kit');
 var ProgressHud = require('../react-native-progress-hud');
 var Progress = require('../react-native-progress');
@@ -28,6 +29,7 @@ var Tabbar = require('../react-native-tabbar');
 
 var modules = [
     {title:'疾控中心', image: app.img.tabnav_list, module:Vaccinum},
+    {title:'存储', image: app.img.tabnav_list, module:Store},
     {title:'react-native-tabbar', image: app.img.tabnav_list, module:Tabbar},
     {title:'react-native-material-kit', image: app.img.tabnav_list, module:MaterialKit},
     {title:'eact-native-progress-hud', image: app.img.tabnav_list, module:ProgressHud},
