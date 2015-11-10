@@ -11,8 +11,8 @@ var {
 var Button = require('react-native-simple-button');
 var Mongoose = require('react-native-mongoose');
 
-const DB_NAME = "fang";
-const CLT_NAME = "number";
+const DB_NAME = "personalInfo";
+const CLT_NAME = "personalInfo";
 module.exports = React.createClass({
     componentDidMount() {
         this.db = new Mongoose(DB_NAME);

@@ -1,35 +1,38 @@
 'use strict';
-var Store = require('react-native-store');
+var Mongoose = require('react-native-mongoose');
 
 var DB_NAME = "personalInfo";
+const CLT_NAME = "personalInfo";
 
-module.exports = {
+
+class personalInfo {
+    constructor() {
+        this.db = new Mongoose(DB_NAME);
+        this.collection = this.db.collection(CLT_NAME, {max:30});
+    }
     async get() {
-        var model = await Store.model(DB_NAME);
-        var info = await model.find({active: true});
-        this.info = info[0];
+        var collection = this.collection;
+        var info = await collection.findOne({active: true});
+        this.info = info;
         return new Promise(function (resolve, reject){
-            resolve(info[0]);
+            resolve(info);
         });
-    },
+    }
     async set(info) {
-        var model = await Store.model(DB_NAME);
+        var collection = this.collection;
         info.active = true;
         this.info = info;
-        var obj = {
+        var query = {
             username: info.username,
             birthday: info.birthday,
             mothername: info.mothername,
             phone: info.phone
         };
-        var req = await model.get(obj);
-        if (!req.length) {
-            await model.add(info);
-        } else {
-            await model.update(info, req[0]);
-        }
+        await collection.upsert(info, {active: true});
         return new Promise(function (resolve, reject){
             resolve();
         });
     }
-};
+}
+
+module.exports = new personalInfo();
