@@ -2,47 +2,46 @@
 
 var React = require('react-native');
 var {
-    AppRegistry,
     StyleSheet,
-    Text,
+    TouchableOpacity,
     View,
-    TouchableHighlight,
-    DatePickerIOS,
 } = React;
 
-var CustomActionSheet = require('react-native-custom-action-sheet');
+var ActionSheet = require('react-native-action-sheet');
+var Button = require('react-native-simple-button');
 
 module.exports = React.createClass({
-    getInitialState () {
+    getInitialState() {
         return {
-            modalVisible:true
+            show: false
         };
     },
-    toggleModal() {
-
+    onCancel() {
+        this.setState({show:false});
+    },
+    onOpen() {
+                console.log("=============");
+        this.setState({show:true});
     },
     render() {
         return (
             <View style={styles.container}>
-
-                      <CustomActionSheet modalVisible={this.state.modalVisible} onCancel={this.toggleModal}>
-                        <View style={styles.datePickerContainer}>
-                        </View>
-                      </CustomActionSheet>
+                <Button onPress={this.onOpen}>Photo</Button>
+                <ActionSheet
+                    modalVisible={this.state.show}
+                    onCancel={this.onCancel} >
+                    <ActionSheet.Button>Capture</ActionSheet.Button>
+                    <ActionSheet.Button>Photo</ActionSheet.Button>
+                    <ActionSheet.Button>Camera</ActionSheet.Button>
+                </ActionSheet>
             </View>
         );
-    }
+    },
 });
 
 var styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        justifyContent: 'center'
     },
-    datePickerContainer: {
-
-    },
-
 });
