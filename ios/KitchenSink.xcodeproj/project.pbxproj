@@ -26,6 +26,12 @@
 		32A87DCD1BF334C50048D713 /* UIImagePickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A87DCC1BF334C50048D713 /* UIImagePickerManager.m */; };
 		32A87E141BF4298D0048D713 /* libRCTDes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A87E131BF4296F0048D713 /* libRCTDes.a */; };
 		32A87E1B1BF42A240048D713 /* libRCTMarqueeLabel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A87E1A1BF42A150048D713 /* libRCTMarqueeLabel.a */; };
+		32A87E5C1BF436580048D713 /* libRCTImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A87E5B1BF436330048D713 /* libRCTImagePicker.a */; };
+		32A87E771BF444640048D713 /* ELCAlbumPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A87E721BF444640048D713 /* ELCAlbumPickerController.xib */; };
+		32A87E781BF444640048D713 /* ELCAssetPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A87E731BF444640048D713 /* ELCAssetPicker.xib */; };
+		32A87E791BF444640048D713 /* ELCAssetTablePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A87E741BF444640048D713 /* ELCAssetTablePicker.xib */; };
+		32A87E7A1BF444640048D713 /* Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A87E751BF444640048D713 /* Overlay.png */; };
+		32A87E7B1BF444640048D713 /* Overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A87E761BF444640048D713 /* Overlay@2x.png */; };
 		32FAC39A1BEC7C61006C9224 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32FAC3991BEC7C61006C9224 /* Images.xcassets */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		D8E6BB6F3327C548A2222A37 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F776CB994C700E43FCD644 /* libPods.a */; };
@@ -123,6 +129,13 @@
 			remoteGlobalIDString = 3287E9201BE9CC0E0064C14F;
 			remoteInfo = RCTMarqueeLabel;
 		};
+		32A87E5A1BF436330048D713 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32A87E561BF436330048D713 /* RCTImagePicker.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 32A87DD71BF427700048D713;
+			remoteInfo = RCTImagePicker;
+		};
 		78C398B81ACF4ADC00677621 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */;
@@ -161,6 +174,12 @@
 		32A87DCC1BF334C50048D713 /* UIImagePickerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImagePickerManager.m; sourceTree = "<group>"; };
 		32A87E0E1BF4296F0048D713 /* RCTDes.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTDes.xcodeproj; path = "../App/node_modules/react-native-des/ios/RCTDes.xcodeproj"; sourceTree = "<group>"; };
 		32A87E151BF42A150048D713 /* RCTMarqueeLabel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTMarqueeLabel.xcodeproj; path = "../App/node_modules/react-native-marquee-label/ios/RCTMarqueeLabel.xcodeproj"; sourceTree = "<group>"; };
+		32A87E561BF436330048D713 /* RCTImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImagePicker.xcodeproj; path = "../App/node_modules/react-native-image-picker/ios/RCTImagePicker.xcodeproj"; sourceTree = "<group>"; };
+		32A87E721BF444640048D713 /* ELCAlbumPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ELCAlbumPickerController.xib; path = "../../../App/node_modules/react-native-image-picker/ios/RCTImagePicker/Resources/ELCAlbumPickerController.xib"; sourceTree = "<group>"; };
+		32A87E731BF444640048D713 /* ELCAssetPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ELCAssetPicker.xib; path = "../../../App/node_modules/react-native-image-picker/ios/RCTImagePicker/Resources/ELCAssetPicker.xib"; sourceTree = "<group>"; };
+		32A87E741BF444640048D713 /* ELCAssetTablePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ELCAssetTablePicker.xib; path = "../../../App/node_modules/react-native-image-picker/ios/RCTImagePicker/Resources/ELCAssetTablePicker.xib"; sourceTree = "<group>"; };
+		32A87E751BF444640048D713 /* Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Overlay.png; path = "../../../App/node_modules/react-native-image-picker/ios/RCTImagePicker/Resources/Overlay.png"; sourceTree = "<group>"; };
+		32A87E761BF444640048D713 /* Overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Overlay@2x.png"; path = "../../../App/node_modules/react-native-image-picker/ios/RCTImagePicker/Resources/Overlay@2x.png"; sourceTree = "<group>"; };
 		32FAC3991BEC7C61006C9224 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4220AFC27E7E156B52A8508F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "KitchenSink/pod/Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5E2E704271DDA30057F083FE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "KitchenSink/pod/Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -188,6 +207,7 @@
 				3287E8CE1BE855550064C14F /* libART.a in Frameworks */,
 				32A87DC71BF30D9C0048D713 /* libRCTCamera.a in Frameworks */,
 				32A87E1B1BF42A240048D713 /* libRCTMarqueeLabel.a in Frameworks */,
+				32A87E5C1BF436580048D713 /* libRCTImagePicker.a in Frameworks */,
 				32A87E141BF4298D0048D713 /* libRCTDes.a in Frameworks */,
 				D8E6BB6F3327C548A2222A37 /* libPods.a in Frameworks */,
 			);
@@ -285,8 +305,6 @@
 		321D19D31BE7584F008509D1 /* VendorLibraries */ = {
 			isa = PBXGroup;
 			children = (
-				32A87E151BF42A150048D713 /* RCTMarqueeLabel.xcodeproj */,
-				32A87E0E1BF4296F0048D713 /* RCTDes.xcodeproj */,
 				32A87DB31BF30D6A0048D713 /* RCTCamera.xcodeproj */,
 				321D19D41BE75886008509D1 /* RCTMaterialKit.xcodeproj */,
 			);
@@ -343,9 +361,32 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		32A87E461BF435F50048D713 /* remobileLibaries */ = {
+			isa = PBXGroup;
+			children = (
+				32A87E151BF42A150048D713 /* RCTMarqueeLabel.xcodeproj */,
+				32A87E0E1BF4296F0048D713 /* RCTDes.xcodeproj */,
+				32A87E561BF436330048D713 /* RCTImagePicker.xcodeproj */,
+			);
+			name = remobileLibaries;
+			sourceTree = "<group>";
+		};
+		32A87E571BF436330048D713 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32A87E5B1BF436330048D713 /* libRCTImagePicker.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		32FAC3981BEC7C61006C9224 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				32A87E721BF444640048D713 /* ELCAlbumPickerController.xib */,
+				32A87E731BF444640048D713 /* ELCAssetPicker.xib */,
+				32A87E741BF444640048D713 /* ELCAssetTablePicker.xib */,
+				32A87E751BF444640048D713 /* Overlay.png */,
+				32A87E761BF444640048D713 /* Overlay@2x.png */,
 				32FAC3991BEC7C61006C9224 /* Images.xcassets */,
 			);
 			name = resource;
@@ -399,6 +440,7 @@
 			children = (
 				13B07FAE1A68108700A75B9A /* KitchenSink */,
 				32FAC3981BEC7C61006C9224 /* resource */,
+				32A87E461BF435F50048D713 /* remobileLibaries */,
 				321D19D31BE7584F008509D1 /* VendorLibraries */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
@@ -492,6 +534,10 @@
 				{
 					ProductGroup = 00C302BC1ABCB91800DB3ED1 /* Products */;
 					ProjectRef = 00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */;
+				},
+				{
+					ProductGroup = 32A87E571BF436330048D713 /* Products */;
+					ProjectRef = 32A87E561BF436330048D713 /* RCTImagePicker.xcodeproj */;
 				},
 				{
 					ProductGroup = 78C398B11ACF4ADC00677621 /* Products */;
@@ -629,6 +675,13 @@
 			remoteRef = 32A87E191BF42A150048D713 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		32A87E5B1BF436330048D713 /* libRCTImagePicker.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTImagePicker.a;
+			remoteRef = 32A87E5A1BF436330048D713 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		78C398B91ACF4ADC00677621 /* libRCTLinking.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -650,9 +703,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32A87E791BF444640048D713 /* ELCAssetTablePicker.xib in Resources */,
+				32A87E771BF444640048D713 /* ELCAlbumPickerController.xib in Resources */,
+				32A87E7A1BF444640048D713 /* Overlay.png in Resources */,
 				32FAC39A1BEC7C61006C9224 /* Images.xcassets in Resources */,
 				321D19CD1BE75440008509D1 /* LaunchScreen.xib in Resources */,
+				32A87E7B1BF444640048D713 /* Overlay@2x.png in Resources */,
 				321D19CC1BE75440008509D1 /* Info.plist in Resources */,
+				32A87E781BF444640048D713 /* ELCAssetPicker.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
