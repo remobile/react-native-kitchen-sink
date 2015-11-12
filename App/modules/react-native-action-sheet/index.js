@@ -20,7 +20,6 @@ module.exports = React.createClass({
         this.setState({show:false});
     },
     onOpen() {
-                console.log("=============");
         this.setState({show:true});
     },
     render() {
@@ -28,7 +27,7 @@ module.exports = React.createClass({
             <View style={styles.container}>
                 <Button onPress={this.onOpen}>Photo</Button>
                 <ActionSheet
-                    modalVisible={this.state.show}
+                    visible={this.state.show}
                     onCancel={this.onCancel} >
                     <ActionSheet.Button>Capture</ActionSheet.Button>
                     <ActionSheet.Button>Photo</ActionSheet.Button>

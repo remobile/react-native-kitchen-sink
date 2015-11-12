@@ -14,6 +14,7 @@ var {
 var POST = app.POST;
 
 var Button = require('react-native-simple-button');
+var ActionSheet = require('react-native-action-sheet');
 var PersonalInfo = require('../data/PersonalInfo.js');
 
 var InfoItem = React.createClass({
@@ -48,9 +49,14 @@ module.exports = React.createClass({
             birthday: info.birthday||'2012-10-13',
             mothername: info.mothername||'裴克娟',
             phone: info.phone||'18085192480',
+            actionSheetVisible: false,
         }
     },
     doShowCameraMenu() {
+        this.setState({actionSheetVisible:true});
+    },
+    onHideCameraMenu() {
+        this.setState({actionSheetVisible:false});
     },
     doBindInfo() {
         var state = this.state;
@@ -160,6 +166,13 @@ module.exports = React.createClass({
                         <Button onPress={this.doBindInfo}>绑定宝宝信息</Button>
                     }
                 </View>
+                <ActionSheet
+                    visible={this.state.actionSheetVisible}
+                    onCancel={this.onHideCameraMenu} >
+                    <ActionSheet.Button>Capture</ActionSheet.Button>
+                    <ActionSheet.Button>Photo</ActionSheet.Button>
+                    <ActionSheet.Button>Camera</ActionSheet.Button>
+                </ActionSheet>
             </View>
         );
     }

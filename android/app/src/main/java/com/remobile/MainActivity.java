@@ -12,6 +12,8 @@ import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 
 import com.remobile.des.*;
+//import com.lwansbrough.ReactCamera.*;
+import com.learnium.RNDeviceInfo.*;
 
 public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
 
@@ -29,6 +31,8 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
                 .setJSMainModuleName("index.android")
                 .addPackage(new MainReactPackage())
                 .addPackage(new RCTDesPackage())
+                //.addPackage(new ReactCamera())
+                .addPackage(new RNDeviceInfo())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();

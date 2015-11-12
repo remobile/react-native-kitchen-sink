@@ -6,6 +6,8 @@ var Home = require('../home');
 var Register = require('./Register.js');
 var ForgetPassword = require('./ForgetPassword.js');
 
+var Des = require('react-native-des');
+
 var {
     Image,
     StyleSheet,
@@ -26,37 +28,9 @@ var PersonalInfo = require('../../vaccinum/data/PersonalInfo.js');
 
 module.exports = React.createClass({
     doLogin: function() {
-        (async function(){
-            await AsyncStorage.removeItem("react-native-store");
-            var list =  await AsyncStorage.getItem("react-native-store");
-            // var list = await AsyncStorage.getAllKeys();
-            console.log(list);
-
-        })();
-
-
-  //       (async function(){
-  // var userModel = await reactNativeStore.model("user");
-  //
-  // // Add Data
-  // var add_data = await userModel.add({
-  //   username: "tom",
-  //   age: 12,
-  //   sex: "man"
-  // });
-  //   console.log("find",find_data);
-  // var find_data = await userModel.find();
-  // console.log("find",find_data);
-  //
-  //
-  // })();
-
-
-
-        // PersonalInfo.set({a:1,b:2}).then(info=>{console.log(info)});
-                // PersonalInfo.get().then(info=>console.log(info));
-
-        // this.doLoginSuccess();
+        Des.encrypt("fang", 'ABCDEFGH', function(base64) {
+            console.log(base64);
+        });
         return;
         if (!this.state.phone) {
             app.Messagebox('手机号码不能为空');
