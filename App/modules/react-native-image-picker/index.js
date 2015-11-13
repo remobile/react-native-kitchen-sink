@@ -1,10 +1,7 @@
 var React = require('react-native');
 var {
-    AppRegistry,
     StyleSheet,
-    Text,
     View,
-    TouchableHighlight,
 } = React;
 
 var ImagePicker = require('react-native-image-picker');
