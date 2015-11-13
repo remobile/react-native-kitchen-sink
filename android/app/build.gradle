@@ -28,6 +28,6 @@ dependencies {
     compile 'com.facebook.react:react-native:0.13.+'
     compile project(':RNWebIntent')
     //compile project(':react-native-des')
-    //compile project(':react-native-image-picker')
+    compile project(':react-native-image-picker')
     compile project(':RNDeviceInfo')
 }

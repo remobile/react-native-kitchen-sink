@@ -17,7 +17,6 @@
         </intent-filter>
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-      <activity android:name="com.remobile.imagePicker.MultiImageChooserActivity" />
     </application>
 
 </manifest>
