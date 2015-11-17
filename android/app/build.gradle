@@ -29,5 +29,8 @@ dependencies {
     compile project(':RNWebIntent')
     //compile project(':react-native-des')
     compile project(':react-native-image-picker')
+    compile project(':react-native-camera')
+    compile project(':react-native-toast')
+    compile project(':react-native-file-transfer')
     compile project(':RNDeviceInfo')
 }

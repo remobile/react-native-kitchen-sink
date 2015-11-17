@@ -2,27 +2,78 @@ var React = require('react-native');
 var {
     StyleSheet,
     View,
+    Image
 } = React;
 
 var Camera = require('react-native-camera');
 var Button = require('react-native-simple-button');
 
 module.exports = React.createClass({
-    onOpen() {
+    getInitialState () {
+        return {
+            image:null,
+        };
+    },
+    capturePhoto() {
+        var options = {
+            quality: 50,
+            allowEdit: false,
+            destinationType: Camera.DestinationType.DATA_URL,
+            encodingType: Camera.EncodingType.PNG,
+        };
+        Camera.getPicture(options, (result) => {
+            console.log(result);
+            if (!result.error) {
+                this.setState({image: {uri:'data:image/png;base64,'+result.imageData}});
+            }
+        });
+    },
+    capturePhotoEdit() {
         var options = {
             quality: 50,
             allowEdit: true,
             destinationType: Camera.DestinationType.DATA_URL,
-            sourceType:Camera.PictureSourceType.PHOTOLIBRARY
+            encodingType: Camera.EncodingType.PNG,
         };
-          Camera.getPicture(options, (result) => {
-              console.log('result = ', result);
-          });
+        Camera.getPicture(options, (result) => {
+            if (!result.error) {
+                this.setState({image: {uri:'data:image/png;base64,'+result.imageData}});
+            }
+        });
+    },
+    getPhoto(source) {
+        var options = {
+            quality: 50,
+            allowEdit: true,
+            destinationType: Camera.DestinationType.DATA_URL,
+            sourceType: source,
+            encodingType: Camera.EncodingType.PNG,
+        };
+        Camera.getPicture(options, (result) => {
+            if (!result.error) {
+                this.setState({image: {uri:'data:image/png;base64,'+result.imageData}});
+            }
+        });
     },
     render() {
         return (
             <View style={styles.container}>
-                <Button onPress={this.onOpen}>Photo</Button>
+                <Button onPress={this.capturePhoto}>
+                    Capture Photo
+                </Button>
+                <Button onPress={this.capturePhotoEdit}>
+                    Capture Editable Photo
+                </Button>
+                <Button onPress={this.getPhoto.bind(null, Camera.PictureSourceType.PHOTOLIBRARY)}>
+                    From Photo Library
+                </Button>
+                <Button onPress={this.getPhoto.bind(null, Camera.PictureSourceType.SAVEDPHOTOALBUM)}>
+                    From Photo Album Editable
+                </Button>
+                <Image
+                    resizeMode='stretch'
+                    source={this.state.image}
+                    style={styles.image} />
             </View>
         );
     },
@@ -32,8 +83,13 @@ module.exports = React.createClass({
 var styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: 'space-around',
         alignItems: 'center',
         backgroundColor: 'transparent',
     },
+    image: {
+        width: 200,
+        height: 200,
+        backgroundColor: 'gray',
+    }
 });

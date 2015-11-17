@@ -16,6 +16,9 @@ import com.facebook.soloader.SoLoader;
 import com.ivanph.webintent.RNWebIntentPackage;
 //import com.remobile.des.*;
 import com.remobile.imagePicker.*;
+import com.remobile.camera.*;
+import com.remobile.toast.*;
+import com.remobile.filetransfer.*;
 import com.learnium.RNDeviceInfo.*;
 
 public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
@@ -24,6 +27,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
     private ReactRootView mReactRootView;
 
     private RCTImagePickerPackage mImagePickerPackage;
+    private RCTCameraPackage mCameraPackage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
         mReactRootView = new ReactRootView(this);
 
         mImagePickerPackage = new RCTImagePickerPackage(this);
+        mCameraPackage = new RCTCameraPackage(this);
 
         mReactInstanceManager = ReactInstanceManager.builder()
                 .setApplication(getApplication())
@@ -38,8 +43,11 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
                 .setJSMainModuleName("index.android")
                 .addPackage(new MainReactPackage())
                 .addPackage(new RNWebIntentPackage())
-                //.addPackage(new RCTDesPackage())
+                        //.addPackage(new RCTDesPackage())
                 .addPackage(mImagePickerPackage)
+                .addPackage(mCameraPackage)
+                .addPackage(new RCTToastPackage())
+                .addPackage(new RCTFileTransferPackage())
                 .addPackage(new RNDeviceInfo())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
@@ -61,16 +69,16 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
 
     @Override
     public void onBackPressed() {
-      if (mReactInstanceManager != null) {
-        mReactInstanceManager.onBackPressed();
-      } else {
-        super.onBackPressed();
-      }
+        if (mReactInstanceManager != null) {
+            mReactInstanceManager.onBackPressed();
+        } else {
+            super.onBackPressed();
+        }
     }
 
     @Override
     public void invokeDefaultOnBackPressed() {
-      super.onBackPressed();
+        super.onBackPressed();
     }
 
     @Override
@@ -94,6 +102,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
     @Override
     public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        mImagePickerPackage.handleActivityResult(requestCode, resultCode, data);
+        mImagePickerPackage.onActivityResult(requestCode, resultCode, data);
+        mCameraPackage.onActivityResult(requestCode, resultCode, data);
     }
 }
