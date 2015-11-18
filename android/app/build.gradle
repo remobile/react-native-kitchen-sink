@@ -32,5 +32,6 @@ dependencies {
     compile project(':react-native-camera')
     compile project(':react-native-toast')
     compile project(':react-native-file-transfer')
+    compile project(':react-native-dialogs')
     compile project(':RNDeviceInfo')
 }

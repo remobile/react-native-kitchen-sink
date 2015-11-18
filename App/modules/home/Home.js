@@ -18,6 +18,7 @@ var Store = require('../store/index.js');
 var MaterialKit = require('../react-native-material-kit');
 var FileTransfer = require('../react-native-file-transfer');
 var Camera = require('../react-native-camera');
+var Dialogs = require('../react-native-dialogs');
 var Toast = require('../react-native-toast');
 var ImagePicker = require('../react-native-image-picker');
 var CustomActionSheet = require('../react-native-action-sheet');
@@ -38,6 +39,7 @@ var modules = [
     {title:'存储', image: app.img.tabnav_list, module:Store},
     {title:'react-native-file-transfer', image: app.img.tabnav_list, module:FileTransfer},
     {title:'react-native-camera', image: app.img.tabnav_list, module:Camera},
+    {title:'react-native-dialogs', image: app.img.tabnav_list, module:Dialogs},
     {title:'react-native-toast', image: app.img.tabnav_list, module:Toast},
     {title:'react-native-image-picker', image: app.img.tabnav_list, module:ImagePicker},
     {title:'react-native-action-sheet', image: app.img.tabnav_list, module:CustomActionSheet},

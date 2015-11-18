@@ -13,12 +13,12 @@ import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 
-import com.ivanph.webintent.RNWebIntentPackage;
 //import com.remobile.des.*;
 import com.remobile.imagePicker.*;
 import com.remobile.camera.*;
 import com.remobile.toast.*;
 import com.remobile.filetransfer.*;
+import com.remobile.dialogs.*;
 import com.learnium.RNDeviceInfo.*;
 
 public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
@@ -28,6 +28,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
 
     private RCTImagePickerPackage mImagePickerPackage;
     private RCTCameraPackage mCameraPackage;
+    private RCTDialogsPackage mDialogsPackage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,16 +37,17 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
 
         mImagePickerPackage = new RCTImagePickerPackage(this);
         mCameraPackage = new RCTCameraPackage(this);
+        mDialogsPackage = new RCTDialogsPackage(this);
 
         mReactInstanceManager = ReactInstanceManager.builder()
                 .setApplication(getApplication())
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModuleName("index.android")
                 .addPackage(new MainReactPackage())
-                .addPackage(new RNWebIntentPackage())
                         //.addPackage(new RCTDesPackage())
                 .addPackage(mImagePickerPackage)
                 .addPackage(mCameraPackage)
+                .addPackage(mDialogsPackage)
                 .addPackage(new RCTToastPackage())
                 .addPackage(new RCTFileTransferPackage())
                 .addPackage(new RNDeviceInfo())
