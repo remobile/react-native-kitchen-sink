@@ -21,11 +21,8 @@ module.exports = React.createClass({
             destinationType: Camera.DestinationType.DATA_URL,
             encodingType: Camera.EncodingType.PNG,
         };
-        Camera.getPicture(options, (result) => {
-            console.log(result);
-            if (!result.error) {
-                this.setState({image: {uri:'data:image/png;base64,'+result.imageData}});
-            }
+        Camera.getPicture(options, (imageData) => {
+            this.setState({image: {uri:'data:image/png;base64,'+imageData}});
         });
     },
     capturePhotoEdit() {
@@ -35,10 +32,8 @@ module.exports = React.createClass({
             destinationType: Camera.DestinationType.DATA_URL,
             encodingType: Camera.EncodingType.PNG,
         };
-        Camera.getPicture(options, (result) => {
-            if (!result.error) {
-                this.setState({image: {uri:'data:image/png;base64,'+result.imageData}});
-            }
+        Camera.getPicture(options, (imageData) => {
+            this.setState({image: {uri:'data:image/png;base64,'+imageData}});
         });
     },
     getPhoto(source) {
@@ -49,10 +44,10 @@ module.exports = React.createClass({
             sourceType: source,
             encodingType: Camera.EncodingType.PNG,
         };
-        Camera.getPicture(options, (result) => {
-            if (!result.error) {
-                this.setState({image: {uri:'data:image/png;base64,'+result.imageData}});
-            }
+        Camera.getPicture(options, (imageData) => {
+                this.setState({image: {uri:'data:image/png;base64,'+imageData}});
+        }, (error) => {
+                console.log(error);
         });
     },
     render() {

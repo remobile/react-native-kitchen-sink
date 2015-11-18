@@ -2,7 +2,6 @@ var React = require('react-native');
 var {
     StyleSheet,
     View,
-    Image
 } = React;
 
 var Dialogs = require('@remobile/react-native-dialogs');
