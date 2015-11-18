@@ -6,8 +6,8 @@ var {
     Text,
 } = React;
 
-var FileTransfer = require('react-native-file-transfer');
-var Button = require('react-native-simple-button');
+var FileTransfer = require('@remobile/react-native-file-transfer');
+var Button = require('@remobile/react-native-simple-button');
 
 module.exports = React.createClass({
     getInitialState () {

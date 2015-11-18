@@ -5,8 +5,8 @@ var {
     Image
 } = React;
 
-var Camera = require('react-native-camera');
-var Button = require('react-native-simple-button');
+var Camera = require('@remobile/react-native-camera');
+var Button = require('@remobile/react-native-simple-button');
 
 module.exports = React.createClass({
     getInitialState () {

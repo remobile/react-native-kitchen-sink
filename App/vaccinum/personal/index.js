@@ -13,8 +13,8 @@ var {
 
 var POST = app.POST;
 
-var Button = require('react-native-simple-button');
-var ActionSheet = require('react-native-action-sheet');
+var Button = require('@remobile/react-native-simple-button');
+var ActionSheet = require('@remobile/react-native-action-sheet');
 var PersonalInfo = require('../data/PersonalInfo.js');
 
 var InfoItem = React.createClass({

@@ -1,12 +1,10 @@
 'use strict';
 
-var Button = require('react-native-simple-button');
+var Button = require('@remobile/react-native-simple-button');
 var React = require('react-native');
 var Home = require('../home');
 var Register = require('./Register.js');
 var ForgetPassword = require('./ForgetPassword.js');
-
-var Des = require('react-native-des');
 
 var {
     Image,

@@ -5,8 +5,8 @@ var {
     Image
 } = React;
 
-var Dialogs = require('react-native-dialogs');
-var Button = require('react-native-simple-button');
+var Dialogs = require('@remobile/react-native-dialogs');
+var Button = require('@remobile/react-native-simple-button');
 var alert = Dialogs.alert;
 
 module.exports = React.createClass({

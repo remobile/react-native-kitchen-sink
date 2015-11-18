@@ -6,7 +6,7 @@ var {
     View,
 } = React;
 
-var AImage = require('react-native-image-animation');
+var AImage = require('@remobile/react-native-image-animation');
 module.exports = React.createClass({
     animationImages:[
         app.img.loading_1,

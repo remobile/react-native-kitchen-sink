@@ -1,5 +1,5 @@
 'use strict';
-var Mongoose = require('react-native-mongoose');
+var Mongoose = require('@remobile/react-native-mongoose');
 
 var DB_NAME = "personalInfo";
 const CLT_NAME = "personalInfo";

@@ -6,7 +6,7 @@ var {
     View
 } = React;
 
-var MarqueeLabel = require('react-native-marquee-label');
+var MarqueeLabel = require('@remobile/react-native-marquee-label');
 module.exports = React.createClass({
     render: function() {
         return (

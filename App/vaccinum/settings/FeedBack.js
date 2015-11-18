@@ -10,7 +10,7 @@ var {
     TextInput,
 } = React;
 
-var Button = require('react-native-simple-button');
+var Button = require('@remobile/react-native-simple-button');
 
 module.exports = React.createClass({
     getInitialState() {

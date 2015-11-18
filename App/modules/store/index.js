@@ -8,8 +8,8 @@ var {
 } = React;
 
 
-var Button = require('react-native-simple-button');
-var Mongoose = require('react-native-mongoose');
+var Button = require('@remobile/react-native-simple-button');
+var Mongoose = require('@remobile/react-native-mongoose');
 
 const DB_NAME = "personalInfo";
 const CLT_NAME = "personalInfo";

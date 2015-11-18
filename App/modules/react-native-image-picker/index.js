@@ -4,8 +4,8 @@ var {
     View,
 } = React;
 
-var ImagePicker = require('react-native-image-picker');
-var Button = require('react-native-simple-button');
+var ImagePicker = require('@remobile/react-native-image-picker');
+var Button = require('@remobile/react-native-simple-button');
 
 module.exports = React.createClass({
     onOpen() {

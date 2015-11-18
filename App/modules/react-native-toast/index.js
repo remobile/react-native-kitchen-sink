@@ -5,8 +5,8 @@ var {
     Image
 } = React;
 
-var Toast = require('react-native-toast');
-var Button = require('react-native-simple-button');
+var Toast = require('@remobile/react-native-toast');
+var Button = require('@remobile/react-native-simple-button');
 
 module.exports = React.createClass({
     render() {
