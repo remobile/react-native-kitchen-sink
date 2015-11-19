@@ -123,8 +123,8 @@ module.exports = React.createClass({
         var fileTransfer = new FileTransfer();
 
         this.uploadProgress = NativeAppEventEmitter.addListener(
-          'uploadProgress',
-          (progress) => console.log(progress)
+            'uploadProgress',
+            (progress) => console.log(progress)
         );
 
         fileTransfer.upload(file, app.route.ROUTE_UPLOAD_USER_HEAD, this.uploadSuccessCallback, this.uploadErrorCallback, options);
@@ -173,7 +173,7 @@ module.exports = React.createClass({
             <View style={styles.container}>
                 <View style={styles.headContainer}>
                     <TouchableOpacity
-                        onPress={this.doShowCameraMenu}
+                        onPress={!this.state.infoBinded?this.doShowCameraMenu:null}
                         underlayColor="#EEB422">
 
                         <Image
@@ -203,11 +203,9 @@ module.exports = React.createClass({
                             出生日期：
                         </Text>
                         <TouchableOpacity onPress={!this.state.infoBinded?this.setBirthDay:null}>
-                            <TextInput
-                                style={styles.infoItemValue}
-                                value={this.state.birthday}
-                                editable={false}
-                                />
+                            <View style={styles.infoItemText}>
+                                <Text numberOfLines={1}>{this.state.birthday}</Text>
+                            </View>
                         </TouchableOpacity>
                     </View>
                     <InfoItem
@@ -292,6 +290,12 @@ var styles = StyleSheet.create({
         width:120,
         height:30,
         backgroundColor: '#F0F0F0',
+    },
+    infoItemText: {
+        width:120,
+        height:30,
+        backgroundColor: '#F0F0F0',
+        justifyContent: 'center',
     },
     buttonContainer: {
         alignItems: 'center',
