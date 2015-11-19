@@ -9,12 +9,17 @@ var {
     TextInput,
     Image,
     TouchableOpacity,
+    NativeAppEventEmitter,
 } = React;
 
 var POST = app.POST;
 
 var Button = require('@remobile/react-native-simple-button');
+var Camera = require('@remobile/react-native-camera');
 var ActionSheet = require('@remobile/react-native-action-sheet');
+var FileTransfer = require('@remobile/react-native-file-transfer');
+var Toast = require('@remobile/react-native-toast').show;
+
 var PersonalInfo = require('../data/PersonalInfo.js');
 
 var InfoItem = React.createClass({
@@ -45,6 +50,7 @@ module.exports = React.createClass({
         var info = PersonalInfo.info||{};
         return {
             infoBinded: PersonalInfo.info,
+            userhead: app.img.personalHead,
             username: info.username||'方远航',
             birthday: info.birthday||'2012-10-13',
             mothername: info.mothername||'裴克娟',
@@ -61,19 +67,19 @@ module.exports = React.createClass({
     doBindInfo() {
         var state = this.state;
         if (!state.username) {
-            app.Messagebox("请输入宝宝名字");
+            Toast("请输入宝宝名字");
             return;
         }
         if (!state.birthday) {
-            app.Messagebox("请输入出生日期");
+            Toast("请输入出生日期");
             return;
         }
         if (!state.mothername) {
-            app.Messagebox("请输入母亲名字");
+            Toast("请输入母亲名字");
             return;
         }
         if (!state.phone) {
-            app.Messagebox("请输入联系电话");
+            Toast("请输入联系电话");
             return;
         }
         var param = {
@@ -93,14 +99,65 @@ module.exports = React.createClass({
                 });
             });
         } else {
-            app.Messagebox("绑定失败");
+            Toast("绑定失败");
         }
     },
     doBindInfoFailed(error) {
-        app.Messagebox("绑定失败");
+        Toast("绑定失败");
     },
     cancelBind() {
         this.setState({infoBinded:false});
+    },
+    uploadUserHead(file) {
+        var options = new FileTransfer.FileUploadOptions();
+        options.fileKey = 'file';
+        options.fileName = file.substr(file.lastIndexOf('/')+1);
+        options.mimeType = 'image/jpeg';
+
+        var params = {};
+        params.username = this.state.username;
+
+        options.params = params;
+        var fileTransfer = new FileTransfer();
+
+        this.uploadProgress = NativeAppEventEmitter.addListener(
+          'uploadProgress',
+          (progress) => console.log(progress)
+        );
+
+        fileTransfer.upload(file, app.route.ROUTE_UPLOAD_USER_HEAD, this.uploadSuccessCallback, this.uploadErrorCallback, options);
+    },
+    uploadSuccessCallback() {
+        Toast("上传成功");
+    },
+    uploadErrorCallback() {
+        Toast("上传失败");
+    },
+    selectPicture() {
+        this.onHideCameraMenu();
+        var options = {
+            quality: 50,
+            allowEdit: true,
+            destinationType: Camera.DestinationType.FILE_URI,
+            sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+            encodingType: Camera.EncodingType.PNG,
+        };
+        Camera.getPicture(options, (file) => {
+            this.setState({userhead: {uri:file}});
+            this.uploadUserHead(file);
+        });
+    },
+    takePicture() {
+        this.onHideCameraMenu();
+        var options = {
+            quality: 50,
+            allowEdit: true,
+            destinationType: Camera.DestinationType.FILE_URI,
+        };
+        Camera.getPicture(options, (file) => {
+            this.setState({userhead: {uri:file}});
+            this.uploadUserHead(file);
+        });
     },
     render() {
         return (
@@ -112,7 +169,7 @@ module.exports = React.createClass({
 
                         <Image
                             resizeMode='stretch'
-                            source={app.img.personalHead}
+                            source={this.state.userhead}
                             style={styles.head} />
 
                     </TouchableOpacity>
@@ -167,11 +224,11 @@ module.exports = React.createClass({
                     }
                 </View>
                 <ActionSheet
+                    cancelText="取消"
                     visible={this.state.actionSheetVisible}
                     onCancel={this.onHideCameraMenu} >
-                    <ActionSheet.Button>Capture</ActionSheet.Button>
-                    <ActionSheet.Button>Photo</ActionSheet.Button>
-                    <ActionSheet.Button>Camera</ActionSheet.Button>
+                    <ActionSheet.Button onPress={this.selectPicture}>相册</ActionSheet.Button>
+                    <ActionSheet.Button onPress={this.takePicture}>照相</ActionSheet.Button>
                 </ActionSheet>
             </View>
         );

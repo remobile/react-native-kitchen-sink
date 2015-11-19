@@ -24,8 +24,7 @@ module.exports = React.createClass({
         this.uploadProgress.remove();
     },
     testUpload() {
-        var fileURL = 'file:///Users/fang/node/test/post.js';
-        // var fileURL = 'file:///sdcard/data/1.jpg';
+        var fileURL = app.isandroid?'file:///sdcard/data/1.jpg':'file:///Users/fang/node/test/post.js';
         var options = new FileTransfer.FileUploadOptions();
         options.fileKey = 'file';
         options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
@@ -55,8 +54,7 @@ module.exports = React.createClass({
           var self = this;
           fileTransfer.download(
               uri,
-              '/Users/fang/oldwork/client/server/xxx.html',
-            // '/sdcard/data/xx.html',
+              app.isandroid?'/sdcard/data/xx.html':'/Users/fang/oldwork/client/server/xxx.html',
               function(entry) {
                   console.log(entry);
                   self.downloadProgress.remove();

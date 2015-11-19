@@ -15,6 +15,7 @@ var {
 } = React;
 
 var ProgressHUD = require('react-native-progress-hud');
+var Toast = require('@remobile/react-native-toast').show;
 
 var POST = require('./utils/net/Post.js');
 var Route = require('./config/Route.js');
@@ -177,7 +178,7 @@ module.exports = React.createClass({
                     return true;
                 }
                 if (!app.willExitAndroid) {
-                    app.Messagebox("再按一次返回键退出程序");
+                    Toast("再按一次返回键退出程序");
                     app.willExitAndroid = true;
                     setTimeout(function() {app.willExitAndroid = false}, 3000);
                     return true;

@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react-native');
+var Toast = require('@remobile/react-native-toast').show;
 var Home = require('../home');
 var Register = require('./Register.js');
 var ForgetPassword = require('./ForgetPassword.js');
@@ -24,10 +25,10 @@ module.exports = React.createClass({
         this.doLoginSuccess();
         return;
         if (!this.state.phone) {
-            app.Messagebox('手机号码不能为空');
+            Toast('手机号码不能为空');
         }
         if (!this.state.password) {
-            app.Messagebox('密码不能为空');
+            Toast('密码不能为空');
             return;
         }
         var param = {phone:this.state.phone, password:this.state.password};
