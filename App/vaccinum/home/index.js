@@ -30,6 +30,7 @@ module.exports = React.createClass({
         app.module = app.module || {};
         app.module.Personal = Personal;
         app.module.Main = Main;
+
         PersonalInfo.get().then(info => {
             this.setTimeout(() =>{
                 if (!info) {

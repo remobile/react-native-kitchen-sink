@@ -26,6 +26,17 @@ app.post('/bindInfo', function (req, res) {
 });
 
 
+//上传文件
+var upload = multer({dest: 'image/'});
+var type = upload.single('file');
+app.post('/upload', type, function (req,res) {
+    console.log(req.file);
+    console.log(req.body);
+    shell.mv("-f", req.file.path, req.file.destination+req.file.originalname);
+    app.send(res, {});
+});
+
+
 app.listen(3000, function() {
     console.log("server listen on: http://localhost:3000");
 });

@@ -15,6 +15,7 @@ var {
 var POST = app.POST;
 
 var Button = require('@remobile/react-native-simple-button');
+var DateTimePicker = require('@remobile/react-native-datetime-picker');
 var Camera = require('@remobile/react-native-camera');
 var ActionSheet = require('@remobile/react-native-action-sheet');
 var FileTransfer = require('@remobile/react-native-file-transfer');
@@ -37,7 +38,8 @@ var InfoItem = React.createClass({
                     style={styles.infoItemValue}
                     onChangeText={this.props.onChangeText}
                     value={this.props.value}
-                    editable = {this.props.editable}
+                    editable={this.props.editable}
+                    keyboardType={this.props.keyboardType}
                     />
             </View>
         );
@@ -50,7 +52,7 @@ module.exports = React.createClass({
         var info = PersonalInfo.info||{};
         return {
             infoBinded: PersonalInfo.info,
-            userhead: app.img.personalHead,
+            userhead: PersonalInfo.userhead||app.img.personalHead,
             username: info.username||'方远航',
             birthday: info.birthday||'2012-10-13',
             mothername: info.mothername||'裴克娟',
@@ -127,7 +129,8 @@ module.exports = React.createClass({
 
         fileTransfer.upload(file, app.route.ROUTE_UPLOAD_USER_HEAD, this.uploadSuccessCallback, this.uploadErrorCallback, options);
     },
-    uploadSuccessCallback() {
+    uploadSuccessCallback(data) {
+        console.log(data);
         Toast("上传成功");
     },
     uploadErrorCallback() {
@@ -159,6 +162,12 @@ module.exports = React.createClass({
             this.uploadUserHead(file);
         });
     },
+    setBirthDay() {
+        var date = app.utils.str2date(this.state.birthday);
+        this.picker.showDatePicker(date, (d)=>{
+            this.setState({birthday:app.utils.date2str(d)});
+        });
+    },
     render() {
         return (
             <View style={styles.container}>
@@ -185,13 +194,22 @@ module.exports = React.createClass({
                         onChangeText={username=>{this.setState({username})}}
                         editable={!this.state.infoBinded}
                         />
-                    <InfoItem
-                        icon={app.img.tabnav_list}
-                        label="出生日期："
-                        value={this.state.birthday}
-                        onChangeText={birthday=>{this.setState({birthday})}}
-                        editable={!this.state.infoBinded}
-                        />
+                    <View style={styles.infoItem}>
+                        <Image
+                            resizeMode='stretch'
+                            source={app.img.tabnav_list}
+                            style={styles.infoItemIcon} />
+                        <Text style={styles.infoItemLabel}>
+                            出生日期：
+                        </Text>
+                        <TouchableOpacity onPress={!this.state.infoBinded?this.setBirthDay:null}>
+                            <TextInput
+                                style={styles.infoItemValue}
+                                value={this.state.birthday}
+                                editable={false}
+                                />
+                        </TouchableOpacity>
+                    </View>
                     <InfoItem
                         icon={app.img.tabnav_list}
                         label="母亲名字："
@@ -205,6 +223,7 @@ module.exports = React.createClass({
                         value={this.state.phone}
                         onChangeText={phone=>{this.setState({phone})}}
                         editable={!this.state.infoBinded}
+                        keyboardType='phone-pad'
                         />
                 </View>
 
@@ -230,6 +249,7 @@ module.exports = React.createClass({
                     <ActionSheet.Button onPress={this.selectPicture}>相册</ActionSheet.Button>
                     <ActionSheet.Button onPress={this.takePicture}>照相</ActionSheet.Button>
                 </ActionSheet>
+                <DateTimePicker ref={(picker)=>{this.picker=picker}}/>
             </View>
         );
     }

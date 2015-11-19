@@ -18,10 +18,10 @@ var ProgressHUD = require('react-native-progress-hud');
 var Toast = require('@remobile/react-native-toast').show;
 
 var POST = require('./utils/net/Post.js');
+var Utils = require('./utils/common/index.js');
 var Route = require('./config/Route.js');
 var Screen = require('./config/Screen.js');
 var RTImage = require('./components/RTImage.js');
-var Messagebox = require('./components/Messagebox.js');
 var DefaultLeftButton = require('./components/DefaultLeftButton.js');
 var Dimensions = require('Dimensions');
 var cssVar = require('cssVar');
@@ -33,7 +33,7 @@ global.app = {
     route: Route,
     Screen: Screen,
     RTImage: RTImage,
-    Messagebox: Messagebox,
+    utils: Utils,
     img: img,
     isandroid: Platform.OS==="android"
 };
@@ -61,8 +61,8 @@ app.configureScene = function(route) {
 };
 
 var Login = require('./modules/login/Login.js');
-var Home1 = require('./vaccinum/home/index.js');
-var Home = require('./modules/home/index.js');
+var Home = require('./vaccinum/home/index.js');
+var Home1 = require('./modules/home/index.js');
 
 String.prototype.getCodeLength = function() {
     var realLength = 0, len = this.length, charCode = -1;
