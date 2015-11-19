@@ -23,6 +23,9 @@ project(':react-native-file-transfer').projectDir = new File(settingsDir, '../no
 include ':react-native-dialogs'
 project(':react-native-dialogs').projectDir = new File(settingsDir, '../node_modules/@remobile/react-native-dialogs/android')
 
+include ':react-native-datetime-picker'
+project(':react-native-datetime-picker').projectDir = new File(settingsDir, '../node_modules/@remobile/react-native-datetime-picker/android')
+
 include ':RNWebIntent'
 project(':RNWebIntent').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-webintent')
 

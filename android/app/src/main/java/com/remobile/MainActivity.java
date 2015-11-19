@@ -3,6 +3,7 @@ package com.remobile;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
 import android.content.Intent;
 
@@ -19,6 +20,7 @@ import com.remobile.camera.*;
 import com.remobile.toast.*;
 import com.remobile.filetransfer.*;
 import com.remobile.dialogs.*;
+import com.remobile.datetimepicker.*;
 import com.learnium.RNDeviceInfo.*;
 
 public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
@@ -28,7 +30,6 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
 
     private RCTImagePickerPackage mImagePickerPackage;
     private RCTCameraPackage mCameraPackage;
-    private RCTDialogsPackage mDialogsPackage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,6 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
 
         mImagePickerPackage = new RCTImagePickerPackage(this);
         mCameraPackage = new RCTCameraPackage(this);
-        mDialogsPackage = new RCTDialogsPackage(this);
 
         mReactInstanceManager = ReactInstanceManager.builder()
                 .setApplication(getApplication())
@@ -47,9 +47,10 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
                         //.addPackage(new RCTDesPackage())
                 .addPackage(mImagePickerPackage)
                 .addPackage(mCameraPackage)
-                .addPackage(mDialogsPackage)
+                .addPackage(new RCTDialogsPackage(this))
                 .addPackage(new RCTToastPackage())
                 .addPackage(new RCTFileTransferPackage())
+                .addPackage(new RCTDateTimePickerPackage(this))
                 .addPackage(new RNDeviceInfo())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)

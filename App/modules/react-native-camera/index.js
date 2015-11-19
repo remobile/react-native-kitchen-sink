@@ -2,7 +2,7 @@ var React = require('react-native');
 var {
     StyleSheet,
     View,
-    Image
+    Image,
 } = React;
 
 var Camera = require('@remobile/react-native-camera');
@@ -19,10 +19,9 @@ module.exports = React.createClass({
             quality: 50,
             allowEdit: false,
             destinationType: Camera.DestinationType.DATA_URL,
-            encodingType: Camera.EncodingType.PNG,
         };
         Camera.getPicture(options, (imageData) => {
-            this.setState({image: {uri:'data:image/png;base64,'+imageData}});
+            this.setState({image: {uri:'data:image/jpeg;base64,'+imageData}});
         });
     },
     capturePhotoEdit() {
@@ -30,10 +29,9 @@ module.exports = React.createClass({
             quality: 50,
             allowEdit: true,
             destinationType: Camera.DestinationType.DATA_URL,
-            encodingType: Camera.EncodingType.PNG,
         };
         Camera.getPicture(options, (imageData) => {
-            this.setState({image: {uri:'data:image/png;base64,'+imageData}});
+            this.setState({image: {uri:'data:image/jpeg;base64,'+imageData}});
         });
     },
     getPhoto(source) {

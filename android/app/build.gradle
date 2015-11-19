@@ -33,5 +33,6 @@ dependencies {
     compile project(':react-native-toast')
     compile project(':react-native-file-transfer')
     compile project(':react-native-dialogs')
+    compile project(':react-native-datetime-picker')
     compile project(':RNDeviceInfo')
 }
