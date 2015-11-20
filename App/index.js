@@ -16,6 +16,7 @@ var {
 
 var ProgressHUD = require('react-native-progress-hud');
 var Toast = require('@remobile/react-native-toast').show;
+var SplashScreen = require('@remobile/react-native-splashscreen');
 
 var POST = require('./utils/net/Post.js');
 var Utils = require('./utils/common/index.js');
@@ -61,8 +62,8 @@ app.configureScene = function(route) {
 };
 
 var Login = require('./modules/login/Login.js');
-var Home = require('./vaccinum/home/index.js');
-var Home1 = require('./modules/home/index.js');
+var Home1 = require('./vaccinum/home/index.js');
+var Home = require('./modules/home/index.js');
 
 String.prototype.getCodeLength = function() {
     var realLength = 0, len = this.length, charCode = -1;
@@ -186,6 +187,7 @@ module.exports = React.createClass({
                 return false;
             });
         }
+        SplashScreen.hide();
     },
     configureScene : function(route){
         this.setState({navigationBar:!!route.title});

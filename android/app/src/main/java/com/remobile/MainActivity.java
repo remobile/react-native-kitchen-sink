@@ -22,6 +22,8 @@ import com.remobile.filetransfer.*;
 import com.remobile.dialogs.*;
 import com.remobile.datetimepicker.*;
 import com.learnium.RNDeviceInfo.*;
+import com.remobile.splashscreen.*;
+import com.rnfs.RNFSPackage;
 
 public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
 
@@ -45,8 +47,10 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
                 .setJSMainModuleName("index.android")
                 .addPackage(new MainReactPackage())
                         //.addPackage(new RCTDesPackage())
+                .addPackage(new RCTSplashScreenPackage(this))
                 .addPackage(mImagePickerPackage)
                 .addPackage(mCameraPackage)
+                .addPackage(new RNFSPackage())
                 .addPackage(new RCTDialogsPackage(this))
                 .addPackage(new RCTToastPackage())
                 .addPackage(new RCTFileTransferPackage())

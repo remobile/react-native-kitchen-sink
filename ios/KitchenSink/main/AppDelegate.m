@@ -9,7 +9,7 @@
 
 #import "AppDelegate.h"
 #import "IQKeyboardManager.h"
-#import "RCTRootView.h"
+#import "CRTSplashScreen.h"
 
 @implementation AppDelegate
 
@@ -40,6 +40,7 @@
                                                       moduleName:@"KitchenSink"
                                                initialProperties:nil
                                                    launchOptions:launchOptions];
+  [CRTSplashScreen show:rootView];
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [[UIViewController alloc] init];
