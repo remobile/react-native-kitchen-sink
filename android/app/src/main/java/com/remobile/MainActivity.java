@@ -23,6 +23,8 @@ import com.remobile.dialogs.*;
 import com.remobile.datetimepicker.*;
 import com.learnium.RNDeviceInfo.*;
 import com.remobile.splashscreen.*;
+import com.remobile.sqlite.*;
+import com.remobile.file.*;
 import com.rnfs.RNFSPackage;
 
 public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
@@ -32,6 +34,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
 
     private RCTImagePickerPackage mImagePickerPackage;
     private RCTCameraPackage mCameraPackage;
+    private RCTSqlitePackage mSqlitePackage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
 
         mImagePickerPackage = new RCTImagePickerPackage(this);
         mCameraPackage = new RCTCameraPackage(this);
+        mSqlitePackage = new RCTSqlitePackage(this);
 
         mReactInstanceManager = ReactInstanceManager.builder()
                 .setApplication(getApplication())
@@ -50,8 +54,10 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
                 .addPackage(new RCTSplashScreenPackage(this))
                 .addPackage(mImagePickerPackage)
                 .addPackage(mCameraPackage)
+                .addPackage(mSqlitePackage)
                 .addPackage(new RNFSPackage())
                 .addPackage(new RCTDialogsPackage(this))
+                .addPackage(new RCTFilePackage(this))
                 .addPackage(new RCTToastPackage())
                 .addPackage(new RCTFileTransferPackage())
                 .addPackage(new RCTDateTimePickerPackage(this))
@@ -104,6 +110,12 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
         if (mReactInstanceManager != null) {
             mReactInstanceManager.onResume(this);
         }
+    }
+
+    @Override
+    protected  void onDestroy() {
+        super.onDestroy();
+        mSqlitePackage.onDestroy();
     }
 
     @Override

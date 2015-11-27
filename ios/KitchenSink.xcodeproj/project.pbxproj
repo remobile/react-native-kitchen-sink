@@ -38,6 +38,9 @@
 		3245CE221BFEE3AD00EABF68 /* libCRTSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3245CE101BFEE3A100EABF68 /* libCRTSplashScreen.a */; };
 		3245CE5E1BFEF63000EABF68 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3245CE5C1BFEF63000EABF68 /* LaunchScreen.xib */; };
 		3245CE5F1BFEF63000EABF68 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 3245CE5D1BFEF63000EABF68 /* splash.png */; };
+		3271E35C1C029B0100A1C2B4 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3271E35B1C029B0100A1C2B4 /* libsqlite3.0.dylib */; };
+		3271E38B1C02A46100A1C2B4 /* libRCTSqlite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3271E38A1C02A45700A1C2B4 /* libRCTSqlite.a */; };
+		3271E3FA1C03136200A1C2B4 /* libRCTFile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3271E3EA1C03134A00A1C2B4 /* libRCTFile.a */; };
 		3287E8CE1BE855550064C14F /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3287E8C21BE855150064C14F /* libART.a */; };
 		32FAC39A1BEC7C61006C9224 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32FAC3991BEC7C61006C9224 /* Images.xcassets */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -178,6 +181,20 @@
 			remoteGlobalIDString = 3245CDED1BFEE35C00EABF68;
 			remoteInfo = CRTSplashScreen;
 		};
+		3271E3891C02A45700A1C2B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3271E3851C02A45700A1C2B4 /* RCTSqlite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3271E3661C029FE400A1C2B4;
+			remoteInfo = RCTSqlite;
+		};
+		3271E3E91C03134A00A1C2B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3271E3DD1C03134A00A1C2B4 /* RCTFile.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3271E3B61C030D9B00A1C2B4;
+			remoteInfo = RCTFile;
+		};
 		3287E8C11BE855150064C14F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3287E8BD1BE855150064C14F /* ART.xcodeproj */;
@@ -234,6 +251,9 @@
 		3245CE071BFEE3A000EABF68 /* CRTSplashScreen.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CRTSplashScreen.xcodeproj; path = "../node_modules/@remobile/react-native-splashscreen/ios/CRTSplashScreen.xcodeproj"; sourceTree = "<group>"; };
 		3245CE5C1BFEF63000EABF68 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		3245CE5D1BFEF63000EABF68 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
+		3271E35B1C029B0100A1C2B4 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		3271E3851C02A45700A1C2B4 /* RCTSqlite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSqlite.xcodeproj; path = "../node_modules/@remobile/react-native-sqlite/ios/RCTSqlite.xcodeproj"; sourceTree = "<group>"; };
+		3271E3DD1C03134A00A1C2B4 /* RCTFile.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTFile.xcodeproj; path = "../node_modules/@remobile/react-native-file/ios/RCTFile.xcodeproj"; sourceTree = "<group>"; };
 		3287E8BD1BE855150064C14F /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "/Users/fang/rn/KitchenSink/node_modules/react-native/Libraries/WebSocket/../ART/ART.xcodeproj"; sourceTree = "<absolute>"; };
 		32FAC3991BEC7C61006C9224 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4220AFC27E7E156B52A8508F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "KitchenSink/pod/Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -248,14 +268,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3271E35C1C029B0100A1C2B4 /* libsqlite3.0.dylib in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
+				3271E38B1C02A46100A1C2B4 /* libRCTSqlite.a in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				3245CE221BFEE3AD00EABF68 /* libCRTSplashScreen.a in Frameworks */,
+				3271E3FA1C03136200A1C2B4 /* libRCTFile.a in Frameworks */,
 				32285FF81BFC2B0D00AD8363 /* libRCTImagePicker.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
@@ -468,6 +491,22 @@
 			path = "../../../node_modules/@remobile/react-native-splashscreen/ios/CRTSplashScreen/SplashScreenResource";
 			sourceTree = "<group>";
 		};
+		3271E3861C02A45700A1C2B4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3271E38A1C02A45700A1C2B4 /* libRCTSqlite.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3271E3DE1C03134A00A1C2B4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3271E3EA1C03134A00A1C2B4 /* libRCTFile.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		3287E8BE1BE855150064C14F /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -479,6 +518,8 @@
 		32A87E461BF435F50048D713 /* remobileLibaries */ = {
 			isa = PBXGroup;
 			children = (
+				3271E3DD1C03134A00A1C2B4 /* RCTFile.xcodeproj */,
+				3271E3851C02A45700A1C2B4 /* RCTSqlite.xcodeproj */,
 				3245CE071BFEE3A000EABF68 /* CRTSplashScreen.xcodeproj */,
 				32285FE61BFC2AAC00AD8363 /* RCTImagePicker.xcodeproj */,
 				32285FE01BFC2AA100AD8363 /* RCTMarqueeLabel.xcodeproj */,
@@ -511,6 +552,7 @@
 		33256CDAB6A6ED92D09E7DC2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3271E35B1C029B0100A1C2B4 /* libsqlite3.0.dylib */,
 				B4F776CB994C700E43FCD644 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -659,6 +701,10 @@
 					ProjectRef = 32285FBC1BFC2A4C00AD8363 /* RCTDes.xcodeproj */;
 				},
 				{
+					ProductGroup = 3271E3DE1C03134A00A1C2B4 /* Products */;
+					ProjectRef = 3271E3DD1C03134A00A1C2B4 /* RCTFile.xcodeproj */;
+				},
+				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
 					ProjectRef = 00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */;
 				},
@@ -689,6 +735,10 @@
 				{
 					ProductGroup = 139105B71AF99BAD00B5F7CC /* Products */;
 					ProjectRef = 139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */;
+				},
+				{
+					ProductGroup = 3271E3861C02A45700A1C2B4 /* Products */;
+					ProjectRef = 3271E3851C02A45700A1C2B4 /* RCTSqlite.xcodeproj */;
 				},
 				{
 					ProductGroup = 832341B11AAA6A8300B99B32 /* Products */;
@@ -854,6 +904,20 @@
 			fileType = archive.ar;
 			path = libCRTSplashScreen.a;
 			remoteRef = 3245CE0F1BFEE3A100EABF68 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3271E38A1C02A45700A1C2B4 /* libRCTSqlite.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTSqlite.a;
+			remoteRef = 3271E3891C02A45700A1C2B4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3271E3EA1C03134A00A1C2B4 /* libRCTFile.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTFile.a;
+			remoteRef = 3271E3E91C03134A00A1C2B4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		3287E8C21BE855150064C14F /* libART.a */ = {

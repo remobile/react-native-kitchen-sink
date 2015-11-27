@@ -12,12 +12,14 @@ module.exports = React.createClass({
     onOpen() {
         var options = {maximumImagesCount: 10, width: 400};
         ImagePicker.getPictures(options, function(results) {
+            console.log(results);
             var msg = '';
             for (var i = 0; i < results.length; i++) {
                 msg += 'Image URI: ' + results[i] + '\n';
             }
             Dialogs.alert(msg);
         }, function (error) {
+            console.log(error);
             Dialogs.alert('Error: ' + error);
         });
     },

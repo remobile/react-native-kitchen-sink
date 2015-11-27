@@ -17,7 +17,10 @@ var Vaccinum = require('../../vaccinum/home/index.js');
 var Store = require('../store/index.js');
 var Test = require('../test/index.js');
 var FS = require('../react-native-fs');
+var File = require('../react-native-file');
+var CacheImage = require('../react-native-cache-image');
 var MaterialKit = require('../react-native-material-kit');
+var SqliteStorage = require('../react-native-sqlite-storage');
 var FileTransfer = require('../react-native-file-transfer');
 var Camera = require('../react-native-camera');
 var Dialogs = require('../react-native-dialogs');
@@ -41,7 +44,10 @@ var modules = [
     {title:'疾控中心', image: app.img.tabnav_list, module:Vaccinum},
     {title:'测试', image: app.img.tabnav_list, module:Test},
     {title:'存储', image: app.img.tabnav_list, module:Store},
+    {title:'react-native-file', image: app.img.tabnav_list, module:File},
     {title:'react-native-fs', image: app.img.tabnav_list, module:FS},
+    {title:'react-native-cache-image', image: app.img.tabnav_list, module:CacheImage},
+    {title:'react-native-sqlite-storage', image: app.img.tabnav_list, module:SqliteStorage},
     {title:'react-native-datetime-picker', image: app.img.tabnav_list, module:DateTimePicker},
     {title:'react-native-file-transfer', image: app.img.tabnav_list, module:FileTransfer},
     {title:'react-native-camera', image: app.img.tabnav_list, module:Camera},
