@@ -20,12 +20,20 @@ module.exports = React.createClass({
     },
     doClear() {
         AsyncStorage.removeItem(DB_NAME);
+        (async function(){
+            var list = await AsyncStorage.getAllKeys();
+            for (var i in list) {
+                await AsyncStorage.removeItem(list[i]);
+            }
+        })();
     },
     doShowList() {
         (async function(){
-            var list =  await AsyncStorage.getItem(DB_NAME);
-            console.log('result:', JSON.parse(list));
-
+            var list = await AsyncStorage.getAllKeys();
+            for (var i in list) {
+                var obj = await AsyncStorage.getItem(list[i]);
+                console.log(list[i], JSON.parse(obj));
+            }
         })();
     },
     doShowKeys() {

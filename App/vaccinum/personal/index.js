@@ -53,10 +53,10 @@ module.exports = React.createClass({
         return {
             infoBinded: PersonalInfo.info,
             userhead: PersonalInfo.userhead||app.img.personalHead,
-            username: info.username||'方远航',
-            birthday: info.birthday||'2012-10-13',
-            mothername: info.mothername||'裴克娟',
-            phone: info.phone||'18085192480',
+            username: info.username||'张三',
+            birthday: info.birthday||'2015-11-10',
+            mothername: info.mothername||'张三母亲',
+            phone: info.phone||'136847630231',
             actionSheetVisible: false,
         }
     },
@@ -85,16 +85,24 @@ module.exports = React.createClass({
             return;
         }
         var param = {
-            username: state.username,
-            birthday: state.birthday,
-            mothername: state.mothername,
+            babyName: state.username,
+            babyBirthday: state.birthday,
+            motherName: state.mothername,
             phone: state.phone,
         };
         POST(app.route.ROUTE_BIND_INFO, param, this.doBindInfoSuccess, this.doBindInfoFailed);
     },
     doBindInfoSuccess(data) {
         if (data.success) {
-            PersonalInfo.set(data.content).then(()=>{
+            var state = this.state;
+            var content = {
+                userid: data.context.userId,
+                username: state.username,
+                birthday: state.birthday,
+                mothername: state.mothername,
+                phone: state.phone,
+            };
+            PersonalInfo.set(content).then(()=>{
                 app.navigator.replacePreviousAndPop({
                     title: '主页',
                     component: app.module.Main
@@ -204,7 +212,9 @@ module.exports = React.createClass({
                         </Text>
                         <TouchableOpacity onPress={!this.state.infoBinded?this.setBirthDay:null}>
                             <View style={styles.infoItemText}>
-                                <Text numberOfLines={1}>{this.state.birthday}</Text>
+                                <Text numberOfLines={1}>
+                                    {this.state.birthday}
+                                </Text>
                             </View>
                         </TouchableOpacity>
                     </View>

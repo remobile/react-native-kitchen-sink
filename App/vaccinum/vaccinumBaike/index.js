@@ -18,6 +18,10 @@ var VaccinumInfo = require('./VaccinumInfo.js');
 var VaccinumList = require('./VaccinumList.js');
 var VaccinumSchedule = require('./VaccinumSchedule.js');
 
+var BaikeInfo = require('../data/BaikeInfo.js');
+
+var POST = app.POST;
+
 var FreeVaccinum =  React.createClass({
     getInitialState() {
         return {
@@ -75,16 +79,39 @@ var TabNavigator = require('react-native-tab-navigator');
 
 
 var HomeTabBar = React.createClass({
-    getInitialState: function() {
+	doGetVaccinumInfo() {
+        POST(app.route.ROUTE_VACCINUM_DATA_LIST, {}, this.doGetVaccinumInfoSuccess, this.doGetVaccinumInfoFailed);
+    },
+    doGetVaccinumInfoSuccess(data) {
+        console.log(data);
+        if (data.success) {
+        	var context = data.context;
+        	this.stateState({list:list});
+        	BaikeInfo.set(list);
+
+        } else {
+            Toast("获取疫苗信息失败");
+        }
+    },
+    doGetVaccinumInfoFailed(error) {
+        Toast("获取疫苗信息失败");
+    },
+    getInitialState() {
         return {
             tabIndex: this.props.initTabIndex
         };
     },
-    handleWillFocus: function(route) {
+    componentDidMount() {
+        console.log(BaikeInfo);
+    	if (!BaikeInfo.info) {
+    		this.doGetVaccinumInfo();
+    	}
+    },
+    handleWillFocus(route) {
         var tabIndex = route.tabIndex;
         this.setState({ tabIndex, });
     },
-    render: function() {
+    render() {
         return (
             <SegmentedView
                 titles={["疫苗时间表", "计划内疫苗", "计划外疫苗"]}
@@ -104,7 +131,7 @@ var HomeTabBar = React.createClass({
 
 
 module.exports = React.createClass({
-    renderScene: function(route, navigator) {
+    renderScene(route, navigator) {
         return (
             <View style={{flex: 1}}>
                 <View style={{height:41}} />

@@ -10,10 +10,16 @@ var {
     TouchableOpacity,
 } = React;
 
+var POST = app.POST;
+
+var Toast = require('@remobile/react-native-toast').show;
+
 var PersonalInfo = require('../data/PersonalInfo.js');
 var Settings = require('../settings/index.js');
 var VaccinumSearch = require('../vaccinumSearch/index.js');
 var VaccinumBaike = require('../vaccinumBaike/index.js');
+var HistoryInfo = require('../data/HistoryInfo.js');
+var PersonalInfo = require('../data/PersonalInfo.js');
 
 var CCTouchable =  React.createClass({
     render() {
@@ -32,12 +38,37 @@ var CCTouchable =  React.createClass({
 module.exports = React.createClass({
     getInitialState() {
         var info = PersonalInfo.info||{};
+        var historyInfo = HistoryInfo.info||{};
         return {
             username: info.username,
             birthday: info.birthday,
-            nextVaccinumTime: info.nextVaccinumTime,
-            nextVaccinumName: info.nextVaccinumName
+            nextVaccinumTime: historyInfo.vaccineTime,
+            nextVaccinumName: historyInfo.vaccineCode,
         };
+    },
+    doGetHistoryInfo() {
+        var userid = PersonalInfo.info.userid;
+        var param = {userId: userid};
+        POST(app.route.ROUTE_VACCINUM_HISTORY_LIST, param, this.doGetHistoryInfoSuccess, this.doGetHistoryInfoFailed);
+    },
+    doGetHistoryInfoSuccess(data) {
+        if (data.success) {
+            var context = data.context;
+            var content = {
+                nextVaccinumTime: context.vaccineTime,
+                nextVaccinumName: context.vaccineCode,
+            };
+            this.setState({
+                nextVaccinumTime:content.nextVaccinumTime,
+                nextVaccinumName:content.nextVaccinumName,
+            });
+            HistoryInfo.set(context);
+        } else {
+            Toast("获取主页信息失败");
+        }
+    },
+    doGetHistoryInfoFailed(error) {
+        Toast("获取主页信息失败");
     },
     enterSettings() {
         app.navigator.push({
@@ -63,6 +94,11 @@ module.exports = React.createClass({
             title: '疫苗百科',
             component: VaccinumBaike,
         });
+    },
+    componentDidMount() {
+        if (HistoryInfo.needUpdate()) {
+            this.doGetHistoryInfo();
+        }
     },
     render() {
         return (

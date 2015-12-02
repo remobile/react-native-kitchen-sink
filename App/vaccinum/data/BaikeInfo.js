@@ -5,10 +5,10 @@ var {
 } = React;
 
 
-const ITEM_NAME = "personalInfo";
+const ITEM_NAME = "baikeInfo";
 
-class PersonalInfo {
-	constructor() {
+class BaikeInfo {
+    constructor() {
         this.get();
 	}
     get() {
@@ -24,6 +24,7 @@ class PersonalInfo {
     }
     set(info) {
         return new Promise(async(resolve, reject)=>{
+            console.log(info);
             this.info = info;
             await AsyncStorage.setItem(ITEM_NAME, JSON.stringify(info));
             resolve();
@@ -31,4 +32,4 @@ class PersonalInfo {
     }
 }
 
-module.exports = new PersonalInfo();
+module.exports = new BaikeInfo();

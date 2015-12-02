@@ -36,14 +36,7 @@ var InfoItem = React.createClass({
 
 module.exports = React.createClass({
     getInitialState() {
-        return {
-            type:'加强',
-            date:'2012-10-13',
-            location: '贵阳市南明区大西门',
-            name: '百白破',
-            factory: '云南昆明制药厂',
-            unit: '贵阳妇幼保健院',
-        }
+        return this.props.data;
     },
     render() {
         return (
@@ -51,32 +44,32 @@ module.exports = React.createClass({
                 <InfoItem
                     icon={app.img.tabnav_list}
                     label="免疫类型："
-                    value={this.state.type}
+                    value={this.state.immuneType}
                     />
                 <InfoItem
                     icon={app.img.tabnav_list}
                     label="接种日期："
-                    value={this.state.date}
+                    value={this.state.Time}
                     />
                 <InfoItem
                     icon={app.img.tabnav_list}
                     label="接种地点："
-                    value={this.state.location}
+                    value={this.state.inoculationAddr}
                     />
                 <InfoItem
                     icon={app.img.tabnav_list}
                     label="疫苗名称："
-                    value={this.state.factory}
+                    value={this.state.vaccineName}
                     />
                 <InfoItem
                     icon={app.img.tabnav_list}
                     label="疫苗生产厂家："
-                    value={this.state.unit}
+                    value={this.state.imanufacturer}
                     />
                 <InfoItem
                     icon={app.img.tabnav_list}
                     label="接种单位："
-                    value={this.state.type}
+                    value={this.state.inoculationUunit}
                     />
             </ScrollView>
         );

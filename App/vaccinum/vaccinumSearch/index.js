@@ -12,28 +12,39 @@ var {
 } = React;
 
 var VaccinumDetail = require('./VaccinumDetail.js');
+var HistoryInfo = require('../data/HistoryInfo.js');
 
-var list = [
-    {title:'乙肝疫苗 第1针', time:'2015-12-23'},
-    {title:'百白破 第1针', time:'2015-12-23'},
-    {title:'乙肝疫苗 第2针', time:'2015-12-23'},
-    {title:'丙肝疫苗', time:'2015-12-23'},
-    {title:'破伤风', time:'2015-12-23'},
+var testList = [
+    {vaccineName:'乙肝疫苗 第1针', Time:'2015-12-23'},
+    {vaccineName:'百白破 第1针', Time:'2015-12-23'},
+    {vaccineName:'乙肝疫苗 第2针', Time:'2015-12-23'},
+    {vaccineName:'丙肝疫苗', Time:'2015-12-23'},
+    {vaccineName:'破伤风', Time:'2015-12-23'},
 ];
 
+var testDetail = {
+    immuneType:'加强',
+    Time:'2012-10-13',
+    inoculationAddr: '贵阳市南明区大西门',
+    vaccineName: '百白破',
+    imanufacturer: '云南昆明制药厂',
+    inoculationUunit: '贵阳妇幼保健院',
+}
+
+var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
 module.exports = React.createClass({
     getInitialState: function() {
-        var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        var list = HistoryInfo.info.list||[];
         return {
-            dataSource: ds.cloneWithRows(list),
-
+            list:list,
         };
     },
     onPressRow(obj) {
         app.navigator.push({
             title: '疫苗详情',
             component: VaccinumDetail,
+            passProps:{data: obj},
         });
     },
     renderRow(obj) {
@@ -44,11 +55,11 @@ module.exports = React.createClass({
                 style={styles.row}>
                 <View style={styles.rowInfo}>
                     <Text style={styles.title} >
-                        {obj.title}
+                        {obj.vaccineName}
                     </Text>
 
-                    <Text style={styles.time} >
-                        {obj.time}
+                    <Text style={styles.Time} >
+                        {obj.Time}
                     </Text>
                 </View>
                 <Image
@@ -63,7 +74,7 @@ module.exports = React.createClass({
             <View style={styles.container}>
                 <ListView
                     style={styles.list}
-                    dataSource={this.state.dataSource}
+                    dataSource={ds.cloneWithRows(this.state.list)}
                     renderRow={this.renderRow}
                     />
             </View>
@@ -86,6 +97,7 @@ var styles = StyleSheet.create({
         marginBottom:5,
         marginHorizontal:20,
         borderWidth:1,
+        borderColor:'gray',
         backgroundColor:'#E6E6FA',
     },
     rowInfo: {
@@ -99,7 +111,7 @@ var styles = StyleSheet.create({
         fontSize: 18,
         margin: 5,
     },
-    time: {
+    Time: {
         fontSize: 12,
         marginLeft: 5,
         marginBottom: 5,

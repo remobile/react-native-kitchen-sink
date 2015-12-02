@@ -11,10 +11,9 @@ var {
 var Button = require('@remobile/react-native-simple-button');
 var Sqlite = require('@remobile/react-native-sqlite');
 
+var db = Sqlite.openDatabase({name: "my.db"});
 module.exports = React.createClass({
     doTest() {
-        var db = Sqlite.openDatabase({name: "my.db"});
-
         db.transaction(function(tx) {
             tx.executeSql('DROP TABLE IF EXISTS test_table');
             tx.executeSql('CREATE TABLE IF NOT EXISTS test_table (id integer primary key, data text, data_num integer)');
@@ -40,10 +39,61 @@ module.exports = React.createClass({
             });
         });
     },
+    select(tx) {
+    	tx.executeSql('SELECT * FROM student', [], function (tx, results) {
+    		var len = results.rows.length, i;
+    		for (i = 0; i < len; i++){
+    			console.log(results.rows.item(i).id+':'+results.rows.item(i).log);
+    		}
+    	}, null);
+    },
+    add() {
+        var self = this;
+    	db.transaction(function (tx) {
+    		tx.executeSql('CREATE TABLE IF NOT EXISTS student (id integer, log integer)');
+    		tx.executeSql('INSERT INTO student (id, log) VALUES (1, 1)');
+    		tx.executeSql('INSERT INTO student (id, log) VALUES (2, 2)');
+    		tx.executeSql('INSERT INTO student (id, log) VALUES (3, 3)');
+    		tx.executeSql('INSERT INTO student (id, log) VALUES (4, 4)');
+    		self.select(tx);
+    	}, (e)=>{console.log(e)});
+    },
+    update() {
+        var self = this;
+    	db.transaction(function (tx) {
+    		tx.executeSql('UPDATE student SET log=log+? WHERE id=8', [2], function(tx, rs){
+    			if (rs.rowsAffected===0) {
+    				tx.executeSql('INSERT INTO student (id, log) VALUES (?, ?)', [8, 8], function(tx, rs){
+                        self.select(tx);
+    				});
+    			} else {
+                    self.select(tx);
+                }
+    		});
+    	}, function(a){console.log(a)});
+    },
+    deleteMin() {
+        var self = this;
+    	db.transaction(function (tx) {
+    		tx.executeSql('DELETE FROM student WHERE id=(SELECT MIN(id) FROM student)', [], function(tx, rs){
+    			console.log(rs.rows)
+    			});
+    		self.select(tx);
+    	});
+    },
+    drop() {
+    	db.transaction(function (tx) {
+    		tx.executeSql('DROP TABLE student');
+    	});
+    },
     render() {
         return (
             <View style={styles.container}>
                 <Button onPress={this.doTest}>测试</Button>
+                <Button onPress={this.add}>add</Button>
+                <Button onPress={this.deleteMin}>deleteMin</Button>
+                <Button onPress={this.update}>update</Button>
+                <Button onPress={this.drop}>drop</Button>
             </View>
         );
     }

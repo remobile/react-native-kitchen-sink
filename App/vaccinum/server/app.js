@@ -13,23 +13,46 @@ app.use(bodyParser.text());
 app.send = function(res, data, timeout) {
     timeout = timeout||1000,
     setTimeout(function() {
-        res.send(JSON.stringify({success:true, content:data}));
+        res.send(JSON.stringify({success:true, context:data}));
     }, timeout);
 };
 
-app.post('/bindInfo', function (req, res) {
-    var body = req.body;
-    body.nextVaccinumTime = '2017-01-09';
-    body.nextVaccinumName ='百白破';
-    console.log(body);
-    app.send(res, body);
+app.post('/babyManage/bind.action', function (req, res) {
+    console.log(req.body);
+    app.send(res, {userId:1});
+});
+
+app.post('/babyManage/vaccineList.action', function (req, res) {
+    console.log('/babyManage/vaccineList.action');
+    app.send(res, {
+        nextVaccineCode: 12,
+        nextVaccineTime: "2015-02-14",
+        "list":[
+            {"vaccineName":"百白破",
+            "vaccineId":30,
+            "vaccineTime":1,
+            "time":"2015-02-14",
+            "immuneType":1,
+            "imanufacturer":"昆明制药厂",
+            "inoculationUunit":"贵阳社区医院",
+            "inoculationAddr":"贵阳市二桥"},
+            {"vaccineName":"百白破",
+            "vaccineId":30,
+            "vaccineTime":1,
+            "time":"2015-02-14",
+            "immuneType":1,
+            "imanufacturer":"昆明制药厂",
+            "inoculationUunit":"贵阳社区医院",
+            "inoculationAddr":"贵阳市二桥"},
+        ]
+    });
 });
 
 
 //上传文件
 var upload = multer({dest: 'image/'});
 var type = upload.single('file');
-app.post('/upload', type, function (req,res) {
+app.post('/babyManage/picture.action', type, function (req,res) {
     console.log(req.file);
     console.log(req.body);
     shell.mv("-f", req.file.path, req.file.destination+req.file.originalname);

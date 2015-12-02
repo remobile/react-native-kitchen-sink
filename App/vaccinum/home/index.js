@@ -12,10 +12,11 @@ var {
 
 var TimerMixin = require('react-timer-mixin');
 
-var PersonalInfo = require('../data/PersonalInfo.js');
 var Main = require('./main.js');
 var Personal = require('../personal/index.js');
 var Settings = require('../settings/index.js');
+
+var PersonalInfo = require('../data/PersonalInfo.js');
 
 
 module.exports = React.createClass({
