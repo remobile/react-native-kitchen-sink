@@ -22,48 +22,56 @@ var BaikeInfo = require('../data/BaikeInfo.js');
 
 var POST = app.POST;
 
+
+var testContext = {
+    feeList: [
+        {
+            immuneEffect: "效果3",
+            inoculationReaction: "反应1",
+            note: "注册事项",
+            taboo: "禁忌",
+            toDisease: "疾病4",
+            vaccinationObject: "对象2",
+            vaccineId: "00000001122",
+            vaccineName: "名称",
+        },
+    ],
+    freeList: [
+        {
+            immuneEffect: "效果3",
+            inoculationReaction: "反应1",
+            note: "注册事项",
+            taboo: "禁忌",
+            toDisease: "疾病4",
+            vaccinationObject: "对象2",
+            vaccineId: "00000001122",
+            vaccineName: "名称",
+        },
+    ]
+};
+
+var testDetail = {
+    toDisease:'过敏性休克',
+    vaccinationObject: '3月龄至6周岁的儿童',
+    immuneEffect: '百白破疫苗经国内外多年时间证明...',
+    taboo: '患有中枢神经系统疾病，如脑病',
+    note: '打疫苗之前一定要看说明',
+    inoculationReaction: '会有眩晕的效果',
+};
+
 var FreeVaccinum =  React.createClass({
-    getInitialState() {
-        return {
-            list: [
-                {name:'卡介苗', image:app.img.loading_8},
-                {name:'乙肝疫苗', image:app.img.loading_8},
-                {name:'风疹疫苗', image:app.img.loading_8},
-                {name:'小儿麻痹疫苗', image:app.img.loading_8},
-                {name:'百白破', image:app.img.loading_8},
-                {name:'小儿肺炎疫苗', image:app.img.loading_8},
-                {name:'甲流疫苗', image:app.img.loading_8},
-                {name:'脊灰疫苗', image:app.img.loading_8},
-                {name:'风疹疫苗', image:app.img.loading_8},
-                {name:'麻疹疫苗', image:app.img.loading_8},
-            ]
-        }
-    },
     render() {
         return (
-            <VaccinumList list={this.state.list} />
+            <VaccinumList list={this.props.list} />
         )
     }
 });
 
 
 var FeeVaccinum =  React.createClass({
-    getInitialState() {
-        return {
-            list: [
-                {name:'破伤风疫苗', image:app.img.loading_8},
-                {name:'甲肝疫苗', image:app.img.loading_8},
-                {name:'狂犬疫苗', image:app.img.loading_8},
-                {name:'五联疫苗', image:app.img.loading_8},
-                {name:'轮状病毒疫苗', image:app.img.loading_8},
-                {name:'流感疫苗', image:app.img.loading_8},
-                {name:'HIB疫苗', image:app.img.loading_8},
-            ]
-        }
-    },
     render() {
         return (
-            <VaccinumList list={this.state.list} />
+            <VaccinumList list={this.props.list} />
         )
     }
 });
@@ -79,33 +87,10 @@ var TabNavigator = require('react-native-tab-navigator');
 
 
 var HomeTabBar = React.createClass({
-	doGetVaccinumInfo() {
-        POST(app.route.ROUTE_VACCINUM_DATA_LIST, {}, this.doGetVaccinumInfoSuccess, this.doGetVaccinumInfoFailed);
-    },
-    doGetVaccinumInfoSuccess(data) {
-        console.log(data);
-        if (data.success) {
-        	var context = data.context;
-        	this.stateState({list:list});
-        	BaikeInfo.set(list);
-
-        } else {
-            Toast("获取疫苗信息失败");
-        }
-    },
-    doGetVaccinumInfoFailed(error) {
-        Toast("获取疫苗信息失败");
-    },
     getInitialState() {
         return {
             tabIndex: this.props.initTabIndex
         };
-    },
-    componentDidMount() {
-        console.log(BaikeInfo);
-    	if (!BaikeInfo.info) {
-    		this.doGetVaccinumInfo();
-    	}
     },
     handleWillFocus(route) {
         var tabIndex = route.tabIndex;
@@ -131,11 +116,45 @@ var HomeTabBar = React.createClass({
 
 
 module.exports = React.createClass({
+    doGetVaccinumInfo() {
+        POST(app.route.ROUTE_VACCINUM_DATA_LIST, {}, this.doGetVaccinumInfoSuccess, this.doGetVaccinumInfoFailed);
+    },
+    doGetVaccinumInfoSuccess(data) {
+        if (data.success) {
+        	var context = data.context;
+        	this.stateState({list:list});
+        	BaikeInfo.set(list);
+
+        } else {
+            Toast("获取疫苗信息失败");
+        }
+    },
+    doGetVaccinumInfoFailed(error) {
+        Toast("获取疫苗信息失败");
+    },
+    getInitialState() {
+        return {
+            context: BaikeInfo.info,
+        };
+    },
+    componentDidMount() {
+    	if (!BaikeInfo.info) {
+    		this.doGetVaccinumInfo();
+    	}
+    },
     renderScene(route, navigator) {
+        var props = null;
+        var context = this.state.context||{freeList:[], feeList:[]};
+        if (route.tabIndex === 1) {
+            props = {list:context.freeList};
+        } else if (route.tabIndex === 2) {
+            props = {list:context.feeList};
+        }
+        console.log(props);
         return (
             <View style={{flex: 1}}>
                 <View style={{height:41}} />
-                <route.component/>
+                <route.component {...props}/>
             </View>
         );
     },

@@ -239,9 +239,10 @@ module.exports = React.createClass({
                 <View style={styles.buttonContainer}>
                     {this.state.infoBinded?
                         [
-                            <Text>宝宝信息已经绑定</Text>
+                            <Text key="text">宝宝信息已经绑定</Text>
                             ,
                             <Button
+                                 key="button"
                                 onPress={this.cancelBind}
                                 style={styles.cancelBind}
                                 textStyle={{color:'red', fontSize:12}}>解除绑定</Button>

@@ -35,48 +35,38 @@ var InfoItem = React.createClass({
 
 
 module.exports = React.createClass({
-    getInitialState() {
-        return {
-            function:'过敏性休克',
-            target: '3月龄至6周岁的儿童',
-            effect: '百白破疫苗经国内外多年时间证明...',
-            avoid: '患有中枢神经系统疾病，如脑病',
-            caution: '打疫苗之前一定要看说明',
-            feed: '会有眩晕的效果',
-        }
-    },
     render() {
         return (
             <ScrollView style={styles.container}>
                 <InfoItem
                     icon={app.img.companyLogo}
                     label="预防疾病："
-                    value={this.state.function}
+                    value={this.props.toDisease}
                     />
                 <InfoItem
                     icon={app.img.companyLogo}
                     label="接种对象："
-                    value={this.state.target}
+                    value={this.props.vaccinationObject}
                     />
                 <InfoItem
                     icon={app.img.companyLogo}
                     label="免疫效果："
-                    value={this.state.effect}
+                    value={this.props.immuneEffect}
                     />
                 <InfoItem
                     icon={app.img.companyLogo}
                     label="禁忌："
-                    value={this.state.avoid}
+                    value={this.props.taboo}
                     />
                 <InfoItem
                     icon={app.img.companyLogo}
                     label="注意事项："
-                    value={this.state.caution}
+                    value={this.props.note}
                     />
                 <InfoItem
                     icon={app.img.companyLogo}
                     label="接种反应："
-                    value={this.state.feed}
+                    value={this.props.inoculationReaction}
                     />
             </ScrollView>
         );

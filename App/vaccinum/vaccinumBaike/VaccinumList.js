@@ -23,8 +23,9 @@ module.exports = React.createClass({
     },
     onPressRow(obj) {
         app.navigator.push({
-            title: obj.name,
+            title: obj.vaccineName1,
             component: VaccinumInfo,
+            passProps: obj,
         });
     },
     renderSeparator(sectionID, rowID) {
@@ -41,10 +42,10 @@ module.exports = React.createClass({
                     <View style={styles.row}>
                         <Image
                             resizeMode='stretch'
-                            source={obj.image}
+                            source={app.img.loading_8}
                             style={styles.icon} />
                         <Text style={styles.title} >
-                            {obj.name}
+                            {obj.vaccineName}
                         </Text>
 
                         <Image
