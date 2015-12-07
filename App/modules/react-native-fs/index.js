@@ -7,33 +7,47 @@ var {
 
 var fs = require('react-native-fs');
 var Button = require('@remobile/react-native-simple-button');
+var ROOT = '/Users/fang/data/';
 
 module.exports = React.createClass({
-    async isFileExist(filepath) {
-        return new Promise(async(resolve, reject) => {
-            try {
-                await fs.readFile(filepath);
+    isFileExist(filepath) {
+        return new Promise((resolve, reject) => {
+            fs.stat(filepath).then((rs) => {
                 resolve(true);
-            } catch (e) {
-                resolve(e);
-            }
+            }).catch((err) => {
+                resolve(false);
+            });
         });
     },
     async showExist() {
-        var s = await this.isFileExist('/Users/fang/data/1.txt');
+        var s = await this.isFileExist(ROOT+'1.txt');
         console.log(s);
     },
-    async showConstants () {
-        // console.log(fs.MainBundlePath);
-        // console.log(fs.CachesDirectoryPath);
-        // console.log(fs.DocumentDirectoryPath);
-        // var ret =  await fs.writeFile('/Users/fang/rn/KitchenSink/1.txt', 'Lorem ipsum dolor sit amet', 'utf8');
-        // console.log(ret);
-        console.log("data");
-
-        fs.readFile('/Users/fang/rn/KitchenSink/node_modules/blueimp-md5/js/md5.min.js', 'utf8').catch((err) => {
+    showConstants () {
+        console.log(fs.MainBundlePath);
+        console.log(fs.CachesDirectoryPath);
+        console.log(fs.DocumentDirectoryPath);
+    },
+    async testRead() {
+        var ret =  await fs.readFile(ROOT+'1.txt', 'utf8').catch((err) => {
             console.log(err.message);
           });
+         console.log(ret);
+    },
+    async testMkdir() {
+        var ret =  await fs.mkdir(ROOT+'fang');
+        console.log(ret);
+    },
+    async testUnlink() {
+        var ret =  await fs.unlink(ROOT+'fang');
+        console.log(ret);
+    },
+    async testDownload() {
+        var ret =  await fs.downloadFile('http://192.168.1.117:3000/fang.zip', ROOT+'xx.zip',
+         (a,b,c,d)=>{console.log(a,b,c,d)}, (a,b,c,d)=>{console.log(a,b,c,d)}).then(res => {
+            console.log(res);
+        });
+        console.log(ret);
     },
     render() {
         return (
@@ -43,6 +57,24 @@ module.exports = React.createClass({
                 </Button>
                 <Button onPress={this.showExist}>
                     showExist
+                </Button>
+                <Button onPress={this.testRead}>
+                    testRead
+                </Button>
+                <Button onPress={this.testWrite}>
+                    testWrite
+                </Button>
+                <Button onPress={this.testWrite}>
+                    testWrite
+                </Button>
+                <Button onPress={this.testMkdir}>
+                    testMkdir
+                </Button>
+                <Button onPress={this.testUnlink}>
+                    testUnlink
+                </Button>
+                <Button onPress={this.testDownload}>
+                    testDownload
                 </Button>
             </View>
         );

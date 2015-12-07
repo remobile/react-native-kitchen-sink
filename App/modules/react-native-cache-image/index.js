@@ -11,9 +11,10 @@ var CacheImage = require('@remobile/react-native-cache-image');
 var CacheImageIdMgr = {
     CACHE_ID_USER_HEAD: 0,
     CACHE_ID_USER_HEAD1: 1,
+    CACHE_ID_USER_HEAD2: 2,
 };
 
-
+var SERVER = 'http://192.168.1.117:3000/';
 
 module.exports = React.createClass({
     render: function() {
@@ -22,17 +23,24 @@ module.exports = React.createClass({
                 <CacheImage
                     resizeMode='stretch'
                     defaultImage={app.img.tabnav_list}
-                    url="http://localhost:3000/1.png"
+                    url={SERVER+"1.png"}
                     style={styles.image}
                     cacheId={CacheImageIdMgr.CACHE_ID_USER_HEAD}
                     />
-                    <CacheImage
-                        resizeMode='stretch'
-                        defaultImage={app.img.tabnav_list}
-                        url="http://localhost:3000/1.png"
-                        style={styles.image}
-                        cacheId={CacheImageIdMgr.CACHE_ID_USER_HEAD1}
-                        />
+                <CacheImage
+                    resizeMode='stretch'
+                    defaultImage={app.img.tabnav_list}
+                    url={SERVER+"2.png"}
+                    style={styles.image}
+                    cacheId={CacheImageIdMgr.CACHE_ID_USER_HEAD1}
+                    />
+                <CacheImage
+                    resizeMode='stretch'
+                    defaultImage={app.img.tabnav_list}
+                    url={SERVER+"3.png"}
+                    style={styles.image}
+                    cacheId={CacheImageIdMgr.CACHE_ID_USER_HEAD2}
+                    />
             </View>
         );
     }

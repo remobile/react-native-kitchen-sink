@@ -13,6 +13,7 @@ var {
     requestFileSystem,
     LocalFileSystem,
     FileReader,
+    fileSystemPaths,
 } = File;
 
 var isWrite = false;
@@ -101,6 +102,9 @@ module.exports = React.createClass({
         isWrite = true;
         requestFileSystem(LocalFileSystem.PERSISTENT, 0, this.gotFS, this.fail);
     },
+    showConstains() {
+        console.log(fileSystemPaths);
+    },
     render() {
         return (
             <View style={styles.container}>
@@ -109,6 +113,9 @@ module.exports = React.createClass({
                 </Button>
                 <Button onPress={this.testWriteText}>
                     test write text
+                </Button>
+                <Button onPress={this.showConstains}>
+                    show constains
                 </Button>
             </View>
         );

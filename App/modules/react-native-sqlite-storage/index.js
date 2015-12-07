@@ -10,6 +10,7 @@ var {
 
 var Button = require('@remobile/react-native-simple-button');
 var Sqlite = require('@remobile/react-native-sqlite');
+var CacheImage = require('@remobile/react-native-cache-image');
 
 var db = Sqlite.openDatabase({name: "my.db"});
 module.exports = React.createClass({
@@ -87,15 +88,7 @@ module.exports = React.createClass({
     	});
     },
     cacheimage() {
-        var db1 = Sqlite.openDatabase({name: "cache_image"});
-    	db1.transaction(function (tx) {
-            tx.executeSql('SELECT * FROM cache_id', [], function (tx, results) {
-        		console.log(results.rows);
-                tx.executeSql('SELECT * FROM cache_image', [], function (tx, results) {
-            		console.log(results.rows);
-            	});
-        	});
-    	});
+        CacheImage.clear();
     },
     render() {
         return (
@@ -110,7 +103,6 @@ module.exports = React.createClass({
         );
     }
 });
-
 
 var styles = StyleSheet.create({
     container: {
