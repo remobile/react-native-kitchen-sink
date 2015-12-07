@@ -86,6 +86,17 @@ module.exports = React.createClass({
     		tx.executeSql('DROP TABLE student');
     	});
     },
+    cacheimage() {
+        var db1 = Sqlite.openDatabase({name: "cache_image"});
+    	db1.transaction(function (tx) {
+            tx.executeSql('SELECT * FROM cache_id', [], function (tx, results) {
+        		console.log(results.rows);
+                tx.executeSql('SELECT * FROM cache_image', [], function (tx, results) {
+            		console.log(results.rows);
+            	});
+        	});
+    	});
+    },
     render() {
         return (
             <View style={styles.container}>
@@ -94,6 +105,7 @@ module.exports = React.createClass({
                 <Button onPress={this.deleteMin}>deleteMin</Button>
                 <Button onPress={this.update}>update</Button>
                 <Button onPress={this.drop}>drop</Button>
+                <Button onPress={this.cacheimage}>cacheimage</Button>
             </View>
         );
     }

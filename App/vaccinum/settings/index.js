@@ -13,6 +13,7 @@ var {
 var Feedback = require('./FeedBack.js');
 var About = require('./About.js');
 var LawInfo = require('./LawInfo.js');
+var Version = require('./Version.js');
 
 var MenuItem = React.createClass({
     render() {
@@ -70,6 +71,13 @@ module.exports = React.createClass({
             passProps: {}
         });
     },
+    showUpdateVersion() {
+        app.navigator.push({
+            title: '软件更新',
+            component: Version,
+            passProps: {}
+        });
+    },
     render() {
         return (
             <View style={styles.container}>
@@ -102,6 +110,11 @@ module.exports = React.createClass({
                         icon={app.img.tabnav_list}
                         label="软件许可证"
                         onPress={this.showLawInfo}
+                        />
+                    <MenuItem
+                        icon={app.img.tabnav_list}
+                        label="软件更新"
+                        onPress={this.showUpdateVersion}
                         />
                 </View>
             </View>

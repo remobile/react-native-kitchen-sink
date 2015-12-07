@@ -30,6 +30,7 @@ module.exports = React.createClass({
                     <Text style={styles.title}>我们将真诚对待您的每一个问题</Text>
                     <TextInput
                         style={styles.input}
+                        multiline={true}
                         onChange={this.onChange}/>
                     <Button
                         style={styles.btnSubmit}
