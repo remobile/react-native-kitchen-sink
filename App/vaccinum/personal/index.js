@@ -181,7 +181,7 @@ module.exports = React.createClass({
             <View style={styles.container}>
                 <View style={styles.headContainer}>
                     <TouchableOpacity
-                        onPress={!this.state.infoBinded?this.doShowCameraMenu:null}
+                        onPress={this.state.infoBinded?this.doShowCameraMenu:null}
                         underlayColor="#EEB422">
 
                         <Image

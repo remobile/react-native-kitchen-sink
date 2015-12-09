@@ -24,7 +24,6 @@ class BaikeInfo {
     }
     set(info) {
         return new Promise(async(resolve, reject)=>{
-            console.log(info);
             this.info = info;
             await AsyncStorage.setItem(ITEM_NAME, JSON.stringify(info));
             resolve();

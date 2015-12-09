@@ -122,9 +122,8 @@ module.exports = React.createClass({
     doGetVaccinumInfoSuccess(data) {
         if (data.success) {
         	var context = data.context;
-        	this.stateState({list:list});
-        	BaikeInfo.set(list);
-
+        	BaikeInfo.set(context);
+        	this.setState({context:context});
         } else {
             Toast("获取疫苗信息失败");
         }
@@ -150,7 +149,6 @@ module.exports = React.createClass({
         } else if (route.tabIndex === 2) {
             props = {list:context.feeList};
         }
-        console.log(props);
         return (
             <View style={{flex: 1}}>
                 <View style={{height:41}} />

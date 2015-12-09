@@ -23,7 +23,7 @@ module.exports = React.createClass({
     },
     onPressRow(obj) {
         app.navigator.push({
-            title: obj.vaccineName1,
+            title: obj.vaccineName,
             component: VaccinumInfo,
             passProps: obj,
         });
