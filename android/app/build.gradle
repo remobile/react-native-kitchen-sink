@@ -27,7 +27,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'com.facebook.react:react-native:0.13.+'
     compile project(':RNWebIntent')
-    //compile project(':react-native-des')
+    compile project(':react-native-des')
     compile project(':react-native-image-picker')
     compile project(':react-native-camera')
     compile project(':react-native-toast')
@@ -38,5 +38,6 @@ dependencies {
     compile project(':react-native-splashscreen')
     compile project(':react-native-sqlite')
     compile project(':react-native-file')
+    compile project(':react-native-contacts')
     compile project(':RNDeviceInfo')
 }

@@ -18,6 +18,7 @@ var Store = require('../store/index.js');
 var Test = require('../test/index.js');
 var FS = require('../react-native-fs');
 var File = require('../react-native-file');
+var Contacts = require('../react-native-contacts');
 var CacheImage = require('../react-native-cache-image');
 var MaterialKit = require('../react-native-material-kit');
 var SqliteStorage = require('../react-native-sqlite-storage');
@@ -44,6 +45,7 @@ var modules = [
     {title:'疾控中心', image: app.img.tabnav_list, module:Vaccinum},
     {title:'测试', image: app.img.tabnav_list, module:Test},
     {title:'存储', image: app.img.tabnav_list, module:Store},
+    {title:'react-native-contacts', image: app.img.tabnav_list, module:Contacts},
     {title:'react-native-file', image: app.img.tabnav_list, module:File},
     {title:'react-native-fs', image: app.img.tabnav_list, module:FS},
     {title:'react-native-cache-image', image: app.img.tabnav_list, module:CacheImage},

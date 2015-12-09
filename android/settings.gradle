@@ -2,8 +2,8 @@ rootProject.name = 'KitchenSink'
 
 include ':app'
 
-//include ':react-native-des'
-//project(':react-native-des').projectDir = new File(settingsDir, '../node_modules/@remobile/react-native-des/android')
+include ':react-native-des'
+project(':react-native-des').projectDir = new File(settingsDir, '../node_modules/@remobile/react-native-des/android')
 
 include ':react-native-cordova'
 project(':react-native-cordova').projectDir = new File(settingsDir, '../node_modules/@remobile/react-native-cordova/android')
@@ -34,6 +34,9 @@ project(':react-native-sqlite').projectDir = new File(settingsDir, '../node_modu
 
 include ':react-native-file'
 project(':react-native-file').projectDir = new File(settingsDir, '../node_modules/@remobile/react-native-file/android')
+
+include ':react-native-contacts'
+project(':react-native-contacts').projectDir = new File(settingsDir, '../node_modules/@remobile/react-native-contacts/android')
 
 include ':react-native-fs'
 project(':react-native-fs').projectDir = new File(settingsDir, '../node_modules/react-native-fs/android')
