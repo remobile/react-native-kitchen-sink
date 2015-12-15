@@ -20,9 +20,6 @@ library
 !/ios/KitchenSink
 /ios/KitchenSink.xcodeproj/xcshareddata
 /ios/KitchenSink.xcodeproj/xcuserdata
-/ios/KitchenSink/cocoapods/*
-!/ios/KitchenSink/cocoapods/Podfile
-!/ios/KitchenSink/cocoapods/install.sh
 docs
 /App/resource/image.js
 /App/resource/jsimage

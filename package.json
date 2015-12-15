@@ -1,50 +1,11 @@
 {
-    "name": "KitchenSink",
-    "version": "0.0.1",
-    "private": true,
-    "scripts": {
-        "start": "node_modules/react-native/packager/packager.sh"
-    },
-    "dependencies": {
-        "art": "latest",
-        "lodash": "latest",
-        "react-native": "latest",
-        "query-string": "latest",
-        "react-native-action-button": "latest",
-        "react-native-animatable": "latest",
-        "react-native-button": "latest",
-        "react-native-camera": "latest",
-        "react-native-circular-progress": "latest",
-        "react-native-collapsible": "latest",
-        "react-native-drawer": "latest",
-        "react-native-drawer-layout": "latest",
-        "react-native-dropdown": "latest",
-        "react-native-fs": "latest",
-        "react-native-image-progress": "latest",
-        "react-native-grid-view": "latest",
-        "react-native-htmlview": "latest",
-        "react-native-icons": "latest",
-        "react-native-image-progress": "latest",
-        "react-native-lightbox": "latest",
-        "react-native-linear-gradient": "latest",
-        "react-native-looped-carousel": "latest",
-        "react-native-mail": "latest",
-        "react-native-material-kit": "latest",
-        "react-native-modal": "latest",
-        "react-native-networking": "latest",
-        "react-native-orientation-listener": "latest",
-        "react-native-parallax": "latest",
-        "react-native-progress": "latest",
-        "react-native-progress-hud": "latest",
-        "react-native-scrollable-tab-view": "latest",
-        "react-native-side-menu": "latest",
-        "react-native-slider": "latest",
-        "react-native-store": "latest",
-        "react-native-swiper": "latest",
-        "react-native-switcher": "latest",
-        "react-native-tab-navigator": "latest",
-        "react-native-udp": "latest",
-        "react-native-webrtc": "latest",
-        "react-timer-mixin": "latest"
-    }
+  "name": "KitchenSink",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native start"
+  },
+  "dependencies": {
+    "react-native": "^0.16.0"
+  }
 }
