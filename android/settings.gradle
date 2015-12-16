@@ -5,6 +5,9 @@ include ':app'
 include ':react-native-des'
 project(':react-native-des').projectDir = new File(settingsDir, '../node_modules/@remobile/react-native-des/android')
 
+include ':react-native-zip'
+project(':react-native-zip').projectDir = new File(settingsDir, '../node_modules/@remobile/react-native-zip/android')
+
 include ':react-native-cordova'
 project(':react-native-cordova').projectDir = new File(settingsDir, '../node_modules/@remobile/react-native-cordova/android')
 

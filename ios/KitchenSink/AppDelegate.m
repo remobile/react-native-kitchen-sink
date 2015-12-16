@@ -32,6 +32,8 @@
   
 #ifdef DEBUG
   NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
+//  NSURL *jsCodeLocation = [NSURL URLWithString:@"/Users/fang/rn/KitchenSink/tools/release/index.bundle"];
+  
 #else //DEBUG
   NSURL *jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif //DEBUG

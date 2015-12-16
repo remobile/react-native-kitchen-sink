@@ -25,6 +25,7 @@ import com.remobile.splashscreen.*;
 import com.remobile.sqlite.*;
 import com.remobile.file.*;
 import com.remobile.contacts.*;
+import com.remobile.zip.RCTZipPackage;
 import com.rnfs.RNFSPackage;
 
 public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
@@ -59,6 +60,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
                 .addPackage(mSqlitePackage)
                 .addPackage(mContactsPackage)
                 .addPackage(new RNFSPackage())
+                .addPackage(new RCTZipPackage())
                 .addPackage(new RCTDialogsPackage(this))
                 .addPackage(new RCTFilePackage(this))
                 .addPackage(new RCTToastPackage())

@@ -1,0 +1,7 @@
+android 发布
+先./genkey 生成keystore
+然后执行./release-android就可以了
+生成的文件在android/app/build/outputs/apk中
+
+ios 发布
+打开xcode工程,Produce->Scheme->Edit Scheme->Release 然后编译就可以了

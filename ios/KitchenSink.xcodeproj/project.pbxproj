@@ -34,6 +34,9 @@
 		3222B4301C1EBF5A0003813F /* libRCTDes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3222B3DD1C1EBE780003813F /* libRCTDes.a */; };
 		3222B4311C1EBF5E0003813F /* libRCTCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3222B3E91C1EBE9B0003813F /* libRCTCordova.a */; };
 		3222B4331C1EBFFC0003813F /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3222B4321C1EBFFC0003813F /* libsqlite3.0.tbd */; };
+		3222B45D1C1FDC650003813F /* libRCTUpdate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3222B45C1C1FDC580003813F /* libRCTUpdate.a */; };
+		329CD26D1C1FFAA000B5365B /* libRCTZip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 329CD26A1C1FFA9700B5365B /* libRCTZip.a */; };
+		329CD2791C1FFC4D00B5365B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 329CD2781C1FFC4D00B5365B /* libz.tbd */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		A9BEE7C53C4AB7DC96D013EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55F088CB447FF816111D8554 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -186,6 +189,20 @@
 			remoteGlobalIDString = 32308DD61C16B5E900A2ED29;
 			remoteInfo = RCTContacts;
 		};
+		3222B45B1C1FDC580003813F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3222B4571C1FDC580003813F /* RCTUpdate.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3222B43D1C1FC63E0003813F;
+			remoteInfo = RCTUpdate;
+		};
+		329CD2691C1FFA9700B5365B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 329CD24F1C1FFA9700B5365B /* RCTZip.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 32D980DD1BE9F11C00FA27E5;
+			remoteInfo = RCTZip;
+		};
 		78C398B81ACF4ADC00677621 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */;
@@ -232,6 +249,9 @@
 		3222B41A1C1EBF020003813F /* RCTFileTransfer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTFileTransfer.xcodeproj; path = "../node_modules/@remobile/react-native-file-transfer/ios/RCTFileTransfer.xcodeproj"; sourceTree = "<group>"; };
 		3222B4201C1EBF090003813F /* RCTContacts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTContacts.xcodeproj; path = "../node_modules/@remobile/react-native-contacts/ios/RCTContacts.xcodeproj"; sourceTree = "<group>"; };
 		3222B4321C1EBFFC0003813F /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		3222B4571C1FDC580003813F /* RCTUpdate.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTUpdate.xcodeproj; path = "../node_modules/@remobile/react-native-update/ios/RCTUpdate.xcodeproj"; sourceTree = "<group>"; };
+		329CD24F1C1FFA9700B5365B /* RCTZip.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTZip.xcodeproj; path = "../node_modules/@remobile/react-native-zip/ios/RCTZip.xcodeproj"; sourceTree = "<group>"; };
+		329CD2781C1FFC4D00B5365B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		3A4D6AF5C209E5E4484A4F8A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		55F088CB447FF816111D8554 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
@@ -244,6 +264,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				329CD2791C1FFC4D00B5365B /* libz.tbd in Frameworks */,
 				3222B4331C1EBFFC0003813F /* libsqlite3.0.tbd in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
@@ -253,9 +274,11 @@
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
 				3222B4281C1EBF3D0003813F /* libRCTSplashScreen.a in Frameworks */,
 				3222B4291C1EBF3F0003813F /* libRCTDialogs.a in Frameworks */,
+				3222B45D1C1FDC650003813F /* libRCTUpdate.a in Frameworks */,
 				3222B4271C1EBF3B0003813F /* libRCTFileTransfer.a in Frameworks */,
 				3222B42A1C1EBF420003813F /* libRCTCamera.a in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
+				329CD26D1C1FFAA000B5365B /* libRCTZip.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				3222B42B1C1EBF450003813F /* libRCTFile.a in Frameworks */,
 				3222B4261C1EBF390003813F /* libRCTContacts.a in Frameworks */,
@@ -318,6 +341,7 @@
 		127195BC6D14E28D7C9D3C47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				329CD2781C1FFC4D00B5365B /* libz.tbd */,
 				3222B4321C1EBFFC0003813F /* libsqlite3.0.tbd */,
 				55F088CB447FF816111D8554 /* libPods.a */,
 			);
@@ -364,6 +388,8 @@
 		3222B3C51C1EBDCD0003813F /* RemobileLibraries */ = {
 			isa = PBXGroup;
 			children = (
+				329CD24F1C1FFA9700B5365B /* RCTZip.xcodeproj */,
+				3222B4571C1FDC580003813F /* RCTUpdate.xcodeproj */,
 				3222B4201C1EBF090003813F /* RCTContacts.xcodeproj */,
 				3222B41A1C1EBF020003813F /* RCTFileTransfer.xcodeproj */,
 				3222B4141C1EBEF90003813F /* RCTSplashScreen.xcodeproj */,
@@ -488,6 +514,22 @@
 			isa = PBXGroup;
 			children = (
 				3222B4251C1EBF090003813F /* libRCTContacts.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3222B4581C1FDC580003813F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3222B45C1C1FDC580003813F /* libRCTUpdate.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		329CD2501C1FFA9700B5365B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				329CD26A1C1FFA9700B5365B /* libRCTZip.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -678,12 +720,20 @@
 					ProjectRef = 3222B3EA1C1EBEAC0003813F /* RCTToast.xcodeproj */;
 				},
 				{
+					ProductGroup = 3222B4581C1FDC580003813F /* Products */;
+					ProjectRef = 3222B4571C1FDC580003813F /* RCTUpdate.xcodeproj */;
+				},
+				{
 					ProductGroup = 00C302E01ABCB9EE00DB3ED1 /* Products */;
 					ProjectRef = 00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */;
 				},
 				{
 					ProductGroup = 139FDEE71B06529A00C62182 /* Products */;
 					ProjectRef = 139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */;
+				},
+				{
+					ProductGroup = 329CD2501C1FFA9700B5365B /* Products */;
+					ProjectRef = 329CD24F1C1FFA9700B5365B /* RCTZip.xcodeproj */;
 				},
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
@@ -849,6 +899,20 @@
 			remoteRef = 3222B4241C1EBF090003813F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		3222B45C1C1FDC580003813F /* libRCTUpdate.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTUpdate.a;
+			remoteRef = 3222B45B1C1FDC580003813F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		329CD26A1C1FFA9700B5365B /* libRCTZip.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTZip.a;
+			remoteRef = 329CD2691C1FFA9700B5365B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		78C398B91ACF4ADC00677621 /* libRCTLinking.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -890,7 +954,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PATH=$PATH:/usr/local/bin ../node_modules/react-native/packager/react-native-xcode.sh";
+			shellScript = "echo PATH=$PATH:/usr/local/bin ../node_modules/react-native/packager/react-native-xcode.sh";
 		};
 		7BB0D2D55CBFAF18A3208E0F /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

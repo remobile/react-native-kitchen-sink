@@ -1,0 +1,14 @@
+#!/bin/bash
+
+platform=$1
+
+[ -z "$platform" ]&&echo "please set platform(ios,android)"&&exit
+
+rm -fr release
+mkdir release
+cd ..
+react-native bundle \
+    --platform ${platform} \
+    --entry-file index.${platform}.js \
+    --bundle-output ./tools/release/index.bundle \
+    --assets-dest ./tools/release

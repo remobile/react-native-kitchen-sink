@@ -21,6 +21,7 @@ library
 /ios/KitchenSink.xcodeproj/xcshareddata
 /ios/KitchenSink.xcodeproj/xcuserdata
 docs
+/tools/release
 /App/resource/image.js
 /App/resource/jsimage
 /App/resource/jsimage.js
